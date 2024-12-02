@@ -1423,12 +1423,6 @@ body {
   filter: brightness(0) saturate(100%) invert(23%) sepia(0%) saturate(0%) hue-rotate(160deg) brightness(94%) contrast(87%);
 }
 
-@media (hover: none) {
-  .hover-none\:bg-unset {
-    background: unset;
-  }
-}
-
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -1472,6 +1466,11 @@ body {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.group:hover .group-hover\:bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
 .group:hover .group-hover\:text-black {
@@ -1584,12 +1583,5 @@ body {
   .hover-hover\:bg-white {
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-  }
-}
-
-@media (hover: none) {
-  .hover-none\:bg-black {
-    --tw-bg-opacity: 1;
-    background-color: rgb(64 64 64 / var(--tw-bg-opacity, 1));
   }
 }

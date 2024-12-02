@@ -25,6 +25,10 @@ module.exports = {
       boxShadow: {
         'custom-1': '0 1px 2px 0 rgba(51, 56, 66, 0.08), 0 1px 4px 0 rgba(16, 24, 40, 0.08)',
       },
+      screens: {
+        'hover-hover': {'raw': '(hover: hover)'},
+        'hover-none': {'raw': '(hover: none)'},
+      },
     },
     fontFamily:{
       'montserrat': ['Montserrat', 'sans-serif'],

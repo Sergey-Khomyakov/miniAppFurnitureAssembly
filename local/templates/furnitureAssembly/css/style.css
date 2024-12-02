@@ -1419,6 +1419,16 @@ body {
   transition-duration: 300ms;
 }
 
+.group:hover .group-hover\:filter-black {
+  filter: brightness(0) saturate(100%) invert(23%) sepia(0%) saturate(0%) hue-rotate(160deg) brightness(94%) contrast(87%);
+}
+
+@media (hover: none) {
+  .hover-none\:bg-unset {
+    background: unset;
+  }
+}
+
 .after\:absolute::after {
   content: var(--tw-content);
   position: absolute;
@@ -1444,6 +1454,11 @@ body {
   background-color: rgb(105 104 255 / var(--tw-bg-opacity, 1));
 }
 
+.hover\:bg-white:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
 .hover\:text-\[\#7a5bca\]:hover {
   --tw-text-opacity: 1;
   color: rgb(122 91 202 / var(--tw-text-opacity, 1));
@@ -1457,6 +1472,11 @@ body {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.group:hover .group-hover\:text-black {
+  --tw-text-opacity: 1;
+  color: rgb(64 64 64 / var(--tw-text-opacity, 1));
 }
 
 .group:hover .group-hover\:text-primary {
@@ -1557,5 +1577,19 @@ body {
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+}
+
+@media (hover: hover) {
+  .hover-hover\:bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  }
+}
+
+@media (hover: none) {
+  .hover-none\:bg-black {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity, 1));
   }
 }

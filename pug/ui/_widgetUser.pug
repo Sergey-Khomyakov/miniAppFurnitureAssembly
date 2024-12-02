@@ -1,0 +1,7 @@
+mixin widgetUser(user)
+    div(class="flex gap-4")
+        a(href=user.link, class="w-12  h-12 cursor-pointer")
+            img(src=user.img, class="w-full h-full object-contain rounded-full")
+        div(class="flex flex-col gap-2")
+            p(class="font-montserrat font-semibold text-base leading-4") Здравствуйте,
+            a(href=user.link, class="font-montserrat font-semibold cursor-pointer text-base leading-4 text-black hover:text-[#7a5bca]") #{user.name}

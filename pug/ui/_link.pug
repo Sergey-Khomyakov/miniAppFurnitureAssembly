@@ -1,0 +1,5 @@
+mixin link(href, imgSrc = null, text)
+    a(class="flex gap-2 w-max font-montserrat font-semibold text-base text-primary hover:text-[#7a5bca]", href=href) 
+      if imgSrc
+        img(src=imgSrc, class="w-6 h-6 object-contain", style="filter: invert(59%) sepia(62%) saturate(3426%) hue-rotate(220deg) brightness(99%) contrast(98%);", alt="иконка")
+      | #{text}

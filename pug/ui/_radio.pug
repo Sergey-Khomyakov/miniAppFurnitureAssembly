@@ -1,0 +1,8 @@
+mixin radio(trigger="", checked=false)
+    label(class="relative inline-block w-4 h-4")
+        if checked === true
+            input(type="radio", class="opacity-0 w-0 h-0 peer", name=trigger, checked)
+        else 
+            input(type="radio", class="opacity-0 w-0 h-0 peer", name=trigger)
+        span(class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-full peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50")
+        span(class="absolute cursor-pointer w-full h-full peer-checked:border-primary peer-checked:border-4 peer-checked:rounded-full")

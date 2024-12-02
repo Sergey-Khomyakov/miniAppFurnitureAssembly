@@ -1,0 +1,10 @@
+mixin accordion(items)
+    - var path = "./local/templates/furnitureAssembly"
+    each item, index in items
+        div(accordion='', class="flex flex-col rounded-md border transition-all")
+            div(class="flex justify-between items-center p-2 cursor-pointer")
+                p(class="font-montserrat font-semibold text-base text-black") #{item.title}
+                img(accordion-icon='', src=`${path}/img/icons/CaretDown.svg`, alt="иконка", class="w-4 h-4 object-contain transition-transform duration-300 transform")
+            div(accordion__body='', class="overflow-hidden transition-all duration-300 max-h-0")
+                div(class="p-2")
+                    p(class="font-montserrat font-semibold text-base") #{item.text}

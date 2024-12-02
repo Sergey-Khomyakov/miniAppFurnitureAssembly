@@ -1,0 +1,5 @@
+mixin toggle(trigger = "")
+    label(class="relative inline-block w-10 h-3")
+        input(type="checkbox", class="opacity-0 w-0 h-0 peer",checked, data-toggle=trigger)
+        span(class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-full peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50 peer-checked:bg-primary")
+        span(class="absolute left-0 top-[-30%] h-5 w-5 bg-gray-200 transition-transform duration-400 rounded-full peer-checked:translate-x-[1.25rem]")

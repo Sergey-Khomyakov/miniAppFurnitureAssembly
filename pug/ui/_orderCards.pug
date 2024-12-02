@@ -1,0 +1,32 @@
+mixin orderCards(items)
+    each item in items 
+        div(class="flex flex-col gap-4 rounded-md shadow-lg bg-white p-3 w-80")
+            div(class="flex gap-2 justify-between items-center")
+                a(href=item.link, class="font-montserrat font-semibold text-2xl hover:text-[#7a5bca]") #{item.name}
+                if item.status !== null
+                    - var statusClass = "w-max py-1 px-2 rounded-sm cursor-default"
+                    if item.status.name === "Новая"
+                        - statusClass = statusClass + " bg-green-500"
+                    else if item.status.name === "В обработке"
+                        - statusClass = statusClass + " bg-amber-500"
+                    else 
+                        - statusClass = statusClass + " bg-black"
+                    div(class=statusClass)
+                        p(class="font-montserrat font-semibold text-base text-white") #{item.status.name}
+            div(class="flex flex-col gap-1")
+                div(class="flex justify-between w-full gap-2")
+                    if item.client !== null 
+                        div(class="flex flex-col w-full")
+                            p(class="font-montserrat font-semibold text-xs text-gray-300") Клиент: 
+                            p(class="font-montserrat font-semibold text-sm text-black") #{item.client.name}
+                        div(class="flex flex-col w-full")
+                            p(class="font-montserrat font-semibold text-xs text-gray-300") Номер клиента: 
+                            p(class="font-montserrat font-semibold text-sm text-black") #{item.client.phone}
+            div(class="grid grid-cols-2 gap-2")
+                if item.executor !== null
+                    div(class="flex flex-col w-full")
+                        p(class="font-montserrat font-semibold text-xs text-gray-300") Исполнитель: 
+                        a(href=item.executor.link, class="font-montserrat font-semibold text-sm text-black hover:text-[#7a5bca]") #{item.executor.name}
+                div(class="flex flex-col w-full")
+                    p(class="font-montserrat font-semibold text-xs text-gray-300") Дата заказа: 
+                    p(class="font-montserrat font-semibold text-sm text-black") #{item.date}

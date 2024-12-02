@@ -1,0 +1,13 @@
+mixin pagination(items)
+    div(class="flex gap-2")
+        each item, index in items
+            - var className = "cursore-pointer px-1 py-0 min-w-4 rounded-sm flex items-center justify-center"
+            if item.active === true 
+                - className = className + " bg-primary text-white"
+            if item.name !== "..."
+                - className = className + " hover:bg-primary hover:text-white"
+            div(class=className)
+                if item.link === null
+                    p(class="font-montserrat font-semibold text-base") #{item.name}
+                else 
+                    a(href=item.link, class="font-montserrat font-semibold text-base") #{item.name}

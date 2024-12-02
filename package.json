@@ -1,0 +1,15 @@
+{
+  "name": "miniappfurnitureassembly",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "start": "npx tailwindcss -i ./local/templates/furnitureAssembly/css/input.css -o ./local/templates/furnitureAssembly/css/style.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pug": "^3.0.3"
+  }
+}

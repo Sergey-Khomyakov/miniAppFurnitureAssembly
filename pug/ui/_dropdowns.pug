@@ -1,0 +1,20 @@
+mixin dropdowns(items)
+    - var path = "./local/templates/furnitureAssembly"
+    each item in items 
+        div(dropdowns="", class="relative")
+            div(class="flex gap-2")
+                if item.childs === null
+                    a(href=item.link, class="xs:flex xs:flex-col xs:gap-1 lg:block xs:items-center group cursor-pointer xs:hover:bg-white xs:p-1 lg:p-0 xs:rounded-md lg:rounded-none")
+                        img(src=item.iconSrc, alt="иконка", class="w-6 h-6 object-contain lg:hidden")
+                        p(class="font-montserrat font-semibold xs:text-xs lg:text-base text-black cursor-default group-hover:text-primary xs:text-center lg:text-start") #{item.text}
+                else
+                    p(class="font-montserrat font-semibold text-base text-black cursor-default") #{item.text}
+                    if item.childs !== null
+                        img(dropdownsBtn="", src=`${path}/img/icons/CaretDown.svg`, alt="иконка", class="w-6 h-6 object-contain cursor-pointer transition-transform duration-300 transform") 
+            if item.childs !== null
+                div(dropdownsList="", class="absolute transition-all duration-300 max-h-0 overflow-hidden bg-white rounded-md shadow-md")
+                    div(class="py-4 px-4 flex flex-col gap-4 min-w-52 bg-white z-50 relative")
+                        each child in item.childs 
+                            div(class="flex gap-3")
+                                img(src=child.icon, alt="иконка", class="w-6 h-6 object-contain mt-1 filter-primary")
+                                a(href=child.link, class="font-montserrat font-semibold text-base hover:text-[#7a5bca]") #{child.name}

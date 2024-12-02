@@ -1,0 +1,14 @@
+mixin list(items)
+    each item, index in items
+        - var gap = 3;
+        if item.chip !== null 
+            - gap = 1
+        div(class="flex gap-"+ gap +"")
+            if item.img !== null 
+                img(src=item.img.src, class="w-6 h-6 object-contain")
+            if item.link !== null 
+                a(href=item.link, class="font-montserrat font-semibold text-base hover:text-[#7a5bca]") #{item.name}
+            else
+                p(class="font-montserrat font-semibold text-base") #{item.name}
+            if item.chip !== null 
+                p(class="font-montserrat font-semibold text-sm text-primary") #{item.chip}

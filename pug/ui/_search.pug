@@ -1,0 +1,18 @@
+mixin search(trigger="", placeholder="")
+    div(data-search=trigger, class="relative bg-white border rounded-md h-full p-2 ")
+        div(class="flex gap-2 items-center justify-center")
+            img(src="./local/templates/furnitureAssembly/img/icons/MagnifyingGlass.svg", alt="иконка", class="w-5 h-5 object-contain filter brightness-90 opacity-70")
+            input(type="text", class="outline-none" placeholder=placeholder)
+            div(class="flex gap-2 p-2 border rounded-md")
+                button(data-btn="search_user", style="filter: invert(59%) sepia(62%) saturate(3426%) hue-rotate(220deg) brightness(99%) contrast(98%);")
+                    img(src="./local/templates/furnitureAssembly/img/icons/User.svg", alt="иконка", class="w-5 h-5 object-contain")
+                div(class="border-l border-gray-400 h-5 w-[1px]") 
+                button(data-btn="search_order",)
+                    img(src="./local/templates/furnitureAssembly/img/icons/ClipboardText.svg", alt="иконка", class="w-5 h-5 object-contain")
+        div(searchList='', class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden h-0 top-full shadow-md")
+            div(class="px-3 cursor-pointer")
+                a(href="#", class="font-montserrat font-semibold text-base hover::text-[#E04E00] ") Иванов Иван1
+            div(class="px-3 cursor-pointer")
+                a(href="#", class="font-montserrat font-semibold text-base hover::text-[#E04E00]") Иванов Иван2
+            div(class="px-3 cursor-pointer")
+                a(href="#", class="font-montserrat font-semibold text-base hover::text-[#E04E00]") Иванов Иван3

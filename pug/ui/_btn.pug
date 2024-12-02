@@ -1,0 +1,23 @@
+mixin btn(type = null, text = "", trigger = "", imgSrc = null, size = null, color = null)
+  - var btnClass = "flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base  px-4 py-2 rounded-md border-[#FFFFFF] items-center"
+  - var imgClass= "w-6 h-6 object-contain";
+  if (type == "primary") 
+    - btnClass = btnClass + " text-[#fff] bg-primary";
+    - imgClass = imgClass + " filter invert sepia-0 saturate-0 hue-rotate-[94deg] brightness-[1.06] contrast-[20]";
+  else if (type == "secondary") 
+    - btnClass = btnClass + " bg-white hover:text-primary";
+  else 
+    - btnClass = btnClass + " hover:text-primary";
+
+  if (size === "sm") 
+    - btnClass = btnClass + " w-28";
+  else if (size == "md") 
+    - btnClass = btnClass + " w-52";
+  else if (size == "lg") 
+    - btnClass = btnClass + " w-max";
+  else 
+    - btnClass = btnClass + " w-full";
+
+  button(class=btnClass, data-btn=trigger) #{text}
+    if imgSrc
+      img(src=imgSrc, class=imgClass alt="иконка")

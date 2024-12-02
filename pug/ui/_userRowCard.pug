@@ -1,0 +1,33 @@
+mixin userRowCard(items)
+    each item, index in items 
+        div(class="flex justify-between items-center gap-6 border rounded-md p-4 border-gray-200 w-full h-20 bg-white")
+            a(href=item.order.link, class="font-montserrat font-semibold text-base text-black hover:text-[#7a5bca]") #{item.order.name}
+            if item.status !== null
+                - var statusClass = "font-montserrat font-semibold text-base"
+                if item.status === "Свободен"
+                    - statusClass = statusClass + " text-green-500"
+                else if item.status === "Занят"
+                    - statusClass = statusClass + " text-amber-500"
+                else 
+                    - statusClass = statusClass + " text-black"
+                p(class=statusClass) • #{item.status}
+                div(id=`chart${index}`, class="chart")
+                    .time-line
+                        .time-line-box
+                            .time-line-cell(data-hours="8") 08:00
+                            .time-line-cell(data-hours="9") 09:00
+                            .time-line-cell(data-hours="10") 10:00
+                            .time-line-cell(data-hours="11") 11:00
+                            .time-line-cell(data-hours="12") 12:00
+                            .time-line-cell(data-hours="13") 13:00
+                            .time-line-cell(data-hours="14") 14:00
+                            .time-line-cell(data-hours="15") 15:00
+                            .time-line-cell(data-hours="16") 16:00
+                            .time-line-cell(data-hours="17") 17:00
+                            .time-line-cell(data-hours="18") 18:00
+                            .time-line-cell(data-hours="19") 19:00
+                            .time-line-cell(data-hours="20") 20:00
+                            .time-line-cell(data-hours="21") 21:00
+                            .time-line-cell(data-hours="22") 22:00
+                            .time-line-cell(data-hours="23") 23:00
+                +btn("primary", "Выбрать", "save", null, "lg")

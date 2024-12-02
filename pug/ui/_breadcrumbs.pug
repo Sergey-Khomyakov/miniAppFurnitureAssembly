@@ -1,0 +1,9 @@
+mixin breadcrumbs(items)
+    div(class="flex gap-2 flex-wrap")
+        each item, index in items
+            div(class="flex gap-1")
+                if index !== items.length - 1
+                    a(href=item.link, class="font-montserrat font-semibold text-base hover:text-primary") #{item.name}
+                    p(class="font-montserrat font-semibold text-base") /
+                else 
+                    a(class="font-montserrat font-semibold text-base text-gray-400") #{item.name}

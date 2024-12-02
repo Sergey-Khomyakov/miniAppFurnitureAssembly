@@ -1,0 +1,5 @@
+mixin inputFile(trigger = "")
+    label(class="flex gap-2 font-montserrat font-semibold cursor-pointer hover:text-primary")
+        | Прикрепить файл
+        img(src=`${path}/img/icons/Paperclip.svg`, class="w-6 h-6 object-contain" alt="иконка")
+        input(type="file", class="hidden", data-file=trigger)

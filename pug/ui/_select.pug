@@ -1,0 +1,25 @@
+mixin select(text="", trigger = "", values = [])
+    - var path = "./local/templates/furnitureAssembly"
+    div(class="grid grid-cols-auto-1fr items-center gap-2 bg-white border rounded-md h-full pt-2 pr-3 pl-3 pb-3 relative", data-select=trigger)
+        if text !== ""
+            p(class="font-montserrat font-normal text-gray-300") #{text}:
+        div(listInput='',class="flex gap-2 justify-center items-center cursor-pointer")
+            p(class="font-montserrat font-semibold text-base w-calc-input text-black", data-value="") 
+            img(src=`${path}/img/icons/CaretDown.svg`, class="w-5 h-5 object-contain transition-all", list-btn='', alt="Иконка")
+        div(class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden h-0 top-full shadow-md z-[110]", list='')
+            each val, index in values
+                if index === 0
+                    div(class="px-3 cursor-pointer pt-2", data-value=val.id)
+                        p(selectVal='', class="font-montserrat font-semibold text-base") #{val.name}
+                        if val.description !== null
+                            p(class="font-montserrat font-semibold text-base text-gray-400") #{val.description}
+                else if index === values.length - 1
+                    div(class="px-3 cursor-pointer pb-2", data-value=val.id)
+                        p(selectVal='',class="font-montserrat font-semibold text-base") #{val.name}
+                        if val.description !== null
+                            p(class="font-montserrat font-semibold text-base text-gray-400") #{val.description}
+                else
+                    div(class="px-3 cursor-pointer", data-value=val.id)
+                        p(selectVal='', class="font-montserrat font-semibold text-base") #{val.name}
+                        if val.description !== null
+                            p(class="font-montserrat font-semibold text-base text-gray-400") #{val.description}

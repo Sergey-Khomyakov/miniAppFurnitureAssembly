@@ -18,4 +18,12 @@ block head
 block content
     +header()
     main
-      
+      div(class="flex flex-col gap-8 py-14 items-center")
+        img(userPicture="", src=`${path}/img/other/stub.png`, alt="картинка пользователя", class=" rounded-full w-4/5 max-w-60 overflow-hidden shadow-lg aspect-1-1",)
+        div(class="flex flex-col gap-1 items-center justify-center")
+          div(class="flex items-center gap-2")
+            img(src=`${path}/img/icons/HandWaving.svg`, alt="иконка", class="w-6 h-6 object-contain filter-black")
+            p(class="font-montserrat font-semibold text-base text-black") Здравствуйте,
+          p(userName="", class="font-montserrat font-semibold text-base text-black") Иванов Иван
+
+      include ../../../../../pug/Components/_navigation.pug

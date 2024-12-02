@@ -8,10 +8,32 @@
     <title>Главная - сборка мебели</title>
     <meta name="description" content=""/>
   </head>
-  <body class="overflow-x-hidden">
+  <body class="overflow-x-hidden max-w-[45rem] px-4 mx-auto relative">
     <div id="content-wrapper">
-      <header></header>
-      <main></main>
+      <header class="py-3">
+        <div class="flex items-center justify-end"><a class="relative" href="#"><img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/Bell.svg" alt="иконки"/>
+            <div class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600"></div></a></div>
+      </header>
+      <main>
+        <div class="flex flex-col gap-8 py-14 items-center"><img class=" rounded-full w-4/5 max-w-60 overflow-hidden shadow-lg aspect-1-1" userPicture="" src="./local/templates/furnitureAssembly/img/other/stub.png" alt="картинка пользователя">
+          <div class="flex flex-col gap-1 items-center justify-center">
+            <div class="flex items-center gap-2"><img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/HandWaving.svg" alt="иконка">
+              <p class="font-montserrat font-semibold text-base text-black">Здравствуйте,</p>
+            </div>
+            <p class="font-montserrat font-semibold text-base text-black" userName="">Иванов Иван</p>
+          </div>
+        </div>
+        <div class=" fixed left-0 bottom-4 w-full h-max">
+          <div class="px-3">
+            <nav class="w-full h-16 rounded-lg bg-black grid grid-cols-5 gap-2 py-1 px-2"><a class="w-full h-full rounded-md overflow-hidden bg-white flex flex-col gap-1 items-center p-1" href="#"><img class="w-4/5 max-w-6 aspect-1-1 filter-black" src="./local/templates/furnitureAssembly/img/icons/House.svg" alt="иконка">
+                <p class="font-montserrat font-semibold text-xs text-black">Главная</p></a><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1" href="#"><img class="w-4/5 max-w-6 aspect-1-1 filter-white" src="./local/templates/furnitureAssembly/img/icons/UserCircle.svg" alt="иконка">
+                <p class="font-montserrat font-semibold text-xs text-white">Профиль</p></a><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1" href="#"><img class="w-4/5 max-w-6 aspect-1-1 filter-white" src="./local/templates/furnitureAssembly/img/icons/ClipboardText.svg" alt="иконка">
+                <p class="font-montserrat font-semibold text-xs text-white">Анкета</p></a><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1" href="#"><img class="w-4/5 max-w-6 aspect-1-1 filter-white" src="./local/templates/furnitureAssembly/img/icons/Package.svg" alt="иконка">
+                <p class="font-montserrat font-semibold text-xs text-white">Заказы</p></a><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1" href="#"><img class="w-4/5 max-w-6 aspect-1-1 filter-white" src="./local/templates/furnitureAssembly/img/icons/Calendar.svg" alt="иконка">
+                <p class="font-montserrat font-semibold text-xs text-white">График</p></a></nav>
+          </div>
+        </div>
+      </main>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-3.7.1.min.js"></script>

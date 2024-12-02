@@ -22,4 +22,15 @@
         background: #fff;
     }
 
+    .filter-black {
+        filter: brightness(0) saturate(100%) invert(23%) sepia(0%) saturate(0%) hue-rotate(160deg) brightness(94%) contrast(87%);
+    }
+
+    .filter-white {
+        filter: brightness(0) saturate(100%) invert(100%) sepia(95%) saturate(0%) hue-rotate(18deg) brightness(104%) contrast(100%);
+    }
+
+    .aspect-1-1 {
+        aspect-ratio: 1/1;
+    }
 }

@@ -1,12 +1,12 @@
 extends ../../../../../pug/layout/_layout.pug
 include ../../../../../pug/layout/_head.pug
 include ../../../../../pug/layout/_header.pug
+include ../../../../../pug/Components/_navigation.pug
 
 block scripts
     - var path = "./local/templates/furnitureAssembly"
     script(src="https://telegram.org/js/telegram-web-app.js")
     script(src=`${path}/libs/jquery/jquery-3.7.1.min.js`)
-    script(src=`${path}/js/common.js`)
     script(src=`${path}/pages/index/js/index.js`)
 
 
@@ -16,7 +16,13 @@ block head
   +head('Главная - сборка мебели', '')
 
 block content
-    +header()
+  - var path = "./local/templates/furnitureAssembly"
+  div(class="max-w-[45rem] px-4 mx-auto relative")
+    header(class="py-3")
+        div(class="flex items-center justify-end")
+            a(href="#", class="relative")
+                img(src=`${path}/img/icons/Bell.svg`, alt="иконки", class="w-6 h-6 object-contain filter-black")
+                div(class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600")
     main
       div(class="flex flex-col gap-8 py-14 items-center")
         img(userPicture="", src=`${path}/img/other/stub.png`, alt="картинка пользователя", class=" rounded-full w-4/5 max-w-60 overflow-hidden shadow-lg aspect-1-1",)
@@ -25,5 +31,32 @@ block content
             img(src=`${path}/img/icons/HandWaving.svg`, alt="иконка", class="w-6 h-6 object-contain filter-black")
             p(class="font-montserrat font-semibold text-base text-black") Здравствуйте,
           p(userName="", class="font-montserrat font-semibold text-base text-black") Иванов Иван
-
-      include ../../../../../pug/Components/_navigation.pug
+      -
+        var items = [
+          {
+            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/",
+            text: "Главная",
+            src: "./local/templates/furnitureAssembly/img/icons/House.svg",
+          },
+          {
+            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/",
+            text: "Профиль",
+            src: "./local/templates/furnitureAssembly/img/icons/UserCircle.svg",
+          },
+          {
+            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/",
+            text: "Анкета",
+            src: "./local/templates/furnitureAssembly/img/icons/ClipboardText.svg",
+          },
+          {
+            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/",
+            text: "Заказы",
+            src: "./local/templates/furnitureAssembly/img/icons/Package.svg",
+          },
+          {
+            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/",
+            text: "График",
+            src: "./local/templates/furnitureAssembly/img/icons/Calendar.svg",
+          },
+        ]
+      +nav(0, items)

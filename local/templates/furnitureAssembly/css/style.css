@@ -690,12 +690,30 @@ body {
   margin-right: auto;
 }
 
+.mx-\[100\%-2rem\] {
+  margin-left: 100%-2rem;
+  margin-right: 100%-2rem;
+}
+
+.mx-\[calc\(100\%-1rem\)\] {
+  margin-left: calc(100% - 1rem);
+  margin-right: calc(100% - 1rem);
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
 
 .mt-auto {
   margin-top: auto;
+}
+
+.-mt-6 {
+  margin-top: -1.5rem;
+}
+
+.-mt-10 {
+  margin-top: -2.5rem;
 }
 
 .block {
@@ -799,6 +817,10 @@ body {
   min-height: 6rem;
 }
 
+.min-h-60 {
+  min-height: 15rem;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -821,6 +843,10 @@ body {
 
 .w-3 {
   width: 0.75rem;
+}
+
+.w-3\/5 {
+  width: 60%;
 }
 
 .w-32 {
@@ -868,12 +894,20 @@ body {
   width: max-content;
 }
 
+.min-w-16 {
+  min-width: 4rem;
+}
+
 .min-w-4 {
   min-width: 1rem;
 }
 
 .min-w-52 {
   min-width: 13rem;
+}
+
+.max-w-28 {
+  max-width: 7rem;
 }
 
 .max-w-6 {
@@ -1008,6 +1042,45 @@ body {
 
 .rounded-sm {
   border-radius: 0.125rem;
+}
+
+.rounded-\[2rem\] {
+  border-radius: 2rem;
+}
+
+.rounded-e-lg {
+  border-start-end-radius: 0.5rem;
+  border-end-end-radius: 0.5rem;
+}
+
+.rounded-b-lg {
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.rounded-b-3xl {
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.rounded-b-\[5rem\] {
+  border-bottom-right-radius: 5rem;
+  border-bottom-left-radius: 5rem;
+}
+
+.rounded-b-\[4rem\] {
+  border-bottom-right-radius: 4rem;
+  border-bottom-left-radius: 4rem;
+}
+
+.rounded-b-\[3rem\] {
+  border-bottom-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+}
+
+.rounded-b-\[2rem\] {
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
 }
 
 .border {
@@ -1189,6 +1262,11 @@ body {
   padding-bottom: 1rem;
 }
 
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -1231,6 +1309,18 @@ body {
 
 .pt-\[0\.75rem\] {
   padding-top: 0.75rem;
+}
+
+.pb-10 {
+  padding-bottom: 2.5rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
+}
+
+.pb-16 {
+  padding-bottom: 4rem;
 }
 
 .font-montserrat {
@@ -1448,11 +1538,6 @@ body {
   background-color: rgb(105 104 255 / var(--tw-bg-opacity, 1));
 }
 
-.hover\:bg-white:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
-}
-
 .hover\:text-\[\#7a5bca\]:hover {
   --tw-text-opacity: 1;
   color: rgb(122 91 202 / var(--tw-text-opacity, 1));
@@ -1576,12 +1661,5 @@ body {
   .lg\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
-  }
-}
-
-@media (hover: hover) {
-  .hover-hover\:bg-white {
-    --tw-bg-opacity: 1;
-    background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
   }
 }

@@ -50,4 +50,9 @@
         display: none;
         /* Hides the scrollbar */
     }
+
+    [list]::-webkit-scrollbar {
+        display: none;
+        /* Hides the scrollbar */
+    }
 }

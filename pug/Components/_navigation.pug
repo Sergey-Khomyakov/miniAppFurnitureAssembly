@@ -1,5 +1,5 @@
 mixin nav(active=0, items = [])
-    div(class=" fixed left-0 bottom-4 w-full h-max")
+    div(class="max-w-[45rem] fixed bottom-4 w-full h-max mx-auto")
         div(class="px-3")
             nav(class="w-full h-16 rounded-lg bg-black grid grid-cols-5 gap-2 py-1 px-2")
                 each item, index in items 

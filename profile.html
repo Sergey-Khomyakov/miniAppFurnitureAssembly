@@ -18,11 +18,84 @@
           </header>
         </div>
         <main>
-          <div class="flex flex-col gap-4 pt-8 pb-16 items-center bg-black rounded-b-[2rem]"><img class=" rounded-full w-3/5 min-w-16 max-w-28 overflow-hidden shadow-lg aspect-1-1" userPicture="" src="./local/templates/furnitureAssembly/img/other/stub.png" alt="картинка пользователя">
-            <p class="font-montserrat font-semibold text-sm text-white" userName="">Иванов Иван</p>
+          <div class="flex flex-col gap-4 pt-8 pb-16 items-center bg-black rounded-b-[2rem]"><img class=" rounded-full w-3/5 min-w-16 max-w-36 overflow-hidden shadow-lg aspect-1-1" userPicture="" src="./local/templates/furnitureAssembly/img/other/stub.png" alt="картинка пользователя">
+            <p class="font-montserrat font-semibold text-base text-white" userName="">Иванов Иван</p>
           </div>
           <div class="px-4">
-            <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10"></div>
+            <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 flex flex-col gap-3 mb-24">
+              <div class="flex flex-col gap-1">
+                <div class="grid grid-cols-auto-1fr gap-2">
+                  <p class="font-montserrat font-normal text-sm text-black">Филиал:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">Москва</p>
+                </div>
+                <div class="grid grid-cols-auto-1fr gap-2">
+                  <p class="font-montserrat font-normal text-sm text-black">Бригада:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">Мытищи</p>
+                </div>
+                <div class="grid grid-cols-auto-1fr gap-2">
+                  <p class="font-montserrat font-normal text-sm text-black">Номер телефона:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">+7 (999) 888 76 44</p>
+                </div>
+                <div class="grid grid-cols-auto-1fr gap-2">
+                  <p class="font-montserrat font-normal text-sm text-black">E-mail:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">user@email.com</p>
+                </div>
+                <div class="grid grid-cols-auto-1fr gap-2">
+                  <p class="font-montserrat font-normal text-sm text-black">Дата Рождения:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">23 апреля</p>
+                </div>
+                <div class="grid grid-cols-auto-1fr gap-2">
+                  <p class="font-montserrat font-normal text-sm text-black">Владелец АМ:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">Mitsubishi т768ср790</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="grid grid-cols-full">
+                  <p class="font-montserrat font-normal text-sm text-black">Адрес:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">г.Москва, ул.Московская д.15 кв.4</p>
+                </div>
+                <div class="grid grid-cols-full">
+                  <p class="font-montserrat font-normal text-sm text-black">Фактический адрес проживания:</p>
+                  <p class="font-montserrat font-normal text-sm text-primary">г.Москва, ул.Московская д.15 кв.4</p>
+                </div>
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="grid grid-cols-full">
+                  <p class="font-montserrat font-normal text-sm text-black">Класс работ:</p>
+                  <div class="flex flex-wrap gap-2">
+                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/Ruler.svg">
+                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                        <p class="font-montserrat font-semibold text-base text-white">Замер</p>
+                      </div>
+                    </div>
+                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/UserCircle.svg">
+                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                        <p class="font-montserrat font-semibold text-base text-white">Осмотр</p>
+                      </div>
+                    </div>
+                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/Armchair.svg">
+                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                        <p class="font-montserrat font-semibold text-base text-white">Салон</p>
+                      </div>
+                    </div>
+                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/RoadHorizon.svg">
+                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                        <p class="font-montserrat font-semibold text-base text-white">Дальность</p>
+                      </div>
+                    </div>
+                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/HandCoins.svg">
+                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                        <p class="font-montserrat font-semibold text-base text-white">Доплата</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-full">
+                  <p class="font-montserrat font-normal text-sm text-black">Соц. сети:</p>
+                  <div class="flex gap-2"><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/SlackLogo.svg" alt="Иконка"></a><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/TelegramLogo.svg" alt="Иконка"></a><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/WhatsappLogo.svg" alt="Иконка"></a></div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class=" fixed left-0 bottom-4 w-full h-max">
             <div class="px-3">

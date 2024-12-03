@@ -617,6 +617,10 @@ body {
   filter: brightness(0) saturate(100%) invert(100%) sepia(95%) saturate(0%) hue-rotate(18deg) brightness(104%) contrast(100%);
 }
 
+.filter-primary {
+  filter: brightness(0) saturate(100%) invert(46%) sepia(96%) saturate(3856%) hue-rotate(226deg) brightness(102%) contrast(100%);
+}
+
 .aspect-1-1 {
   aspect-ratio: 1/1;
 }
@@ -677,6 +681,10 @@ body {
   top: 100%;
 }
 
+.z-10 {
+  z-index: 10;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -692,6 +700,10 @@ body {
 
 .-mt-10 {
   margin-top: -2.5rem;
+}
+
+.mb-24 {
+  margin-bottom: 6rem;
 }
 
 .mt-1 {
@@ -892,8 +904,8 @@ body {
   min-width: 13rem;
 }
 
-.max-w-28 {
-  max-width: 7rem;
+.max-w-36 {
+  max-width: 9rem;
 }
 
 .max-w-6 {
@@ -948,6 +960,10 @@ body {
 
 .grid-cols-auto-1fr {
   grid-template-columns: auto 1fr;
+}
+
+.grid-cols-full {
+  grid-template-columns: 100%;
 }
 
 .flex-col {
@@ -1166,6 +1182,10 @@ body {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
 }
 
 .px-1 {
@@ -1548,6 +1568,10 @@ body {
 .peer:checked ~ .peer-checked\:bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(105 104 255 / var(--tw-bg-opacity, 1));
+}
+
+.peer:hover ~ .peer-hover\:block {
+  display: block;
 }
 
 .peer:focus ~ .peer-focus\:ring {

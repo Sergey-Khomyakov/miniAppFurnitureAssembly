@@ -663,6 +663,10 @@ body::-webkit-scrollbar {
   inset: 0px;
 }
 
+.-top-\[0\.675rem\] {
+  top: -0.675rem;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -707,10 +711,6 @@ body::-webkit-scrollbar {
   top: 100%;
 }
 
-.-top-\[0\.675rem\] {
-  top: -0.675rem;
-}
-
 .z-10 {
   z-index: 10;
 }
@@ -740,12 +740,12 @@ body::-webkit-scrollbar {
   margin-top: 0.25rem;
 }
 
-.mt-auto {
-  margin-top: auto;
-}
-
 .mt-4 {
   margin-top: 1rem;
+}
+
+.mt-auto {
+  margin-top: auto;
 }
 
 .block {
@@ -845,16 +845,16 @@ body::-webkit-scrollbar {
   max-height: 20rem;
 }
 
+.min-h-16 {
+  min-height: 4rem;
+}
+
 .min-h-24 {
   min-height: 6rem;
 }
 
 .min-h-60 {
   min-height: 15rem;
-}
-
-.min-h-16 {
-  min-height: 4rem;
 }
 
 .w-0 {
@@ -1320,10 +1320,6 @@ body::-webkit-scrollbar {
   text-align: left;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .font-montserrat {
   font-family: Montserrat, sans-serif;
 }
@@ -1663,15 +1659,6 @@ body::-webkit-scrollbar {
   line-height: 1.25rem;
 }
 
-.peer:invalid ~ .peer-invalid\:top-\[0\.675rem\] {
-  top: 0.675rem;
-}
-
-.peer:invalid ~ .peer-invalid\:text-base {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .peer:hover ~ .peer-hover\:block {
   display: block;
 }
@@ -1707,6 +1694,12 @@ body::-webkit-scrollbar {
 
 .peer:focus ~ .peer-focus\:ring-opacity-50 {
   --tw-ring-opacity: 0.5;
+}
+
+@media (min-width: 640px) {
+  .sm\:left-auto {
+    left: auto;
+  }
 }
 
 @media (min-width: 768px) {

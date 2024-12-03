@@ -625,6 +625,11 @@ body {
   aspect-ratio: 1/1;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+  /* Hides the scrollbar */
+}
+
 .visible {
   visibility: visible;
 }

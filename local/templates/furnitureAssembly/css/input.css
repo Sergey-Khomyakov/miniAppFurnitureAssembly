@@ -45,4 +45,9 @@
     .bg-unset {
         background: unset;
     }
+
+    body::-webkit-scrollbar {
+        display: none;
+        /* Hides the scrollbar */
+    }
 }

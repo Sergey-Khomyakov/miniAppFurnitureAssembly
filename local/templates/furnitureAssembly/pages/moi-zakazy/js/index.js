@@ -1,23 +1,40 @@
 $(document).ready( async function() {
 
-    if(window.Telegram.WebApp.initDataUnsafe !== null){
-        const lastName = window.Telegram.WebApp.initDataUnsafe?.user?.last_name || "";
-        const firstName = window.Telegram.WebApp.initDataUnsafe?.user?.first_name || "";
-        const userPhoto = window.Telegram.WebApp.initDataUnsafe?.user?.photo_url || "";
-        $('[userName]').text(lastName + " " + firstName);
-        $('img[userPicture]').attr('src', userPhoto);
-        
-        window.Telegram.WebApp.BackButton.show();
-        Telegram.WebApp.onEvent('backButtonClicked', function(){
-            window.location.href= "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/";
-        });
-    }
-
+    // --- Search start ---
 
     $('[claerSearch]').on('click', function(){
         $('#Search').val('');
     });
 
+    $('#Search').on('input', function() {
+        const userId = 1; // TODO id учетки
+        const val = $(this).val();
+        if(val.length < 3) return;
+        
+        const $parent = $(this).closest('[SearchBox]');
+        const $list = $parent.find('[list]');
+        $list.empty();
+
+        const orders = Orders.filter((item) => item.name.toLowerCase().includes(val.toLowerCase()) && item.user.id === userId);
+
+        orders.forEach((order) => {
+            const $itemSearch = $(`
+                <div class="px-3 cursor-pointer py-2 group" orderCardId="${order.id}">
+                    <p class="font-montserrat font-semibold text-base group-hover:text-primary">${order.name}</p>
+                </div>`);
+
+                $itemSearch.on('click', function(){
+                    const $item = $(this);
+                    const id = $item.attr('orderCardId');
+                    const order = Orders.find((item) => item.id === Number(id));
+                    CallModal(order);
+                    $('#Search').val('');
+                });
+            $list.append($itemSearch)
+        });
+    });
+
+    // --- Search end ---
 
     // --- Init dialog start ---
 
@@ -57,7 +74,7 @@ $(document).ready( async function() {
 
     // --- Init dialog end ---
 
-
+    // --- Orders start ---
     setTimeout(() => {
         renderOrdersByStatus("New", 1)
     }, 400);
@@ -100,12 +117,46 @@ $(document).ready( async function() {
 
             orderItems.forEach((item) => {
                 const $order = $(`
-                    <div orderCardId="${item.id}" class="">
-
+                    <div orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
+                        <div class="flex flex-col gap-2 py-1">
+                            <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex flex-col">
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">Клиент:</p>
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.name}</p>
+                                </div>
+                                <div class="flex flex-col">
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">Номер клиента:</p>
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.phone}</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>`);
+                $order.on('click', function(){
+                    const $item = $(this);
+                    const id = $item.attr('orderCardId');
+                    const order = Orders.find((item) => item.id === Number(id));
 
+                    if(order === undefined){
+                        return;
+                    }
+
+                    CallModal(order);
+                });
                 $orderContainer.append($order);
             });
         }
     }
+
+    function CallModal(order){
+        const $dialog = $('#Order');
+        const $dialogBody = $dialog.find('[dialogBody]');
+        $dialogBody.empty();
+
+        $('#Order').dialog('open');
+    }
+
+    // --- Orders end ---
+
+
 });

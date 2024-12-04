@@ -5,7 +5,7 @@ mixin select(text="", trigger = "", values = [])
         img(src=`${path}/img/icons/CaretDown.svg`, class="w-5 h-5 object-contain transition-all peer-focus:rotate-180 absolute right-[0.675rem] top-[0.675rem]", list-btn='', alt="Иконка")
         label(for=trigger, class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out")
             | #{text}
-        div(class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150", list='')
+        div(class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden rounded mt-1 max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150", list='')
             each val, index in values
                 if index === 0
                     div(class="px-3 cursor-pointer pt-2 group", data-value=val.id)

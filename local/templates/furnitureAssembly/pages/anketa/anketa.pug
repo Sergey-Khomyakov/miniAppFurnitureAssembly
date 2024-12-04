@@ -212,7 +212,7 @@ block content
                         label(class="flex gap-2 font-montserrat font-semibold text-base text-gray-400 cursor-pointer hover:text-primary ml-auto")
                             | Прикрепить файл
                             img(class="w-6 h-6 object-contain filter-gray-400", src=`${path}/img/icons/Paperclip.svg`, alt="иконка")
-                            input(class="hidden", type="file", data-file="attachFiles")
+                            input(class="hidden", type="file", data-file="attachFiles", accept="image/*")
                     button(data-btn="save", type="button", class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full justify-center mt-4")
                         | Отправить
             dialog#locationModal(class="rounded-xl ")

@@ -775,6 +775,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   margin-top: auto;
 }
 
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
 .block {
   display: block;
 }

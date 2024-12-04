@@ -706,8 +706,16 @@ dialog [dialogBody]::-webkit-scrollbar {
   left: 0.5rem;
 }
 
+.left-8 {
+  left: 2rem;
+}
+
 .right-0 {
   right: 0px;
+}
+
+.right-2 {
+  right: 0.5rem;
 }
 
 .right-\[0\.125rem\] {
@@ -722,12 +730,20 @@ dialog [dialogBody]::-webkit-scrollbar {
   top: 0px;
 }
 
+.top-2 {
+  top: 0.5rem;
+}
+
 .top-\[-30\%\] {
   top: -30%;
 }
 
 .top-\[0\.675rem\] {
   top: 0.675rem;
+}
+
+.top-\[0\.875rem\] {
+  top: 0.875rem;
 }
 
 .top-full {
@@ -744,6 +760,14 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .z-\[110\] {
   z-index: 110;
+}
+
+.col-span-1 {
+  grid-column: span 1 / span 1;
+}
+
+.col-span-2 {
+  grid-column: span 2 / span 2;
 }
 
 .mx-auto {
@@ -837,6 +861,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .h-20 {
   height: 5rem;
+}
+
+.h-28 {
+  height: 7rem;
 }
 
 .h-3 {
@@ -997,6 +1025,14 @@ dialog [dialogBody]::-webkit-scrollbar {
   max-width: 45rem;
 }
 
+.max-w-xs {
+  max-width: 20rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .shrink-0 {
   flex-shrink: 0;
 }
@@ -1029,6 +1065,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-cols-4 {
@@ -1099,6 +1139,38 @@ dialog [dialogBody]::-webkit-scrollbar {
   gap: 2rem;
 }
 
+.gap-x-3 {
+  -moz-column-gap: 0.75rem;
+       column-gap: 0.75rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
+}
+
+.gap-x-2 {
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
+}
+
+.space-y-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -1113,6 +1185,18 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .overflow-y-scroll {
   overflow-y: scroll;
+}
+
+.text-nowrap {
+  text-wrap: nowrap;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.rounded-\[0\.25rem\] {
+  border-radius: 0.25rem;
 }
 
 .rounded-\[2rem\] {
@@ -1193,6 +1277,11 @@ dialog [dialogBody]::-webkit-scrollbar {
   border-color: rgb(105 104 255 / var(--tw-border-opacity, 1));
 }
 
+.border-gray-100 {
+  --tw-border-opacity: 1;
+  border-color: rgb(243 244 246 / var(--tw-border-opacity, 1));
+}
+
 .bg-amber-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(245 158 11 / var(--tw-bg-opacity, 1));
@@ -1241,6 +1330,16 @@ dialog [dialogBody]::-webkit-scrollbar {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity, 1));
+}
+
+.bg-gray-800 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
 }
 
 .object-contain {
@@ -1297,6 +1396,11 @@ dialog [dialogBody]::-webkit-scrollbar {
   padding-right: 1rem;
 }
 
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .py-0 {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -1339,8 +1443,16 @@ dialog [dialogBody]::-webkit-scrollbar {
   padding-bottom: 1rem;
 }
 
+.pl-10 {
+  padding-left: 2.5rem;
+}
+
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
 }
 
 .pr-4 {
@@ -1504,6 +1616,16 @@ dialog [dialogBody]::-webkit-scrollbar {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.ring-1 {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
+.ring-gray-900\/5 {
+  --tw-ring-color: rgb(17 24 39 / 0.05);
 }
 
 .blur {
@@ -1705,6 +1827,14 @@ dialog [dialogBody]::-webkit-scrollbar {
   top: -0.675rem;
 }
 
+.peer:valid ~ .peer-valid\:left-\[0\.675rem\] {
+  left: 0.675rem;
+}
+
+.peer:valid ~ .peer-valid\:block {
+  display: block;
+}
+
 .peer:valid ~ .peer-valid\:text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1716,6 +1846,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .peer:focus ~ .peer-focus\:-top-\[0\.675rem\] {
   top: -0.675rem;
+}
+
+.peer:focus ~ .peer-focus\:left-\[0\.675rem\] {
+  left: 0.675rem;
 }
 
 .peer:focus ~ .peer-focus\:max-h-36 {

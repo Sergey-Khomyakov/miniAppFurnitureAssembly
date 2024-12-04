@@ -12,5 +12,4 @@ $(document).ready( async function() {
             window.location.href= "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/";
         });
     }
-
 });

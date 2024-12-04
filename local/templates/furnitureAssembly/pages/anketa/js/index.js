@@ -49,7 +49,6 @@ $(document).ready( async function() {
         const $item = $(this);
         const $modal = $('#locationModal');
         $modal.dialog('open');
-
     });
 
     if(window.Telegram.WebApp.initDataUnsafe !== null){

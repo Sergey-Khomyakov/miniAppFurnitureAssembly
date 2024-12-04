@@ -34,6 +34,10 @@
         filter: brightness(0) saturate(100%) invert(46%) sepia(96%) saturate(3856%) hue-rotate(226deg) brightness(102%) contrast(100%);
     }
 
+    .filter-gray-400 {
+        filter: brightness(0) saturate(100%) invert(72%) sepia(11%) saturate(286%) hue-rotate(179deg) brightness(87%) contrast(95%);
+    }
+
     .aspect-1-1 {
         aspect-ratio: 1/1;
     }

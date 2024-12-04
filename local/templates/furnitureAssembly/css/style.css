@@ -649,7 +649,7 @@ dialog {
   height: 100vh !important;
 }
 
-dialog>[dialogBody]::-webkit-scrollbar {
+dialog [dialogBody]::-webkit-scrollbar {
   display: none;
   /* Hides the scrollbar */
 }

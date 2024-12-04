@@ -635,6 +635,25 @@ body::-webkit-scrollbar {
   /* Hides the scrollbar */
 }
 
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+.ui-dialog {
+  z-index: 10;
+  height: 100vh !important;
+  /* Set your desired background color */
+}
+
+dialog {
+  height: 100vh !important;
+}
+
+dialog::-webkit-scrollbar {
+  display: none;
+  /* Hides the scrollbar */
+}
+
 .visible {
   visibility: visible;
 }
@@ -748,6 +767,10 @@ body::-webkit-scrollbar {
   margin-top: auto;
 }
 
+.ml-auto {
+  margin-left: auto;
+}
+
 .block {
   display: block;
 }
@@ -782,6 +805,10 @@ body::-webkit-scrollbar {
 
 .h-0 {
   height: 0px;
+}
+
+.h-1 {
+  height: 0.25rem;
 }
 
 .h-10 {
@@ -835,6 +862,18 @@ body::-webkit-scrollbar {
 .h-max {
   height: -moz-max-content;
   height: max-content;
+}
+
+.h-96 {
+  height: 24rem;
+}
+
+.h-\[50vh\] {
+  height: 50vh;
+}
+
+.h-\[65vh\] {
+  height: 65vh;
 }
 
 .max-h-0 {
@@ -1004,6 +1043,10 @@ body::-webkit-scrollbar {
   grid-template-columns: 100%;
 }
 
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1068,6 +1111,10 @@ body::-webkit-scrollbar {
   overflow-x: hidden;
 }
 
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
 .rounded-\[2rem\] {
   border-radius: 2rem;
 }
@@ -1086,6 +1133,10 @@ body::-webkit-scrollbar {
 
 .rounded-sm {
   border-radius: 0.125rem;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem;
 }
 
 .rounded-b-\[2rem\] {

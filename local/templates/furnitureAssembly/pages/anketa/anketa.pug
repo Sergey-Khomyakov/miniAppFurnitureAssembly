@@ -3,12 +3,15 @@ include ../../../../../pug/layout/_head.pug
 include ../../../../../pug/layout/_header.pug
 include ../../../../../pug/Components/_navigation.pug
 include ../../../../../pug/ui/_select.pug
+include ../../../../../pug/ui/_checkbox.pug
 
 block scripts
     - var path = "./local/templates/furnitureAssembly"
     script(src="https://telegram.org/js/telegram-web-app.js")
     script(src=`${path}/libs/jquery/jquery-3.7.1.min.js`)
     script(src=`${path}/libs/jquery/jquery.mask.js`)
+    script(src=`${path}/libs/jquery/jquery-ui.min.js`)
+    script(src=`https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=f015ab89-30a2-491c-b8d3-b8b6ad6e2ba1`)
     script(src=`${path}/js/common.js`)
     script(src=`${path}/pages/anketa/js/index.js?v=2`)
 
@@ -32,7 +35,7 @@ block content
             div(class="px-4")
                 div(class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 flex flex-col gap-3 mb-24")
                     p(class="font-montserrat font-semibold text-xl text-black") Анкета
-                    div(class="flex flex-col gap-4")
+                    div(class="flex flex-col gap-5")
                         div(class="relative")
                             input(class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out", id="FIO", type="text", name="FIO", required)
                             label(for="FIO", class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out")
@@ -140,5 +143,90 @@ block content
                             input(class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out", id="Adress", type="text", name="Adress", required)
                             label(for="Adress", class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out")
                                 | Адрес
+                        div(locationBox="", class="relative")
+                            input(class="peer text-left w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out", readonly, required, id="SelectLocation", type="text", name="SelectLocation", value="")
+                            label(for="SelectLocation", class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out")
+                                | Выберите место отправки
+                        div(class="relative flex flex-col gap-4")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Инструменты
+                            div(class="grid grid-cols-2 gap-3")
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsPliers")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Плоскогубцы
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsLevel")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Уровень
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsHammer")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Молоток
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsRoulette")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Рулетка
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsHacksaw")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Ножовка
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsScrewdriver")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Отвертка
+                                div(class="flex gap-1 items-center")
+                                    +checkbox("toolsSaw")
+                                    p(class="font-montserrat font-normal text-black text-sm leading-[1]") Пила
+                        div(class="flex items-center justify-between gap-1")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Работа с электрикой
+                            +checkbox("electricalWork")
+                        div(class="flex items-center justify-between gap-1")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Работа с сантехникой
+                            +checkbox("workingPlumbing")
+                        div(class="flex items-center justify-between gap-1")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Еврозапил
+                            +checkbox("eurozapil")
+                        div(class="flex items-center justify-between gap-1")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Реставрация
+                            +checkbox("restoration")
+                        div(class="flex items-center justify-between gap-1")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Работа с камнем (акрил, кварц)
+                            +checkbox("workingStone")
+                        div(class="flex items-center justify-between gap-1")
+                            p(class="font-montserrat font-normal text-gray-400 text-base leading-[1]") Работа с карнизами (высокими)
+                            +checkbox("workingCornices")
+                        -
+                            var items = [
+                                {
+                                    id: 0,
+                                    name: "",
+                                    description: null,
+                                },
+                                {
+                                    id: 1,
+                                    name: "С напарником",
+                                    description: null,
+                                },
+                                {
+                                    id: 2,
+                                    name: "Без напарника",
+                                    description: null,
+                                },
+                            ]
+                        +select("С напарником или без", "Partner", items)
+                        div(ViewAttachImg="", class="grid grid-cols-4 gap-2")
+                        label(class="flex gap-2 font-montserrat font-semibold cursor-pointer hover:text-primary ml-auto")
+                            | Прикрепить файл
+                            img(class="w-6 h-6 object-contain", src=`${path}/img/icons/Paperclip.svg`, alt="иконка")
+                            input(class="hidden", type="file", data-file="attachFiles")
                     button(data-btn="save", type="button", class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full justify-center mt-4")
                         | Отправить
+            dialog#locationModal(class="rounded-xl overflow-y-scroll")
+                div(class="flex items-center justify-end p-4")
+                    img(closeModal="", src=`${path}/img/icons/X.svg`, alt="иконки", class="w-6 h-6 object-contain filter-black cursor-pointer")
+                div(class="flex flex-col gap-4 px-4")
+                    div(class="flex flex-col gap-2")
+                        p(class="font-montserrat font-semibold text-sm text-black") Будем подбирать вам заказы:
+                        p(class="font-montserrat font-semibold text-sm text-black") До 1 часа доступности (в основном)
+                        p(class="font-montserrat font-semibold text-sm text-black") 1 - 1.5 часа (иногда)
+                        p(class="font-montserrat font-semibold text-sm text-black") 2 часа (крайне редко)
+                    div(class="rounded-lg h-[65vh]")
+                        div(id="Map", class="w-full h-full")
+                        input(data-input="KAORDS",class="hidden")
+                        input(data-input="ADRES", class="hidden")
+                    button(data-btn="selectLocationModal", type="button", class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 ml-auto rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-max justify-center mt-4")
+                        | Выбрать

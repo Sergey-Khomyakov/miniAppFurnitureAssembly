@@ -55,4 +55,23 @@
         display: none;
         /* Hides the scrollbar */
     }
+
+    .ui-dialog-titlebar-close {
+        display: none;
+    }
+
+    .ui-dialog {
+        z-index: 10;
+        height: 100vh !important;
+        /* Set your desired background color */
+    }
+
+    dialog {
+        height: 100vh !important;
+    }
+
+    dialog::-webkit-scrollbar {
+        display: none;
+        /* Hides the scrollbar */
+    }
 }

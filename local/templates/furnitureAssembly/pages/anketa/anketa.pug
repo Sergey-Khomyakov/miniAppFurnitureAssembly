@@ -215,10 +215,10 @@ block content
                             input(class="hidden", type="file", data-file="attachFiles")
                     button(data-btn="save", type="button", class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full justify-center mt-4")
                         | Отправить
-            dialog#locationModal(class="rounded-xl overflow-y-scroll")
+            dialog#locationModal(class="rounded-xl ")
                 div(class="flex items-center justify-end p-4")
                     img(closeModal="", src=`${path}/img/icons/X.svg`, alt="иконки", class="w-6 h-6 object-contain filter-black cursor-pointer")
-                div(class="flex flex-col gap-4 px-4")
+                div(class="flex flex-col gap-4 px-4 overflow-y-scroll")
                     div(class="flex flex-col gap-2")
                         p(class="font-montserrat font-semibold text-sm text-black") Будем подбирать вам заказы:
                         p(class="font-montserrat font-semibold text-sm text-black") До 1 часа доступности (в основном)

@@ -649,7 +649,7 @@ dialog {
   height: 100vh !important;
 }
 
-dialog::-webkit-scrollbar {
+dialog>[dialogBody]::-webkit-scrollbar {
   display: none;
   /* Hides the scrollbar */
 }
@@ -755,6 +755,10 @@ dialog::-webkit-scrollbar {
   margin-bottom: 6rem;
 }
 
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
 .ml-auto {
   margin-left: auto;
 }
@@ -769,10 +773,6 @@ dialog::-webkit-scrollbar {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.mb-6 {
-  margin-bottom: 1.5rem;
 }
 
 .block {

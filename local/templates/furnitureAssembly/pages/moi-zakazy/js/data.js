@@ -6,7 +6,7 @@ const Orders = [
             name: "Иван Иванов",
         },
         name: "СП12344",
-        status: "New",
+        status: "StartedWork",
         client: {
             name: "Иван Иванов",
             phone: "+7 999 999-99-99",

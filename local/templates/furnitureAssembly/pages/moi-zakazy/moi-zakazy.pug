@@ -11,7 +11,7 @@ block scripts
     script(src=`https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=f015ab89-30a2-491c-b8d3-b8b6ad6e2ba1`)
     script(src=`${path}/js/common.js`)
     script(src=`${path}/pages/moi-zakazy/js/data.js?v=3`)
-    script(src=`${path}/pages/moi-zakazy/js/index.js?v=7`)
+    script(src=`${path}/pages/moi-zakazy/js/index.js?v=8`)
 
 
 block head
@@ -25,7 +25,7 @@ block content
         div(class="px-4 h-max bg-black")
             header(class="py-3")
                 div(class="flex items-center justify-end")
-                    a(href="#", class="relative")
+                    a(href="#", class="relative cursor-pointer")
                         img(src=`${path}/img/icons/Bell.svg`, alt="иконки", class="w-6 h-6 object-contain filter-white")
                         div(class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600")
         main
@@ -42,10 +42,10 @@ block content
                     div(orderNav="", class="flex flex-wrap gap-y-1 gap-x-2 items-center")
                         div(data-active="true", orderStatus="New" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Новые
-                            p(class="font-montserrat font-semibold text-xs text-white") 1
+                            p(class="font-montserrat font-semibold text-xs text-white") 0
                         div(data-active="false", orderStatus="StartedWork" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Приступил к работе
-                            p(class="font-montserrat font-semibold text-xs text-white") 0
+                            p(class="font-montserrat font-semibold text-xs text-white") 1
                         div(data-active="false", orderStatus="Extended" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Продлен
                             p(class="font-montserrat font-semibold text-xs text-white") 0

@@ -181,8 +181,118 @@ $(document).ready( async function() {
                 $('#Order').dialog('close');
             });
         }else if(order.status === "StartedWork"){
-
+            $controlsHtml = $(`
+                <div class="w-full flex flex-col gap-4">
+                    <div class="flex flex-col gap-2">
+                        <div class="grid grid-cols-1fr-auto items-center gap-2">
+                            <input type="checkbox" id="photoBefore" name="photoBefore" class="hidden peer" />
+                            <label for="photoBefore", class="flex items-center gap-1 font-montserrat font-semibold text-black text-sm cursor-pointer">
+                                Фото ДО начала работ
+                            </label>
+                            <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-5 h-5 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
+                            <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
+                                <label class="flex flex-col items-center justify-center py-4 w-full h-16 border-2 border-primary border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100" data-dropzone="fileBefore" for="fileBefore">
+                                    <span class="flex items-center gap-2">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+                                            <path d="M26.7075 10.2925L19.7075 3.2925C19.6146 3.19967 19.5042 3.12605 19.3829 3.07586C19.2615 3.02568 19.1314 2.9999 19 3H7C6.46957 3 5.96086 3.21071 5.58579 3.58579C5.21071 3.96086 5 4.46957 5 5V27C5 27.5304 5.21071 28.0391 5.58579 28.4142C5.96086 28.7893 6.46957 29 7 29H25C25.5304 29 26.0391 28.7893 26.4142 28.4142C26.7893 28.0391 27 27.5304 27 27V11C27.0001 10.8686 26.9743 10.7385 26.9241 10.6172C26.8739 10.4958 26.8003 10.3854 26.7075 10.2925ZM20 6.41375L23.5863 10H20V6.41375ZM25 27H7V5H18V11C18 11.2652 18.1054 11.5196 18.2929 11.7071C18.4804 11.8946 18.7348 12 19 12H25V27ZM19.7075 17.2925C19.8004 17.3854 19.8741 17.4957 19.9244 17.6171C19.9747 17.7385 20.0006 17.8686 20.0006 18C20.0006 18.1314 19.9747 18.2615 19.9244 18.3829C19.8741 18.5043 19.8004 18.6146 19.7075 18.7075C19.6146 18.8004 19.5043 18.8741 19.3829 18.9244C19.2615 18.9747 19.1314 19.0006 19 19.0006C18.8686 19.0006 18.7385 18.9747 18.6171 18.9244C18.4957 18.8741 18.3854 18.8004 18.2925 18.7075L17 17.4137V23C17 23.2652 16.8946 23.5196 16.7071 23.7071C16.5196 23.8946 16.2652 24 16 24C15.7348 24 15.4804 23.8946 15.2929 23.7071C15.1054 23.5196 15 23.2652 15 23V17.4137L13.7075 18.7075C13.6146 18.8004 13.5043 18.8741 13.3829 18.9244C13.2615 18.9747 13.1314 19.0006 13 19.0006C12.8686 19.0006 12.7385 18.9747 12.6171 18.9244C12.4957 18.8741 12.3854 18.8004 12.2925 18.7075C12.1996 18.6146 12.1259 18.5043 12.0756 18.3829C12.0253 18.2615 11.9994 18.1314 11.9994 18C11.9994 17.8686 12.0253 17.7385 12.0756 17.6171C12.1259 17.4957 12.1996 17.3854 12.2925 17.2925L15.2925 14.2925C15.3854 14.1995 15.4957 14.1258 15.6171 14.0754C15.7385 14.0251 15.8686 13.9992 16 13.9992C16.1314 13.9992 16.2615 14.0251 16.3829 14.0754C16.5043 14.1258 16.6146 14.1995 16.7075 14.2925L19.7075 17.2925Z" fill="#404040"></path>
+                                        </svg>
+                                        <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
+                                    </span>
+                                    <input class="hidden" type="file" id="fileBefore">
+                                </label>
+                                <div fileBeforeBlock="" class="grid grid-cols 2 gap-2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1fr-auto items-center gap-2">
+                            <input type="checkbox" id="photoAfter" name="photoAfter" class="hidden peer" />
+                            <label for="photoAfter", class="flex items-center gap-1 font-montserrat font-semibold text-black text-sm cursor-pointer">
+                                Фото ПОСЛЕ завершения работ
+                            </label>
+                            <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-5 h-5 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
+                            <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
+                                <label class="flex flex-col items-center justify-center py-4 w-full h-16 border-2 border-primary border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100" data-dropzone="fileAfter" for="fileAfter">
+                                    <span class="flex items-center gap-2">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+                                            <path d="M26.7075 10.2925L19.7075 3.2925C19.6146 3.19967 19.5042 3.12605 19.3829 3.07586C19.2615 3.02568 19.1314 2.9999 19 3H7C6.46957 3 5.96086 3.21071 5.58579 3.58579C5.21071 3.96086 5 4.46957 5 5V27C5 27.5304 5.21071 28.0391 5.58579 28.4142C5.96086 28.7893 6.46957 29 7 29H25C25.5304 29 26.0391 28.7893 26.4142 28.4142C26.7893 28.0391 27 27.5304 27 27V11C27.0001 10.8686 26.9743 10.7385 26.9241 10.6172C26.8739 10.4958 26.8003 10.3854 26.7075 10.2925ZM20 6.41375L23.5863 10H20V6.41375ZM25 27H7V5H18V11C18 11.2652 18.1054 11.5196 18.2929 11.7071C18.4804 11.8946 18.7348 12 19 12H25V27ZM19.7075 17.2925C19.8004 17.3854 19.8741 17.4957 19.9244 17.6171C19.9747 17.7385 20.0006 17.8686 20.0006 18C20.0006 18.1314 19.9747 18.2615 19.9244 18.3829C19.8741 18.5043 19.8004 18.6146 19.7075 18.7075C19.6146 18.8004 19.5043 18.8741 19.3829 18.9244C19.2615 18.9747 19.1314 19.0006 19 19.0006C18.8686 19.0006 18.7385 18.9747 18.6171 18.9244C18.4957 18.8741 18.3854 18.8004 18.2925 18.7075L17 17.4137V23C17 23.2652 16.8946 23.5196 16.7071 23.7071C16.5196 23.8946 16.2652 24 16 24C15.7348 24 15.4804 23.8946 15.2929 23.7071C15.1054 23.5196 15 23.2652 15 23V17.4137L13.7075 18.7075C13.6146 18.8004 13.5043 18.8741 13.3829 18.9244C13.2615 18.9747 13.1314 19.0006 13 19.0006C12.8686 19.0006 12.7385 18.9747 12.6171 18.9244C12.4957 18.8741 12.3854 18.8004 12.2925 18.7075C12.1996 18.6146 12.1259 18.5043 12.0756 18.3829C12.0253 18.2615 11.9994 18.1314 11.9994 18C11.9994 17.8686 12.0253 17.7385 12.0756 17.6171C12.1259 17.4957 12.1996 17.3854 12.2925 17.2925L15.2925 14.2925C15.3854 14.1995 15.4957 14.1258 15.6171 14.0754C15.7385 14.0251 15.8686 13.9992 16 13.9992C16.1314 13.9992 16.2615 14.0251 16.3829 14.0754C16.5043 14.1258 16.6146 14.1995 16.7075 14.2925L19.7075 17.2925Z" fill="#404040"></path>
+                                        </svg>
+                                        <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
+                                    </span>
+                                    <input class="hidden" type="file" id="fileAfter">
+                                </label>
+                                <div fileAfterBlock="" class="grid grid-cols 2 gap-2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1fr-auto items-center gap-2">
+                            <input type="checkbox" id="photoWork" name="photoWork" class="hidden peer" />
+                            <label for="photoWork", class="flex items-center gap-1 font-montserrat font-semibold text-black text-sm cursor-pointer">
+                                Фото акта выполненных работ
+                            </label>
+                            <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-5 h-5 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
+                            <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
+                                <label class="flex flex-col items-center justify-center py-4 w-full h-16 border-2 border-primary border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100" data-dropzone="fileWork" for="fileWork">
+                                    <span class="flex items-center gap-2">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+                                            <path d="M26.7075 10.2925L19.7075 3.2925C19.6146 3.19967 19.5042 3.12605 19.3829 3.07586C19.2615 3.02568 19.1314 2.9999 19 3H7C6.46957 3 5.96086 3.21071 5.58579 3.58579C5.21071 3.96086 5 4.46957 5 5V27C5 27.5304 5.21071 28.0391 5.58579 28.4142C5.96086 28.7893 6.46957 29 7 29H25C25.5304 29 26.0391 28.7893 26.4142 28.4142C26.7893 28.0391 27 27.5304 27 27V11C27.0001 10.8686 26.9743 10.7385 26.9241 10.6172C26.8739 10.4958 26.8003 10.3854 26.7075 10.2925ZM20 6.41375L23.5863 10H20V6.41375ZM25 27H7V5H18V11C18 11.2652 18.1054 11.5196 18.2929 11.7071C18.4804 11.8946 18.7348 12 19 12H25V27ZM19.7075 17.2925C19.8004 17.3854 19.8741 17.4957 19.9244 17.6171C19.9747 17.7385 20.0006 17.8686 20.0006 18C20.0006 18.1314 19.9747 18.2615 19.9244 18.3829C19.8741 18.5043 19.8004 18.6146 19.7075 18.7075C19.6146 18.8004 19.5043 18.8741 19.3829 18.9244C19.2615 18.9747 19.1314 19.0006 19 19.0006C18.8686 19.0006 18.7385 18.9747 18.6171 18.9244C18.4957 18.8741 18.3854 18.8004 18.2925 18.7075L17 17.4137V23C17 23.2652 16.8946 23.5196 16.7071 23.7071C16.5196 23.8946 16.2652 24 16 24C15.7348 24 15.4804 23.8946 15.2929 23.7071C15.1054 23.5196 15 23.2652 15 23V17.4137L13.7075 18.7075C13.6146 18.8004 13.5043 18.8741 13.3829 18.9244C13.2615 18.9747 13.1314 19.0006 13 19.0006C12.8686 19.0006 12.7385 18.9747 12.6171 18.9244C12.4957 18.8741 12.3854 18.8004 12.2925 18.7075C12.1996 18.6146 12.1259 18.5043 12.0756 18.3829C12.0253 18.2615 11.9994 18.1314 11.9994 18C11.9994 17.8686 12.0253 17.7385 12.0756 17.6171C12.1259 17.4957 12.1996 17.3854 12.2925 17.2925L15.2925 14.2925C15.3854 14.1995 15.4957 14.1258 15.6171 14.0754C15.7385 14.0251 15.8686 13.9992 16 13.9992C16.1314 13.9992 16.2615 14.0251 16.3829 14.0754C16.5043 14.1258 16.6146 14.1995 16.7075 14.2925L19.7075 17.2925Z" fill="#404040"></path>
+                                        </svg>
+                                        <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
+                                    </span>
+                                    <input class="hidden" type="file" id="fileWork">
+                                </label>
+                                <div fileWorkBlock="" class="grid grid-cols 2 gap-2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1fr-auto items-center gap-2">
+                            <input type="checkbox" id="photoComplaints" name="photoComplaints" class="hidden peer" />
+                            <label for="photoComplaints", class="flex items-center gap-1 font-montserrat font-semibold text-black text-sm cursor-pointer">
+                                Фото акта рекламации
+                            </label>
+                            <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-5 h-5 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
+                            <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
+                                <label class="flex flex-col items-center justify-center py-4 w-full h-16 border-2 border-primary border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100" data-dropzone="fileComplaints" for="fileComplaints">
+                                    <span class="flex items-center gap-2">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+                                            <path d="M26.7075 10.2925L19.7075 3.2925C19.6146 3.19967 19.5042 3.12605 19.3829 3.07586C19.2615 3.02568 19.1314 2.9999 19 3H7C6.46957 3 5.96086 3.21071 5.58579 3.58579C5.21071 3.96086 5 4.46957 5 5V27C5 27.5304 5.21071 28.0391 5.58579 28.4142C5.96086 28.7893 6.46957 29 7 29H25C25.5304 29 26.0391 28.7893 26.4142 28.4142C26.7893 28.0391 27 27.5304 27 27V11C27.0001 10.8686 26.9743 10.7385 26.9241 10.6172C26.8739 10.4958 26.8003 10.3854 26.7075 10.2925ZM20 6.41375L23.5863 10H20V6.41375ZM25 27H7V5H18V11C18 11.2652 18.1054 11.5196 18.2929 11.7071C18.4804 11.8946 18.7348 12 19 12H25V27ZM19.7075 17.2925C19.8004 17.3854 19.8741 17.4957 19.9244 17.6171C19.9747 17.7385 20.0006 17.8686 20.0006 18C20.0006 18.1314 19.9747 18.2615 19.9244 18.3829C19.8741 18.5043 19.8004 18.6146 19.7075 18.7075C19.6146 18.8004 19.5043 18.8741 19.3829 18.9244C19.2615 18.9747 19.1314 19.0006 19 19.0006C18.8686 19.0006 18.7385 18.9747 18.6171 18.9244C18.4957 18.8741 18.3854 18.8004 18.2925 18.7075L17 17.4137V23C17 23.2652 16.8946 23.5196 16.7071 23.7071C16.5196 23.8946 16.2652 24 16 24C15.7348 24 15.4804 23.8946 15.2929 23.7071C15.1054 23.5196 15 23.2652 15 23V17.4137L13.7075 18.7075C13.6146 18.8004 13.5043 18.8741 13.3829 18.9244C13.2615 18.9747 13.1314 19.0006 13 19.0006C12.8686 19.0006 12.7385 18.9747 12.6171 18.9244C12.4957 18.8741 12.3854 18.8004 12.2925 18.7075C12.1996 18.6146 12.1259 18.5043 12.0756 18.3829C12.0253 18.2615 11.9994 18.1314 11.9994 18C11.9994 17.8686 12.0253 17.7385 12.0756 17.6171C12.1259 17.4957 12.1996 17.3854 12.2925 17.2925L15.2925 14.2925C15.3854 14.1995 15.4957 14.1258 15.6171 14.0754C15.7385 14.0251 15.8686 13.9992 16 13.9992C16.1314 13.9992 16.2615 14.0251 16.3829 14.0754C16.5043 14.1258 16.6146 14.1995 16.7075 14.2925L19.7075 17.2925Z" fill="#404040"></path>
+                                        </svg>
+                                        <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
+                                    </span>
+                                    <input class="hidden" type="file" id="fileComplaints">
+                                </label>
+                                <div fileComplaintsBlock="" class="grid grid-cols 2 gap-2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1fr-auto items-center gap-2">
+                            <input type="checkbox" id="addWork" name="addWork" class="hidden peer" />
+                            <label for="addWork", class="flex items-center gap-1 font-montserrat font-semibold text-black text-sm cursor-pointer">
+                                Фото акта допработ
+                            </label>
+                            <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-5 h-5 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
+                            <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
+                                <label class="flex flex-col items-center justify-center py-4 w-full h-16 border-2 border-primary border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100" data-dropzone="fileaddWork" for="fileaddWork">
+                                    <span class="flex items-center gap-2">
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+                                            <path d="M26.7075 10.2925L19.7075 3.2925C19.6146 3.19967 19.5042 3.12605 19.3829 3.07586C19.2615 3.02568 19.1314 2.9999 19 3H7C6.46957 3 5.96086 3.21071 5.58579 3.58579C5.21071 3.96086 5 4.46957 5 5V27C5 27.5304 5.21071 28.0391 5.58579 28.4142C5.96086 28.7893 6.46957 29 7 29H25C25.5304 29 26.0391 28.7893 26.4142 28.4142C26.7893 28.0391 27 27.5304 27 27V11C27.0001 10.8686 26.9743 10.7385 26.9241 10.6172C26.8739 10.4958 26.8003 10.3854 26.7075 10.2925ZM20 6.41375L23.5863 10H20V6.41375ZM25 27H7V5H18V11C18 11.2652 18.1054 11.5196 18.2929 11.7071C18.4804 11.8946 18.7348 12 19 12H25V27ZM19.7075 17.2925C19.8004 17.3854 19.8741 17.4957 19.9244 17.6171C19.9747 17.7385 20.0006 17.8686 20.0006 18C20.0006 18.1314 19.9747 18.2615 19.9244 18.3829C19.8741 18.5043 19.8004 18.6146 19.7075 18.7075C19.6146 18.8004 19.5043 18.8741 19.3829 18.9244C19.2615 18.9747 19.1314 19.0006 19 19.0006C18.8686 19.0006 18.7385 18.9747 18.6171 18.9244C18.4957 18.8741 18.3854 18.8004 18.2925 18.7075L17 17.4137V23C17 23.2652 16.8946 23.5196 16.7071 23.7071C16.5196 23.8946 16.2652 24 16 24C15.7348 24 15.4804 23.8946 15.2929 23.7071C15.1054 23.5196 15 23.2652 15 23V17.4137L13.7075 18.7075C13.6146 18.8004 13.5043 18.8741 13.3829 18.9244C13.2615 18.9747 13.1314 19.0006 13 19.0006C12.8686 19.0006 12.7385 18.9747 12.6171 18.9244C12.4957 18.8741 12.3854 18.8004 12.2925 18.7075C12.1996 18.6146 12.1259 18.5043 12.0756 18.3829C12.0253 18.2615 11.9994 18.1314 11.9994 18C11.9994 17.8686 12.0253 17.7385 12.0756 17.6171C12.1259 17.4957 12.1996 17.3854 12.2925 17.2925L15.2925 14.2925C15.3854 14.1995 15.4957 14.1258 15.6171 14.0754C15.7385 14.0251 15.8686 13.9992 16 13.9992C16.1314 13.9992 16.2615 14.0251 16.3829 14.0754C16.5043 14.1258 16.6146 14.1995 16.7075 14.2925L19.7075 17.2925Z" fill="#404040"></path>
+                                        </svg>
+                                        <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
+                                    </span>
+                                    <input class="hidden" type="file" id="fileaddWork">
+                                </label>
+                                <div fileaddWorkBlock="" class="grid grid-cols 2 gap-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="fileWork" type="button">Завершил заказ</button>
+                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="fileComplaints" type="button">Завершил с рекламацией</button>
+                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="fileaddWork" type="button">Доделка</button>
+                    </div>
+                </div>`);
         }
+
         $dialog.find('[titleCard]').text("№ " + order.name);
 
         const imagesMarkup = order.details.photo.map((item) => {

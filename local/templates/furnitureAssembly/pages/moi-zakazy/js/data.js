@@ -85,28 +85,9 @@ const Orders = [
             typeOrder: "Стандарт",
             workInterval: "22.11.2024 - 25.11.2024",
             dopInfo: "Текст",
-            photo: [
-                {
-                    id: 1,
-                    src: "./local/templates/furnitureAssembly/img/",
-                    name: "фото",
-                },
-                {
-                    id: 2,
-                    src: "./local/templates/furnitureAssembly/img/",
-                    name: "фото",
-                }
-            ],
+            photo: [],
             files: [],
-            services:[
-                {
-                    id: 1,
-                    name: "Услуга 1",
-                    count: "1",
-                    unitMeasurement: "шт.",
-                    prise: "100",
-                },
-            ]
+            services:[]
         }
     },
     {
@@ -130,28 +111,9 @@ const Orders = [
             typeOrder: "Стандарт",
             workInterval: "22.11.2024 - 25.11.2024",
             dopInfo: "Текст",
-            photo: [
-                {
-                    id: 1,
-                    src: "./local/templates/furnitureAssembly/img/",
-                    name: "фото",
-                },
-                {
-                    id: 2,
-                    src: "./local/templates/furnitureAssembly/img/",
-                    name: "фото",
-                }
-            ],
+            photo: [],
             files: [],
-            services:[
-                {
-                    id: 1,
-                    name: "Услуга 1",
-                    count: "1",
-                    unitMeasurement: "шт.",
-                    prise: "100",
-                },
-            ]
+            services:[]
         }
     },
     {
@@ -175,28 +137,9 @@ const Orders = [
             typeOrder: "Стандарт",
             workInterval: "22.11.2024 - 25.11.2024",
             dopInfo: "Текст",
-            photo: [
-                {
-                    id: 1,
-                    src: "./local/templates/furnitureAssembly/img/",
-                    name: "фото",
-                },
-                {
-                    id: 2,
-                    src: "./local/templates/furnitureAssembly/img/",
-                    name: "фото",
-                }
-            ],
+            photo: [],
             files: [],
-            services:[
-                {
-                    id: 1,
-                    name: "Услуга 1",
-                    count: "1",
-                    unitMeasurement: "шт.",
-                    prise: "100",
-                },
-            ]
+            services:[]
         }
     },
 ]

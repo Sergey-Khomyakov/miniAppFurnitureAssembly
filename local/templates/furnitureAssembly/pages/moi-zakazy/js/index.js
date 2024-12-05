@@ -221,7 +221,7 @@ $(document).ready( async function() {
         ymaps.ready(init(order));
         function init (order) {
             myMap = new ymaps.Map("map", {
-                center: [$("#map").data(order.client.coordinates.latitude), $("#map").data(order.client.coordinates.longitude)], // Углич
+                center: [order.client.coordinates.latitude, order.client.coordinates.longitude], // Углич
                 zoom: 11,
                 controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl', 'routeButtonControl']
             }, {
@@ -229,10 +229,10 @@ $(document).ready( async function() {
                 searchControlProvider: 'yandex#search'
             });
 
-            myMap.setCenter([$("#map").data(order.client.coordinates.latitude), $("#map").data(order.client.coordinates.longitude)], 11, {
+            myMap.setCenter([order.client.coordinates.latitude, order.client.coordinates.longitude], 11, {
                 checkZoomRange: true
             });
-            myMap.geoObjects.add(new ymaps.Placemark([$("#map").data(order.client.coordinates.latitude), $("#map").data(order.client.coordinates.longitude)], {}, {
+            myMap.geoObjects.add(new ymaps.Placemark([order.client.coordinates.latitude, order.client.coordinates.longitude], {}, {
                 preset: 'islands#icon',
                 iconColor: '#0095b6'
             }))

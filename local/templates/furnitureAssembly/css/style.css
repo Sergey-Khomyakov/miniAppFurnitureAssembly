@@ -908,6 +908,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   height: auto;
 }
 
+.h-60 {
+  height: 15rem;
+}
+
 .max-h-0 {
   max-height: 0px;
 }

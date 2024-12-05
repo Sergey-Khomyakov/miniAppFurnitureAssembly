@@ -207,7 +207,7 @@ $(document).ready( async function() {
                                 <p class="font-montserrat font-semibold text-black">${order.client.adress}</p>
                             </div>
                         </div>
-                        <div class="rounded-lg w-full h-auto aspect-1-1 overflow-hidden">
+                        <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
                             <div id="map" class="w-full h-full"></div>
                         </div>
                     </div>

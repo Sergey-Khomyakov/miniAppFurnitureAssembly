@@ -183,10 +183,9 @@ $(document).ready( async function() {
         }else if(order.status === "StartedWork"){
 
         }
-
+        $dialog.find('[titleCard]').text("№ " + order.name);
         const $body = $(`
             <div class="flex flex-col gap-4">
-                <p class="font-montserrat font-semibold text-2xl text-black">№ ${order.name}</p>
                 <div class="flex flex-col gap-2">
                         <p class="flex items-center gap-2 font-montserrat font-semibold text-black text-xl"> <img class="w-6 h-6 object-contain" src="./local/templates/furnitureAssembly/img/icons/User.svg" alt="иконка">Клиент</p>
                         <div class="flex flex-col gap-1">

@@ -20,11 +20,11 @@ const Orders = [
     {
         id: 2,
         user: {
-            id: 2,
+            id: 1,
             name: "Иван Иванов",
         },
         name: "СП25323",
-        status: "OnWay",
+        status: "Interrupted",
         client: {
             name: "Иван Иванов",
             phone: "+7 999 999-99-99",
@@ -56,7 +56,7 @@ const Orders = [
     {
         id: 3,
         user: {
-            id: 1,
+            id: 2,
             name: "Иван Иванов",
         },
         name: "СП33344",

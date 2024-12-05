@@ -24,6 +24,7 @@ module.exports = {
       },
       boxShadow: {
         'custom-1': '0 1px 2px 0 rgba(51, 56, 66, 0.08), 0 1px 4px 0 rgba(16, 24, 40, 0.08)',
+        'custom-2': '0 1px 2px 0 rgba(51, 56, 66, 0.08), 0 1px 4px 0 rgba(16, 24, 40, 0.08)',
       },
       screens: {
         'hover-hover': {'raw': '(hover: hover)'},

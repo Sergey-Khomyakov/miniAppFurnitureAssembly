@@ -189,6 +189,48 @@ $(document).ready( async function() {
             return `<img src="${item.src}" alt="${item.name}" class="w-full h-auto object-cover rounded-sm overflow-hidden"/>`;
         }).join('');
 
+        const filesMarkup = order.details.files.map((item) => {
+            return `<div docItem="" class="w-full flex gap-2">
+                        <div class="w-12 h-12 shrink-0">
+                            <img class="w-full h-full object-contain" src="./local/templates/furnitureAssembly/img/icons/DocIcons.svg" alt="Иконка">
+                        </div>
+                        <div class="w-full flex flex-col gap-1">
+                            <p docText="" class="font-montserrat font-semibold text-base text-primary">${item.name}</p>
+                            <div class="flex gap-2 justify-between">
+                                <div class="flex gap-2">
+                                    <p class="font-montserrat font-semibold text-base text-gray-500">19.11.2024 11:29:25</p>
+                                </div>
+                                <button class="flex gap-2 w-max font-montserrat font-semibold text-base text-primary hover:text-[#7a5bca]" data-file="${item.src}">Скачать</button>
+                            </div>
+                        </div>
+                    </div>`;
+        }).join('');
+
+        const servicesMarkup = () => {
+            let html = "";
+            let totalPrice = 0;
+
+            order.details.services.forEach((item) => {
+                html += `<div class="w-full grid grid-cols-3 gap-2 items-center shadow-md rounded-md py-1 px-3">
+                        <p class="font-montserrat font-semibold text-sm text-black">${item.name}</p>
+                        <div class="flex items-center gap-2 justify-end">
+                            <p class="font-montserrat font-semibold text-sm text-black">${item.count}</p>
+                            <p class="font-montserrat font-semibold text-sm text-black">${item.unitMeasurement}</p>
+                        </div>
+                        <p class="font-montserrat font-semibold text-sm text-black text-end">${item.prise} руб</p>
+                    </div>`;
+
+                    totalPrice += Number(item.prise) 
+            });
+
+            html += `<div class="w-full grid grid-cols-auto-1fr gap-2 items-center shadow-md rounded-md py-1 px-3 bg-green-200">
+                        <p class="font-montserrat font-semibold text-sm text-black">Итого З/п (При 100% участии)</p>
+                        <p class="font-montserrat font-semibold text-sm text-black text-end">${totalPrice} руб</p>
+                    </div>`;
+
+            return html;
+        };
+
         const $body = $(`
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col gap-2">
@@ -248,6 +290,20 @@ $(document).ready( async function() {
                                     ${imagesMarkup}
                                 </div>
                             </div>` : ""}
+                        ${order.details.files.length > 0 ? 
+                            `<div class="flex flex-col gap-1">
+                                <p class="font-montserrat font-semibold text-black">Файлы: </p>
+                                <div class="flex flex-col gap-2">
+                                    ${filesMarkup}
+                                </div>
+                            </div>` : ""}
+                        ${order.details.services.length > 0 ? 
+                            `<div class="flex flex-col gap-1">
+                                <p class="font-montserrat font-semibold text-black">Услуги: </p>
+                                <div class="flex flex-col gap-2 px-1 py-2">
+                                    ${servicesMarkup()}
+                                </div>
+                            </div>` : ""}
                     </div>
                 </div>
             </div>`)
@@ -255,6 +311,20 @@ $(document).ready( async function() {
         $body.append($controlsHtml);
 
         $dialogBody.append($body);
+
+        $('button[data-file]').on('click', function(){
+            const $item = $(this);
+            const $parent = $item.closest('[docItem]')
+            const fileSrc = $item.data('file');
+            const fileName = $parent.find('[docText]').text();
+
+            window.Telegram.WebApp.downloadFile({
+                url: fileSrc,
+                file_name: fileName
+            }, (item) => {
+                console.log(item)
+            })
+        });
 
         // КАРТА ЯНДЕКС
         ymaps.ready(init(order));

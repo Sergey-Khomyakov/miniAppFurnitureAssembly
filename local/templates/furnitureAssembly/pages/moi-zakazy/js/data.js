@@ -32,11 +32,31 @@ const Orders = [
                     name: "фото",
                 }
             ],
-            files: [],
+            files: [
+                {
+                    id: 1,
+                    src: "https://195.58.36.31/upload/uf/351/vdgi3qn1akraklai6jpbviokboh36hvg.docx",
+                    name: "Документ (3).docx",
+                },
+            ],
             services:[
                 {
                     id: 1,
                     name: "Услуга 1",
+                    count: "1",
+                    unitMeasurement: "шт.",
+                    prise: "100",
+                },
+                {
+                    id: 1,
+                    name: "Услуга 2",
+                    count: "1",
+                    unitMeasurement: "шт.",
+                    prise: "100",
+                },
+                {
+                    id: 1,
+                    name: "Услуга 3",
                     count: "1",
                     unitMeasurement: "шт.",
                     prise: "100",

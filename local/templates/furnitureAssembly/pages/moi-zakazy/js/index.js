@@ -198,9 +198,9 @@ $(document).ready( async function() {
                                         </svg>
                                         <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
                                     </span>
-                                    <input class="hidden" type="file" id="fileBefore">
+                                    <input class="hidden" type="file" id="fileBefore" accept="image/*" multiple>
                                 </label>
-                                <div fileBeforeBlock="" class="grid grid-cols 2 gap-2">
+                                <div fileBeforeBlock="" class="grid grid-cols-2 gap-2">
                                 </div>
                             </div>
                         </div>
@@ -218,9 +218,9 @@ $(document).ready( async function() {
                                         </svg>
                                         <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
                                     </span>
-                                    <input class="hidden" type="file" id="fileAfter">
+                                    <input class="hidden" type="file" id="fileAfter" accept="image/*" multiple>
                                 </label>
-                                <div fileAfterBlock="" class="grid grid-cols 2 gap-2">
+                                <div fileAfterBlock="" class="grid grid-cols-2 gap-2">
                                 </div>
                             </div>
                         </div>
@@ -238,9 +238,9 @@ $(document).ready( async function() {
                                         </svg>
                                         <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
                                     </span>
-                                    <input class="hidden" type="file" id="fileWork">
+                                    <input class="hidden" type="file" id="fileWork" accept="image/*" multiple>
                                 </label>
-                                <div fileWorkBlock="" class="grid grid-cols 2 gap-2">
+                                <div fileWorkBlock="" class="grid grid-cols-2 gap-2">
                                 </div>
                             </div>
                         </div>
@@ -258,9 +258,9 @@ $(document).ready( async function() {
                                         </svg>
                                         <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
                                     </span>
-                                    <input class="hidden" type="file" id="fileComplaints">
+                                    <input class="hidden" type="file" id="fileComplaints" accept="image/*" multiple>
                                 </label>
-                                <div fileComplaintsBlock="" class="grid grid-cols 2 gap-2">
+                                <div fileComplaintsBlock="" class="grid grid-cols-2 gap-2">
                                 </div>
                             </div>
                         </div>
@@ -278,19 +278,54 @@ $(document).ready( async function() {
                                         </svg>
                                         <p class="font-montserrat font-semibold text-sm text-black">Загрузить файл</p>
                                     </span>
-                                    <input class="hidden" type="file" id="fileaddWork">
+                                    <input class="hidden" type="file" id="fileaddWork" accept="image/*" multiple >
                                 </label>
-                                <div fileaddWorkBlock="" class="grid grid-cols 2 gap-2">
+                                <div fileaddWorkBlock="" class="grid grid-cols-2 gap-2">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="flex flex-col gap-2">
-                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="fileWork" type="button">Завершил заказ</button>
-                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="fileComplaints" type="button">Завершил с рекламацией</button>
-                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="fileaddWork" type="button">Доделка</button>
+                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="Work" type="button">Завершил заказ</button>
+                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="Complaints" type="button">Завершил с рекламацией</button>
+                        <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="addWork" type="button">Доделка</button>
                     </div>
                 </div>`);
+                
+            $controlsHtml.find('button').on('click', function(){
+                const typeBtn = $(this).data('btn');
+                if(typeBtn === "Work"){
+                    
+                    order.status = "Completed";
+                    const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
+    
+                    if(oldCountStartedWork > 0){
+                        $('[orderstatus="StartedWork"] > p:eq(1)').text(oldCountStartedWork - 1);
+                    }
+                    
+                }else if(typeBtn === "Complaints"){
+                    order.status = "Complaint";
+                    const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
+                    const oldCountComplaint = Number($('[orderstatus="Complaint"] > p:eq(1)').text() !== undefined ? $('[orderstatus="Complaint"] > p:eq(1)').text() : "0");
+    
+                    if(oldCountStartedWork > 0){
+                        $('[orderstatus="StartedWork"] > p:eq(1)').text(oldCountStartedWork - 1);
+                    }
+                    $('[orderstatus="Complaint"] > p:eq(1)').text(oldCountComplaint + 1);
+                }else if(typeBtn === "addWork"){
+                    order.status = "Extended";
+                    const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
+                    const oldCountExtended = Number($('[orderstatus="Extended"] > p:eq(1)').text() !== undefined ? $('[orderstatus="Extended"] > p:eq(1)').text() : "0");
+    
+                    if(oldCountStartedWork > 0){
+                        $('[orderstatus="StartedWork"] > p:eq(1)').text(oldCountStartedWork - 1);
+                    }
+                    $('[orderstatus="Extended"] > p:eq(1)').text(oldCountExtended + 1);
+                }
+
+                $('[ordercardid="'+ order.id +'"]').remove();
+                $('#Order').dialog('close');
+            });
         }
 
         $dialog.find('[titleCard]').text("№ " + order.name);
@@ -436,6 +471,28 @@ $(document).ready( async function() {
             })
         });
 
+        $('input[type="file"]').on('change', function(){
+            const $item = $(this);
+            const blockName = $item.attr('id');
+            const $block = $('['+ blockName +'Block]');
+            if($block.length > 0){
+                const files = $item.get(0).files;
+                for (let i = 0; i < files.length; i++){
+                    const imgUrl = URL.createObjectURL(files[i]);
+                    const $img = $(`<div ImgCard="" class="w-full h-full relative">
+                            <img class=" object-cover w-full h-full " src="${imgUrl}" alt="Картинка" />
+                            <buttom removeImg="" class="w-5 h-5 absolute right-0 top-0 rounded-full bg-white flex items-center justify-center p-[0.125rem] cursor-pointer">
+                                <img class="w-full h-full object-contain filter-red-600" src="./local/templates/furnitureAssembly/img/icons/X.svg" alt="иконка" />
+                            </ buttom>
+                        </div>`)
+                    $img.find('buttom').on('click', function(){
+                        const $item = $(this);
+                        $item.closest('[ImgCard]').remove();
+                    })
+                    $block.append($img)
+                }
+            }
+        });
         // КАРТА ЯНДЕКС
         ymaps.ready(init(order));
         function init (order) {
@@ -457,8 +514,9 @@ $(document).ready( async function() {
             }))
 
         }
-
-        $('#Order').dialog('open');
+        setTimeout(function(){
+            $('#Order').dialog('open');
+        },10)
     }
 
     // --- Orders end ---

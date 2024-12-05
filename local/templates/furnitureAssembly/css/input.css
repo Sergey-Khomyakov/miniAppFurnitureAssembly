@@ -30,6 +30,10 @@
         filter: brightness(0) saturate(100%) invert(100%) sepia(95%) saturate(0%) hue-rotate(18deg) brightness(104%) contrast(100%);
     }
 
+    .filter-red-600 {
+        filter: brightness(0) saturate(100%) invert(28%) sepia(64%) saturate(6926%) hue-rotate(350deg) brightness(89%) contrast(92%);
+    }
+
     .filter-primary {
         filter: brightness(0) saturate(100%) invert(46%) sepia(96%) saturate(3856%) hue-rotate(226deg) brightness(102%) contrast(100%);
     }

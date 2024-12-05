@@ -164,8 +164,8 @@ $(document).ready( async function() {
 
         if(order.status === "New"){
             $controlsHtml = $(`
-            <div class="w-full">
-                <button class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full justify-center" data-btn="save" type="button">Принять заказ</button>
+            <div class="w-full h-max relative z-10">
+                <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="save" type="button">Принять заказ</button>
             </div>`);
             $controlsHtml.find('button').on('click', function(){
                 order.status = "StartedWork";
@@ -184,39 +184,79 @@ $(document).ready( async function() {
 
         }
         $dialog.find('[titleCard]').text("№ " + order.name);
+
+        const imagesMarkup = order.details.photo.map((item) => {
+            return `<img src="${item.src}" alt="${item.name}" class="w-full h-auto object-cover rounded-sm overflow-hidden"/>`;
+        }).join('');
+
         const $body = $(`
             <div class="flex flex-col gap-4">
                 <div class="flex flex-col gap-2">
-                        <p class="flex items-center gap-2 font-montserrat font-semibold text-black text-xl"> <img class="w-6 h-6 object-contain" src="./local/templates/furnitureAssembly/img/icons/User.svg" alt="иконка">Клиент</p>
-                        <div class="flex flex-col gap-1">
-                            <div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">ФИО: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.client.name}</p>
-                            </div>
-                            <div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">Номер: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.client.phone}</</p>
-                            </div>
-                            <div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">Дополнительный номер: </p>
-                                <p class="font-montserrat font-semibold text-black">+7 999 222-22-99</p>
-                            </div>
-                            <div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">Адрес: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.client.adress}</p>
-                            </div>
+                    <p class="flex items-center gap-2 font-montserrat font-semibold text-black text-xl"> 
+                        <img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/User.svg" alt="иконка">
+                        Клиент
+                    </p>
+                    <div class="flex flex-col gap-1">
+                        <div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">ФИО: </p>
+                            <p class="font-montserrat font-semibold text-black">${order.client.name}</p>
                         </div>
-                        <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
-                            <div id="map" class="w-full h-full"></div>
+                        <div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">Номер: </p>
+                            <p class="font-montserrat font-semibold text-black">${order.client.phone}</</p>
+                        </div>
+                        <div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">Дополнительный номер: </p>
+                            <p class="font-montserrat font-semibold text-black">+7 999 222-22-99</p>
+                        </div>
+                        <div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">Адрес: </p>
+                            <p class="font-montserrat font-semibold text-black">${order.client.adress}</p>
                         </div>
                     </div>
+                    <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
+                        <div id="map" class="w-full h-full"></div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1fr-auto items-center gap-2">
+                    <input type="checkbox" id="details" name="details" class="hidden peer" />
+                    <label for="details", class="flex items-center gap-1 font-montserrat font-semibold text-black text-xl cursor-pointer">
+                        <img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/ClipboardText.svg" alt="иконка">
+                        Подробности
+                    </label>
+                    <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-6 h-6 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
+                    <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
+                        ${order.details.typeOrder !== null ? 
+                            `<div class="flex gap-x-1 items-center flex-wrap">
+                                <p class="font-montserrat font-semibold text-black">Тип заказа: </p>
+                                <p class="font-montserrat font-semibold text-black">${order.details.typeOrder}</p>
+                            </div>` : ""}
+                        ${order.details.workInterval !== null ? 
+                            `<div class="flex gap-x-1 items-center flex-wrap">
+                                <p class="font-montserrat font-semibold text-black">Интервал работ: </p>
+                                <p class="font-montserrat font-semibold text-black">${order.details.workInterval}</p>
+                            </div>` : ""}
+                        ${order.details.dopInfo !== null ? 
+                            `<div class="flex gap-x-1 items-center flex-wrap">
+                                <p class="font-montserrat font-semibold text-black">Дополнительная информация: </p>
+                                <p class="font-montserrat font-semibold text-black">${order.details.dopInfo}</p>
+                            </div>` : ""}
+                        ${order.details.photo.length > 0 ? 
+                            `<div class="flex flex-col gap-1">
+                                <p class="font-montserrat font-semibold text-black">Фото: </p>
+                                <div class="grid grid-cols-2 gap-2">
+                                    ${imagesMarkup}
+                                </div>
+                            </div>` : ""}
+                    </div>
+                </div>
             </div>`)
 
         $body.append($controlsHtml);
 
         $dialogBody.append($body);
 
-        // КАРТА ЯНДЕКС==================================================================================
+        // КАРТА ЯНДЕКС
         ymaps.ready(init(order));
         function init (order) {
             myMap = new ymaps.Map("map", {

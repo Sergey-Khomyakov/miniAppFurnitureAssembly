@@ -1095,6 +1095,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   grid-template-columns: 100%;
 }
 
+.grid-cols-1fr-auto {
+  grid-template-columns: 1fr auto;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1481,6 +1485,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   padding-bottom: 3.25rem;
 }
 
+.pb-24 {
+  padding-bottom: 6rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -1794,8 +1802,21 @@ dialog [dialogBody]::-webkit-scrollbar {
   display: flex;
 }
 
+.peer:checked ~ .peer-checked\:max-h-36 {
+  max-height: 9rem;
+}
+
+.peer:checked ~ .peer-checked\:max-h-\[40rem\] {
+  max-height: 40rem;
+}
+
 .peer:checked ~ .peer-checked\:translate-x-\[1\.25rem\] {
   --tw-translate-x: 1.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.peer:checked ~ .peer-checked\:rotate-180 {
+  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 

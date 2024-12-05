@@ -16,6 +16,33 @@ const Orders = [
                 longitude: "37.4861",
             },
         },
+        details: {
+            typeOrder: "Стандарт",
+            workInterval: "22.11.2024 - 25.11.2024",
+            dopInfo: null,
+            photo: [
+                {
+                    id: 1,
+                    src: "./local/templates/furnitureAssembly/img/other/stub.png",
+                    name: "фото",
+                },
+                {
+                    id: 2,
+                    src: "./local/templates/furnitureAssembly/img/other/stub.png",
+                    name: "фото",
+                }
+            ],
+            files: [],
+            services:[
+                {
+                    id: 1,
+                    name: "Услуга 1",
+                    count: "1",
+                    unitMeasurement: "шт.",
+                    prise: "100",
+                },
+            ]
+        }
     },
     {
         id: 2,
@@ -34,6 +61,33 @@ const Orders = [
                 longitude: "37.4861",
             },
         },
+        details: {
+            typeOrder: "Стандарт",
+            workInterval: "22.11.2024 - 25.11.2024",
+            dopInfo: "Текст",
+            photo: [
+                {
+                    id: 1,
+                    src: "./local/templates/furnitureAssembly/img/",
+                    name: "фото",
+                },
+                {
+                    id: 2,
+                    src: "./local/templates/furnitureAssembly/img/",
+                    name: "фото",
+                }
+            ],
+            files: [],
+            services:[
+                {
+                    id: 1,
+                    name: "Услуга 1",
+                    count: "1",
+                    unitMeasurement: "шт.",
+                    prise: "100",
+                },
+            ]
+        }
     },
     {
         id: 3,
@@ -52,6 +106,33 @@ const Orders = [
                 longitude: "37.4861",
             },
         },
+        details: {
+            typeOrder: "Стандарт",
+            workInterval: "22.11.2024 - 25.11.2024",
+            dopInfo: "Текст",
+            photo: [
+                {
+                    id: 1,
+                    src: "./local/templates/furnitureAssembly/img/",
+                    name: "фото",
+                },
+                {
+                    id: 2,
+                    src: "./local/templates/furnitureAssembly/img/",
+                    name: "фото",
+                }
+            ],
+            files: [],
+            services:[
+                {
+                    id: 1,
+                    name: "Услуга 1",
+                    count: "1",
+                    unitMeasurement: "шт.",
+                    prise: "100",
+                },
+            ]
+        }
     },
     {
         id: 3,
@@ -70,5 +151,32 @@ const Orders = [
                 longitude: "37.4861",
             },
         },
+        details: {
+            typeOrder: "Стандарт",
+            workInterval: "22.11.2024 - 25.11.2024",
+            dopInfo: "Текст",
+            photo: [
+                {
+                    id: 1,
+                    src: "./local/templates/furnitureAssembly/img/",
+                    name: "фото",
+                },
+                {
+                    id: 2,
+                    src: "./local/templates/furnitureAssembly/img/",
+                    name: "фото",
+                }
+            ],
+            files: [],
+            services:[
+                {
+                    id: 1,
+                    name: "Услуга 1",
+                    count: "1",
+                    unitMeasurement: "шт.",
+                    prise: "100",
+                },
+            ]
+        }
     },
 ]

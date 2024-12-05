@@ -904,6 +904,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   height: max-content;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .max-h-0 {
   max-height: 0px;
 }
@@ -1146,6 +1150,11 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .gap-y-1 {
   row-gap: 0.25rem;
+}
+
+.gap-x-1 {
+  -moz-column-gap: 0.25rem;
+       column-gap: 0.25rem;
 }
 
 .space-x-4 > :not([hidden]) ~ :not([hidden]) {
@@ -1462,6 +1471,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .pt-\[0\.75rem\] {
   padding-top: 0.75rem;
+}
+
+.pb-\[3\.25rem\] {
+  padding-bottom: 3.25rem;
 }
 
 .text-left {

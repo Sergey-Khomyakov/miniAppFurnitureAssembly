@@ -11,6 +11,10 @@ const Orders = [
             name: "Иван Иванов",
             phone: "+7 999 999-99-99",
             adress: "г. Москва, ул. Пушкина, д. 1",
+            coordinates: {
+                latitude: "55.9742",
+                longitude: "37.4861",
+            },
         },
     },
     {
@@ -25,6 +29,10 @@ const Orders = [
             name: "Иван Иванов",
             phone: "+7 999 999-99-99",
             adress: "г. Москва, ул. Пушкина, д. 1",
+            coordinates: {
+                latitude: "55.9742",
+                longitude: "37.4861",
+            },
         },
     },
     {
@@ -39,6 +47,10 @@ const Orders = [
             name: "Иван Иванов",
             phone: "+7 999 999-99-99",
             adress: "г. Москва, ул. Пушкина, д. 1",
+            coordinates: {
+                latitude: "55.9742",
+                longitude: "37.4861",
+            },
         },
     },
     {
@@ -53,6 +65,10 @@ const Orders = [
             name: "Иван Иванов",
             phone: "+7 999 999-99-99",
             adress: "г. Москва, ул. Пушкина, д. 1",
+            coordinates: {
+                latitude: "55.9742",
+                longitude: "37.4861",
+            },
         },
     },
 ]

@@ -1,7 +1,7 @@
 mixin nav(active=0, items = [])
     div(class="max-w-[45rem] left-0 sm:left-auto fixed bottom-4 w-full h-max mx-auto")
         div(class="px-3")
-            nav(class="w-full h-16 rounded-lg bg-black grid grid-cols-5 gap-2 py-1 px-2")
+            nav(class="w-full h-16 rounded-lg bg-[#EBE7E7] grid grid-cols-5 gap-2 py-1 px-2")
                 each item, index in items 
                     if index === active
                         div(class="group")
@@ -11,6 +11,6 @@ mixin nav(active=0, items = [])
                     else 
                         div(class="group")
                             a(href=item.link, class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1 group-hover:bg-white")
-                                img(src=item.src,  alt="иконка", class="w-4/5 max-w-6 aspect-1-1 group-hover:filter-black filter-white")
-                                p(class="font-montserrat font-semibold text-xs text-white group-hover:text-black") #{item.text}
+                                img(src=item.src,  alt="иконка", class="w-4/5 max-w-6 aspect-1-1 group-hover:filter-black filter-black")
+                                p(class="font-montserrat font-semibold text-xs text-black ") #{item.text}
 

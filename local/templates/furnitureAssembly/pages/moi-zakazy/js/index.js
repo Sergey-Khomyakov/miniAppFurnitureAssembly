@@ -541,11 +541,8 @@ $(document).ready( async function() {
         },10)
         
         // КАРТА ЯНДЕКС
-        ymaps.ready(init(order));
+        //ymaps.ready(init(order));
     
-        $('body').animate({
-            scrollTop: $('body').offset().top
-        }, 0);
     
         function init (order) {
             myMap = new ymaps.Map("map", {

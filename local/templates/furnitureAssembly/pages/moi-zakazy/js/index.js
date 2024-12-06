@@ -62,10 +62,11 @@ $(document).ready( async function() {
 
         open: function( event, ui ) {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5);"></div>');
-            $('body').animate({
-                scrollTop: 5
-            }, 0);
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
+
+            // КАРТА ЯНДЕКС
+            ymaps.ready(() => init());
+
             $( "#Order" ).css({'margin-top': '-0.5rem'});
         },
         close: function( event, ui ) {
@@ -435,7 +436,7 @@ $(document).ready( async function() {
                          </div>
                      </div>
                      <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
-                         <div id="map" class="w-full h-full"></div>
+                         <div id="map" data-x="${order.client.coordinates.latitude}" data-y="${order.client.coordinates.longitude}" class="w-full h-full"></div>
                      </div>
                 </div>
                 <div cardContent="Details" class="hidden flex-col gap-2">
@@ -548,14 +549,17 @@ $(document).ready( async function() {
                 }
             }
         });
-        $('#Order').dialog('open');
-        // КАРТА ЯНДЕКС
-        ymaps.ready(init(order));
+        setTimeout(function(){
+            $('#Order').dialog('open');
+        },10)
         
 
-        function init (order) {
+        function init () {
+            const latitude = $("#map").data('x');
+            const longitude = $("#map").data('y');
+
             myMap = new ymaps.Map("map", {
-                center: [order.client.coordinates.latitude, order.client.coordinates.longitude], // Углич
+                center: [latitude, longitude], // Углич
                 zoom: 11,
                 controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl', 'routeButtonControl']
             }, {
@@ -563,10 +567,10 @@ $(document).ready( async function() {
                 searchControlProvider: 'yandex#search'
             });
     
-            myMap.setCenter([order.client.coordinates.latitude, order.client.coordinates.longitude], 11, {
+            myMap.setCenter([latitude, longitude], 11, {
                 checkZoomRange: true
             });
-            myMap.geoObjects.add(new ymaps.Placemark([order.client.coordinates.latitude, order.client.coordinates.longitude], {}, {
+            myMap.geoObjects.add(new ymaps.Placemark([latitude, longitude], {}, {
                 preset: 'islands#icon',
                 iconColor: '#0095b6'
             }))

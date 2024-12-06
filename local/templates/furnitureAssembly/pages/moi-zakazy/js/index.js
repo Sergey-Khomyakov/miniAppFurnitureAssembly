@@ -64,8 +64,8 @@ $(document).ready( async function() {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
 
-            // КАРТА ЯНДЕКС
-            ymaps.ready(() => initMap());
+            // КАРТА ЯНДЕКС fix scroll top
+            setTimeout(() => {ymaps.ready(() => initMap())}, 1500)
 
             $( "#Order" ).css({'margin-top': '-0.5rem'});
         },

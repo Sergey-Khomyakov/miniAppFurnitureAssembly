@@ -62,7 +62,7 @@ $(document).ready( async function() {
         open: function( event, ui ) {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').css({'overflow-y': 'hidden'});
-            $( "#Order" ).css({'margin-top': '-1rem'});
+            $( "#Order" ).css({'margin-top': '-0.5rem'});
         },
         close: function( event, ui ) {
             $('#overlay').remove();

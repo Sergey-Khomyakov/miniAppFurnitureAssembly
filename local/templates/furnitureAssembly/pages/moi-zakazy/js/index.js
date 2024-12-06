@@ -59,10 +59,11 @@ $(document).ready( async function() {
           direction: "down", 
           duration: 1000
         },
+
         open: function( event, ui ) {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').animate({
-                scrollTop: 0
+                scrollTop: 5
             }, 0);
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
             $( "#Order" ).css({'margin-top': '-0.5rem'});

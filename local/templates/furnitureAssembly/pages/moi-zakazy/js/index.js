@@ -383,6 +383,14 @@ $(document).ready( async function() {
             return html;
         };
 
+        const historyMarkup = order.history.map((item) => {
+            return `<div class="w-full grid grid-cols-3 gap-2 items-center shadow-md rounded-md py-1 px-3">
+                        <p class="font-montserrat font-semibold text-sm text-black">${item.event}</p>
+                        <p class="font-montserrat font-semibold text-sm text-black">${item.date.split('-').reverse().join('.')}</p>
+                        <p class="font-montserrat font-semibold text-sm text-black text-end">${item.author}</p>
+                    </div>`;
+        }).join('');
+
         const $body = $(`
             <div cardBody="" class="flex flex-col gap-4">
                 ${getStatusHtml(order.status)}
@@ -464,13 +472,13 @@ $(document).ready( async function() {
                 <div cardContent="Services" class="hidden flex-col gap-2">
                     ${order.details.services.length > 0 ? 
                         `<div class="flex flex-col gap-1">
-                            <p class="font-montserrat font-semibold text-black">Услуги: </p>
                             <div class="flex flex-col gap-2 px-1 py-2">
                                 ${servicesMarkup()}
                             </div>
                         </div>` : ""}
                 </div>
                 <div cardContent="History" class="hidden flex-col gap-2">
+                    ${historyMarkup}
                 </div>
                 <div cardContent="Actions" class="hidden flex-col gap-2">
                 </div>

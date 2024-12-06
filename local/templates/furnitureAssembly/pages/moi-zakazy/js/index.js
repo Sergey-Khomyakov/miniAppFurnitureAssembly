@@ -553,7 +553,7 @@ $(document).ready( async function() {
         },10)
         
         // КАРТА ЯНДЕКС
-        ymaps.ready(init(order));
+        //ymaps.ready(init(order));
 
         function init (order) {
             myMap = new ymaps.Map("map", {

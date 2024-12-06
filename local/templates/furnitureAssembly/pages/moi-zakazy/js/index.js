@@ -127,7 +127,10 @@ $(document).ready( async function() {
                 const $order = $(`
                     <div orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
                         <div class="flex flex-col gap-2 py-1">
-                            <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
+                                <p class="font-montserrat font-semibold text-sm text-black">Дата заказа: ${item.date.split('-').reverse().join('.')}</p>
+                            </div>
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex flex-col">
                                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">Клиент:</p>
@@ -377,85 +380,125 @@ $(document).ready( async function() {
         };
 
         const $body = $(`
-            <div class="flex flex-col gap-4">
-                <div class="flex flex-col gap-2">
-                    <p class="flex items-center gap-2 font-montserrat font-semibold text-black text-xl"> 
-                        <img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/User.svg" alt="иконка">
-                        Клиент
-                    </p>
-                    <div class="flex flex-col gap-1">
-                        <div class="flex gap-x-1 items-center flex-wrap">
-                            <p class="font-montserrat font-semibold text-black">ФИО: </p>
-                            <p class="font-montserrat font-semibold text-black">${order.client.name}</p>
-                        </div>
-                        <div class="flex gap-x-1 items-center flex-wrap">
-                            <p class="font-montserrat font-semibold text-black">Номер: </p>
-                            <p class="font-montserrat font-semibold text-black">${order.client.phone}</</p>
-                        </div>
-                        <div class="flex gap-x-1 items-center flex-wrap">
-                            <p class="font-montserrat font-semibold text-black">Дополнительный номер: </p>
-                            <p class="font-montserrat font-semibold text-black">+7 999 222-22-99</p>
-                        </div>
-                        <div class="flex gap-x-1 items-center flex-wrap">
-                            <p class="font-montserrat font-semibold text-black">Адрес: </p>
-                            <p class="font-montserrat font-semibold text-black">${order.client.adress}</p>
-                        </div>
+            <div cardBody="" class="flex flex-col gap-4">
+                ${getStatusHtml(order.status)}
+                <div class="flex gap-2 items-center">
+                    <p class="font-montserrat font-semibold text-base text-black">Дата заказа: </p>
+                    <p class="font-montserrat font-semibold text-sm text-gray-400">${order.date.split('-').reverse().join('.')}</p>
+                </div>
+                <div navCard="" class="flex flex-wrap gap-y-1 gap-x-2 items-center">
+                    <div data-active="true" navContent="Client" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary">
+                        <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Клиент</p>
                     </div>
-                    <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
-                        <div id="map" class="w-full h-full"></div>
+                    <div data-active="false" navContent="Details" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black">
+                        <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Подробности</p>
+                    </div>
+                    <div data-active="false" navContent="Services" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black">
+                        <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Услуги</p>
+                    </div>
+                    <div data-active="false" navContent="History" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black">
+                        <p class="font-montserrat font-semibold text-xs text-white text-nowrap">История</p>
+                    </div>
+                    <div data-active="false" navContent="Actions" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black">
+                        <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Действия</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-1fr-auto items-center gap-2">
-                    <input type="checkbox" id="details" name="details" class="hidden peer" />
-                    <label for="details", class="flex items-center gap-1 font-montserrat font-semibold text-black text-xl cursor-pointer">
-                        <img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/ClipboardText.svg" alt="иконка">
-                        Подробности
-                    </label>
-                    <img src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" alt="иконка" class="w-6 h-6 object-contain filter-black transition-all peer-checked:rotate-180 ml-auto" />
-                    <div class="flex flex-col gap-2 w-full col-span-2 max-h-0 peer-checked:max-h-[40rem] overflow-hidden transition-all ease-in-out delay-150">
-                        ${order.details.typeOrder !== null ? 
-                            `<div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">Тип заказа: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.details.typeOrder}</p>
-                            </div>` : ""}
-                        ${order.details.workInterval !== null ? 
-                            `<div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">Интервал работ: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.details.workInterval}</p>
-                            </div>` : ""}
-                        ${order.details.dopInfo !== null ? 
-                            `<div class="flex gap-x-1 items-center flex-wrap">
-                                <p class="font-montserrat font-semibold text-black">Дополнительная информация: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.details.dopInfo}</p>
-                            </div>` : ""}
-                        ${order.details.photo.length > 0 ? 
-                            `<div class="flex flex-col gap-1">
-                                <p class="font-montserrat font-semibold text-black">Фото: </p>
-                                <div class="grid grid-cols-2 gap-2">
-                                    ${imagesMarkup}
-                                </div>
-                            </div>` : ""}
-                        ${order.details.files.length > 0 ? 
-                            `<div class="flex flex-col gap-1">
-                                <p class="font-montserrat font-semibold text-black">Файлы: </p>
-                                <div class="flex flex-col gap-2">
-                                    ${filesMarkup}
-                                </div>
-                            </div>` : ""}
-                        ${order.details.services.length > 0 ? 
-                            `<div class="flex flex-col gap-1">
-                                <p class="font-montserrat font-semibold text-black">Услуги: </p>
-                                <div class="flex flex-col gap-2 px-1 py-2">
-                                    ${servicesMarkup()}
-                                </div>
-                            </div>` : ""}
-                    </div>
+                <div cardContent="Client" class="flex flex-col gap-2">
+                     <div class="flex flex-col gap-1">
+                         <div class="flex gap-x-1 items-center flex-wrap">
+                             <p class="font-montserrat font-semibold text-black">ФИО: </p>
+                             <p class="font-montserrat font-semibold text-black">${order.client.name}</p>
+                         </div>
+                         <div class="flex gap-x-1 items-center flex-wrap">
+                             <p class="font-montserrat font-semibold text-black">Номер: </p>
+                             <p class="font-montserrat font-semibold text-black">${order.client.phone}</</p>
+                         </div>
+                         <div class="flex gap-x-1 items-center flex-wrap">
+                             <p class="font-montserrat font-semibold text-black">Дополнительный номер: </p>
+                             <p class="font-montserrat font-semibold text-black">+7 999 222-22-99</p>
+                         </div>
+                         <div class="flex gap-x-1 items-center flex-wrap">
+                             <p class="font-montserrat font-semibold text-black">Адрес: </p>
+                             <p class="font-montserrat font-semibold text-black">${order.client.adress}</p>
+                         </div>
+                     </div>
+                     <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
+                         <div id="map" class="w-full h-full"></div>
+                     </div>
                 </div>
-            </div>`)
+                <div cardContent="Details" class="hidden flex-col gap-2">
+                    ${order.details.typeOrder !== null ? 
+                        `<div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">Тип заказа: </p>
+                            <p class="font-montserrat font-semibold text-black">${order.details.typeOrder}</p>
+                        </div>` : ""}
+                    ${order.details.workInterval !== null ? 
+                        `<div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">Интервал работ: </p>
+                            <p class="font-montserrat font-semibold text-black">${order.details.workInterval}</p>
+                        </div>` : ""}
+                    ${order.details.dopInfo !== null ? 
+                        `<div class="flex gap-x-1 items-center flex-wrap">
+                            <p class="font-montserrat font-semibold text-black">Дополнительная информация: </p>
+                            <p class="font-montserrat font-semibold text-black">${order.details.dopInfo}</p>
+                        </div>` : ""}
+                    ${order.details.photo.length > 0 ? 
+                        `<div class="flex flex-col gap-1">
+                            <p class="font-montserrat font-semibold text-black">Фото: </p>
+                            <div class="grid grid-cols-2 gap-2">
+                                ${imagesMarkup}
+                            </div>
+                        </div>` : ""}
+                    ${order.details.files.length > 0 ? 
+                        `<div class="flex flex-col gap-1">
+                            <p class="font-montserrat font-semibold text-black">Файлы: </p>
+                            <div class="flex flex-col gap-2">
+                                ${filesMarkup}
+                            </div>
+                        </div>` : ""}
+                </div>
+                <div cardContent="Services" class="hidden flex-col gap-2">
+                    ${order.details.services.length > 0 ? 
+                        `<div class="flex flex-col gap-1">
+                            <p class="font-montserrat font-semibold text-black">Услуги: </p>
+                            <div class="flex flex-col gap-2 px-1 py-2">
+                                ${servicesMarkup()}
+                            </div>
+                        </div>` : ""}
+                </div>
+                <div cardContent="History" class="hidden flex-col gap-2">
+                </div>
+                <div cardContent="Actions" class="hidden flex-col gap-2">
+                </div>
+            </div>`);
 
-        $body.append($controlsHtml);
+        $body.find('[cardContent="Actions"]').append($controlsHtml);
 
         $dialogBody.append($body);
+
+        $('[navContent]').on('click', function(){
+            const $item = $(this);
+            const isActive = $item.data('active');
+            
+            if(Boolean(isActive)){
+                return;
+            }
+            const $parent = $item.closest('[cardBody]');
+            const $oldActiveNav = $parent.find('[data-active="true"]');
+            const oldNavContentName = $oldActiveNav.attr('navContent');
+        
+            const $oldActiveContent = $parent.find('[cardContent="'+ oldNavContentName +'"]');
+        
+            // Remove old Content
+            $oldActiveNav.attr('data-active', 'false').removeClass('bg-primary').addClass('bg-black');
+            $oldActiveContent.removeClass('flex').addClass('hidden');
+        
+            // Activate new Content
+            const newNavContentName = $item.attr('navContent');
+            const $newActiveContent = $parent.find('[cardContent="'+ newNavContentName +'"]');
+            $item.attr('data-active', 'true').removeClass('bg-black').addClass('bg-primary');
+            $newActiveContent.addClass('flex').removeClass('hidden');
+        });
 
         $('button[data-file]').on('click', function(){
             const $item = $(this);
@@ -519,6 +562,45 @@ $(document).ready( async function() {
         },10)
     }
 
+    function getStatusHtml(statusName){
+
+        if(statusName === "New"){
+            return `<div class="flex gap-2 items-center">
+                    <p class="font-montserrat font-semibold text-base text-black">Статус заказа: </p>
+                    <p class="font-montserrat font-semibold text-sm text-green-500">Новый</p>
+                </div>`;
+        }
+
+        if(statusName === "StartedWork"){
+            return `<div class="flex gap-2 items-center">
+                    <p class="font-montserrat font-semibold text-base text-black">Статус заказа: </p>
+                    <p class="font-montserrat font-semibold text-sm text-amber-500">В работе</p>
+                </div>`;
+        }
+
+        if(statusName === "Extended"){
+            return `<div class="flex gap-2 items-center">
+                    <p class="font-montserrat font-semibold text-base text-black">Статус заказа: </p>
+                    <p class="font-montserrat font-semibold text-sm text-green-700">Продлен</p>
+                </div>`;
+        }
+
+        if(statusName === "Complaint"){
+            return `<div class="flex gap-2 items-center">
+                    <p class="font-montserrat font-semibold text-base text-black">Статус заказа: </p>
+                    <p class="font-montserrat font-semibold text-sm text-gray-500">Рекламация</p>
+                </div>`;
+        }
+
+        if(statusName === "Interrupted"){
+            return `<div class="flex gap-2 items-center">
+                    <p class="font-montserrat font-semibold text-base text-black">Статус заказа: </p>
+                    <p class="font-montserrat font-semibold text-sm text-red-600">Прерван</p>
+                </div>`;
+        }
+
+        return '';
+    }
     // --- Orders end ---
 
 

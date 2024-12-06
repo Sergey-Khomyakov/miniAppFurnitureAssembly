@@ -1103,6 +1103,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   grid-template-columns: 100%;
 }
 
+.grid-cols-auto-auto {
+  grid-template-columns: auto auto;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1617,6 +1621,16 @@ dialog [dialogBody]::-webkit-scrollbar {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text-green-700 {
+  --tw-text-opacity: 1;
+  color: rgb(21 128 61 / var(--tw-text-opacity, 1));
+}
+
+.text-red-600 {
+  --tw-text-opacity: 1;
+  color: rgb(220 38 38 / var(--tw-text-opacity, 1));
 }
 
 .opacity-0 {

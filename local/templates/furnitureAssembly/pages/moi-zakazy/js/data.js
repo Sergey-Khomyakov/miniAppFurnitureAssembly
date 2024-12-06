@@ -62,7 +62,16 @@ const Orders = [
                     prise: "100",
                 },
             ]
-        }
+        },
+        date: "2024-12-06",
+        history: [
+            {
+                id: 1,
+                date: "2024-12-06",
+                event: "Поступил заказ",
+                author: "Ямпольский А.И.",
+            }
+        ]
     },
     {
         id: 2,
@@ -88,7 +97,16 @@ const Orders = [
             photo: [],
             files: [],
             services:[]
-        }
+        },
+        date: "2024-12-06",
+        history: [
+            {
+                id: 1,
+                date: "2024-12-06",
+                event: "Поступил заказ",
+                author: "Ямпольский А.И.",
+            }
+        ]
     },
     {
         id: 3,
@@ -114,7 +132,16 @@ const Orders = [
             photo: [],
             files: [],
             services:[]
-        }
+        },
+        date: "2024-12-06",
+        history: [
+            {
+                id: 1,
+                date: "2024-12-06",
+                event: "Поступил заказ",
+                author: "Ямпольский А.И.",
+            }
+        ]
     },
     {
         id: 3,
@@ -140,6 +167,15 @@ const Orders = [
             photo: [],
             files: [],
             services:[]
-        }
+        },
+        date: "2024-12-06",
+        history: [
+            {
+                id: 1,
+                date: "2024-12-06",
+                event: "Поступил заказ",
+                author: "Ямпольский А.И.",
+            }
+        ]
     },
 ]

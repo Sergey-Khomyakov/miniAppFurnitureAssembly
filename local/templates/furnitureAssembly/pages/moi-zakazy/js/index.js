@@ -536,8 +536,17 @@ $(document).ready( async function() {
                 }
             }
         });
+        setTimeout(function(){
+            $('#Order').dialog('open');
+        },10)
+        
         // КАРТА ЯНДЕКС
         ymaps.ready(init(order));
+    
+        $('body').animate({
+            scrollTop: $('body').offset().top
+        }, 0);
+    
         function init (order) {
             myMap = new ymaps.Map("map", {
                 center: [order.client.coordinates.latitude, order.client.coordinates.longitude], // Углич
@@ -547,7 +556,7 @@ $(document).ready( async function() {
                 balloonMaxWidth: 200,
                 searchControlProvider: 'yandex#search'
             });
-
+    
             myMap.setCenter([order.client.coordinates.latitude, order.client.coordinates.longitude], 11, {
                 checkZoomRange: true
             });
@@ -555,11 +564,7 @@ $(document).ready( async function() {
                 preset: 'islands#icon',
                 iconColor: '#0095b6'
             }))
-
         }
-        setTimeout(function(){
-            $('#Order').dialog('open');
-        },10)
     }
 
     function getStatusHtml(statusName){

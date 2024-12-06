@@ -61,12 +61,15 @@ $(document).ready( async function() {
         },
         open: function( event, ui ) {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5);"></div>');
-            $('body').css({'overflow-y': 'hidden'});
+            $('body').animate({
+                scrollTop: 0
+            }, 0);
+            $('body').css({'overflow-y': 'hidden', "height": "100vh"});
             $( "#Order" ).css({'margin-top': '-0.5rem'});
         },
         close: function( event, ui ) {
             $('#overlay').remove();
-            $('body').css({'overflow-y': 'scroll'});
+            $('body').css({'overflow-y': 'auto', "height": "unset"});
             $( "#Order" ).css({'margin-top': '0'});
         },
         width: $(window).width(), // Устанавливаем ширину окна
@@ -542,8 +545,7 @@ $(document).ready( async function() {
         
         // КАРТА ЯНДЕКС
         ymaps.ready(init(order));
-    
-    
+
         function init (order) {
             myMap = new ymaps.Map("map", {
                 center: [order.client.coordinates.latitude, order.client.coordinates.longitude], // Углич

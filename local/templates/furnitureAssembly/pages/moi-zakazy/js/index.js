@@ -548,10 +548,10 @@ $(document).ready( async function() {
                 }
             }
         });
+        $('#Order').dialog('open');
         // КАРТА ЯНДЕКС
         ymaps.ready(init(order));
         
-        $('#Order').dialog('open');
 
         function init (order) {
             myMap = new ymaps.Map("map", {

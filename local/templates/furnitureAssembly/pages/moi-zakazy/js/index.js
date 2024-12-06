@@ -65,7 +65,7 @@ $(document).ready( async function() {
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
 
             // КАРТА ЯНДЕКС
-            ymaps.ready(() => init());
+            ymaps.ready(() => initMap());
 
             $( "#Order" ).css({'margin-top': '-0.5rem'});
         },
@@ -553,28 +553,6 @@ $(document).ready( async function() {
             $('#Order').dialog('open');
         },10)
         
-
-        function init () {
-            const latitude = $("#map").data('x');
-            const longitude = $("#map").data('y');
-
-            myMap = new ymaps.Map("map", {
-                center: [latitude, longitude], // Углич
-                zoom: 11,
-                controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl', 'routeButtonControl']
-            }, {
-                balloonMaxWidth: 200,
-                searchControlProvider: 'yandex#search'
-            });
-    
-            myMap.setCenter([latitude, longitude], 11, {
-                checkZoomRange: true
-            });
-            myMap.geoObjects.add(new ymaps.Placemark([latitude, longitude], {}, {
-                preset: 'islands#icon',
-                iconColor: '#0095b6'
-            }))
-        }
     }
 
     function getStatusHtml(statusName){
@@ -619,4 +597,25 @@ $(document).ready( async function() {
     // --- Orders end ---
 
 
+    function initMap () {
+        const latitude = $("#map").data('x');
+        const longitude = $("#map").data('y');
+
+        myMap = new ymaps.Map("map", {
+            center: [latitude, longitude], // Углич
+            zoom: 11,
+            controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl', 'routeButtonControl']
+        }, {
+            balloonMaxWidth: 200,
+            searchControlProvider: 'yandex#search'
+        });
+
+        myMap.setCenter([latitude, longitude], 11, {
+            checkZoomRange: true
+        });
+        myMap.geoObjects.add(new ymaps.Placemark([latitude, longitude], {}, {
+            preset: 'islands#icon',
+            iconColor: '#0095b6'
+        }))
+    }
 });

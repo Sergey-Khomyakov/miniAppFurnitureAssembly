@@ -1,0 +1,37 @@
+.air-datepicker{
+    --adp-background-color: #EBE7E7;
+    --adp-border-color-inline: #EBE7E7;
+    --adp-width: 100%;
+    --adp-font-family: "Montserrat";
+    --adp-accent-color: #6968FF;
+    --adp-cell-background-color-selected: #6968FF;
+    --adp-cell-background-color-selected-hover: #5353fd;
+}
+
+[data-action="prev"] {
+    order: 1;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+[data-action="next"] {
+    order: 2;
+}
+
+nav.air-datepicker-nav {
+    justify-content: start;
+}
+
+.air-datepicker-nav--title {
+    font-size: 1.125rem;
+}
+
+.air-datepicker-body--cells {
+    gap: 0.5rem;
+}
+
+.air-datepicker-cell.-day- {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+}

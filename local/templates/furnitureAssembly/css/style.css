@@ -1294,6 +1294,11 @@ dialog [dialogBody]::-webkit-scrollbar {
   border-color: rgb(105 104 255 / var(--tw-border-opacity, 1));
 }
 
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(64 64 64 / var(--tw-border-opacity, 1));
+}
+
 .bg-\[\#EBE7E7\] {
   --tw-bg-opacity: 1;
   background-color: rgb(235 231 231 / var(--tw-bg-opacity, 1));
@@ -1352,6 +1357,11 @@ dialog [dialogBody]::-webkit-scrollbar {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+}
+
+.bg-\[\#F3BABA\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 186 186 / var(--tw-bg-opacity, 1));
 }
 
 .object-contain {

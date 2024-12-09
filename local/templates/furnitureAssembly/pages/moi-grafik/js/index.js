@@ -9,6 +9,7 @@ $(document).ready( async function() {
     }
 
     const Calendar = new AirDatepicker('#calendar', {
-        inline: true
+        inline: true,
+
     })
 });

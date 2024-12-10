@@ -75,7 +75,7 @@ $(document).ready( async function() {
         },
 
         open: function( event, ui ) {
-            $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5);"></div>');
+            $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
 
             $( "#Order" ).css({'margin-top': '-0.5rem'});
@@ -116,7 +116,7 @@ $(document).ready( async function() {
         },
 
         open: function( event, ui ) {
-            $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100vh; background-color: rgba(0, 0, 0, 0.5);"></div>');
+            $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
 
             // КАРТА ЯНДЕКС fix scroll top

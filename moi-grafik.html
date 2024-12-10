@@ -25,8 +25,11 @@
           </div>
           <div class="px-4">
             <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 flex flex-col gap-3 mb-24">
-              <div class="w-full h-auto flex items-center gap-2"><img class="ml-auto w-6 h-6 object-contain filter-gray-400 cursor-pointer" help="" src="./local/templates/furnitureAssembly/img/icons/Question.svg" alt="иконка"></div>
-              <div class="flex flex-col gap-4"></div>
+              <div class="w-full h-auto grid grid-cols-1fr-auto gap-2">
+                <p class="font-montserrat font-normal text-xl text-black" calendarSelectDay="">Сегодня</p>
+                <div class="flex gap-2 items-center" btnNav=""><img class="ml-auto w-6 h-6 object-contain filter-gray-400 cursor-pointer" help="" src="./local/templates/furnitureAssembly/img/icons/Question.svg" alt="иконка"></div>
+              </div>
+              <div class="flex flex-col gap-4" orderBody=""></div>
             </div>
           </div>
           <div class="max-w-[45rem] left-0 sm:left-auto fixed bottom-4 w-full h-max mx-auto">
@@ -61,7 +64,8 @@
                 </div>
               </div>
               <p class="font-montserrat font-semibold text-sm text-black">Можно назначать выходной не ранее чем через 3 дня от текущей даты.</p>
-              <p class="font-montserrat font-semibold text-sm text-black">Eсли у вас произошли изменения в ближайшие 3 дня - звоните Диспетчеру +7 000 000 00 00</p>
+              <p class="font-montserrat font-semibold text-sm text-black">
+                 Eсли у вас произошли изменения в ближайшие 3 дня - звоните Диспетчеру <br>+7 000 000 00 00</p>
             </div>
           </dialog>
           <dialog class="rounded-xl" id="Order">
@@ -78,7 +82,7 @@
     <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-ui.min.js"></script>
     <script src="./local/templates/furnitureAssembly/libs/air-datepicker-3.4.0/air-datepicker.js"></script>
     <script src="./local/templates/furnitureAssembly/js/common.js"></script>
-    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/data.js?v=6"></script>
-    <script src="./local/templates/furnitureAssembly/pages/moi-grafik/js/index.js?v=2"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/data.js?v=7"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-grafik/js/index.js?v=3"></script>
   </body>
 </html>

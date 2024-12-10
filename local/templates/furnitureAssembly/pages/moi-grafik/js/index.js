@@ -10,6 +10,37 @@ $(document).ready( async function() {
 
     const Calendar = new AirDatepicker('#calendar', {
         inline: true,
+        dateFormat(date) {
+            return date.toLocaleString('ru', {
+                day: '2-digit',
+                month: 'long'
+            });
+        },
+        onSelect: function(data) {
+            $('[calendarSelectDay]').text(data.formattedDate); // dd mm
+
+            const $btnNav = $('[btnNav]');
+            if(isSetDayOff(data.date)){
+                if($btnNav.find('button').length === 0){
+                    const $btn = $('<button type="button" data-day="'+ data.date.getDate() +'" data-month="'+ data.date.getMonth() +'" data-year="'+ data.date.getFullYear() +'" class="font-montserrat font-normal text-sm text-black hover:text-primary">Взять выходной</button>');
+                    
+                    $btn.on('click', function(){
+                        const $item = $(this);
+                        const selectDay = $item.attr('data-day');
+                        const selectMonth = $item.attr('data-month');
+                        const selectYear = $item.attr('data-year');
+                        $('[data-year="'+ selectYear +'"][data-month="'+ selectMonth +'"][data-date="'+ selectDay +'"]').addClass('-weekenduser-');
+                    });
+                    $btnNav.prepend($btn);
+                }else{
+                    $btnNav.find('button').attr('data-day', data.date.getDate()).attr('data-month', data.date.getMonth()).attr('data-year', data.date.getFullYear());
+                }
+            }else{
+                $btnNav.find('button').remove();
+            }
+
+            loadingOrders(data.date)
+        }
     });
 
     $( "#Help" ).dialog({
@@ -85,9 +116,7 @@ $(document).ready( async function() {
         height: $(window).height(), // Устанавливаем высоту окна
         position: { my: "left top", at: "left top", of: "body" },
       });
-
-
-    });
+});
 
     // --- Orders start ---
     function CallModal(order){
@@ -170,9 +199,6 @@ $(document).ready( async function() {
                     </div>
                     <div data-active="false" navContent="History" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black">
                         <p class="font-montserrat font-semibold text-xs text-white text-nowrap">История</p>
-                    </div>
-                    <div data-active="false" navContent="Actions" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black">
-                        <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Действия</p>
                     </div>
                 </div>
                 <div cardContent="Client" class="flex flex-col gap-2">
@@ -326,4 +352,64 @@ $(document).ready( async function() {
 
         return '';
     }
+
+    function loadingOrders(date){
+        const userId = 1; // TODO: set current user id
+        const orderItems = Orders.filter((item) => item.user.id === userId && item.date === date.toISOString().split('T')[0]);
+        const $orderContainer = $('[orderBody]');
+        $orderContainer.empty();
+
+        if(orderItems.length > 0){
+            orderItems.forEach((item) => {
+                const $order = $(`
+                    <div orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
+                        <div class="flex flex-col gap-2 py-1">
+                            <div class="grid grid-cols-2 gap-4">
+                                <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
+                                <p class="font-montserrat font-semibold text-sm text-black">Дата заказа: ${item.date.split('-').reverse().join('.')}</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="flex flex-col">
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">Клиент:</p>
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.name}</p>
+                                </div>
+                                <div class="flex flex-col">
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">Номер клиента:</p>
+                                    <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.phone}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
+                $order.on('click', function(){
+                    const $item = $(this);
+                    const id = $item.attr('orderCardId');
+                    const order = Orders.find((item) => item.id === Number(id));
+
+                    if(order === undefined){
+                        return;
+                    }
+
+                    CallModal(order);
+                });
+                $orderContainer.append($order);
+            });
+        }
+    }
     // --- Orders end ---
+
+    function isSetDayOff(date) {
+        const today = new Date();
+        const currentDay = today.getDate(); // Текущий день месяца
+        const currentMonth = today.getMonth(); // Текущий месяц
+        const currentYear = today.getFullYear(); // Текущий год
+
+        if (date.getDate() > currentDay + 3) {
+            return true;
+        }
+
+        if (date.getMonth() > currentMonth || date.getFullYear() > currentYear) {
+            return true;
+        }
+
+        return false;
+    }

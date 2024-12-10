@@ -1,4 +1,4 @@
-.air-datepicker{
+.air-datepicker {
     --adp-background-color: #EBE7E7;
     --adp-border-color-inline: #EBE7E7;
     --adp-width: 100%;
@@ -37,17 +37,29 @@ nav.air-datepicker-nav {
     border-radius: 100%;
 }
 
-.air-datepicker-cell.-year-.-other-decade-,.air-datepicker-cell.-day-.-other-month- {
+.air-datepicker-cell.-year-.-other-decade-,
+.air-datepicker-cell.-day-.-other-month- {
     color: var(--adp-nav-color-secondary);
 }
 
-.air-datepicker-nav--title i{
+.air-datepicker-nav--title i {
     color: var(--adp-color-current-date);
 }
+
 .air-datepicker-body--day-names {
     gap: 0.5rem;
     justify-items: center;
 }
-.air-datepicker-nav{
+
+.air-datepicker-nav {
     border-color: rgb(255 255 255 / 40%);
+}
+
+.air-datepicker-cell.-month-,
+.air-datepicker-cell.-year- {
+    padding: 0 1rem;
+}
+
+.air-datepicker-cell.-weekenduser- {
+    background: #F3BABA;
 }

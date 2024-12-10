@@ -17,6 +17,7 @@ $(document).ready( async function() {
             });
         },
         onSelect: function(data) {
+            const selectDate = data.date.getFullYear() + "-" + (data.date.getMonth() + 1) + "-" + data.date.getDate();
             if(data.date.getFullYear() === new Date().getFullYear() && data.date.getMonth() === new Date().getMonth() && data.date.getDate() === new Date().getDate()){
                 $('[calendarSelectDay]').text("Сегодня");
             }else{
@@ -24,7 +25,10 @@ $(document).ready( async function() {
             }
 
             const $btnNav = $('[btnNav]');
-            if(isSetDayOff(data.date)){
+            
+            const orderCount = Orders.filter((item) => item.date === selectDate).length;
+
+            if(isSetDayOff(data.date) && orderCount === 0){
                 const $calendarSelect = $('[data-year="'+ data.date.getFullYear() +'"][data-month="'+ data.date.getMonth() +'"][data-date="'+ data.date.getDate() +'"]');
                 let btnText = "";
                 if(!$calendarSelect.hasClass('-weekenduser-')){
@@ -64,7 +68,6 @@ $(document).ready( async function() {
         },
         onRenderCell({date, cellType}) {
             const cellDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-            console.log(cellDate);
             const orderCount = Orders.filter((item) => item.date === cellDate).length;
             return {
                 html: `<div class="flex gap-1">
@@ -442,11 +445,7 @@ $(document).ready( async function() {
         const currentMonth = today.getMonth(); // Текущий месяц
         const currentYear = today.getFullYear(); // Текущий год
 
-        if (date.getDate() > currentDay + 3) {
-            return true;
-        }
-
-        if (date.getMonth() > currentMonth || date.getFullYear() > currentYear) {
+        if (date.getDate() > currentDay + 3 && (date.getMonth() >= currentMonth || date.getFullYear() >= currentYear) ) {
             return true;
         }
 

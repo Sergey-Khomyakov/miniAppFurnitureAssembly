@@ -17,11 +17,13 @@ $(document).ready( async function() {
         open: function( event, ui ) {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').css({'overflow-y': 'hidden'});
+            $('[dialogbody]').addClass('overflow-y-auto')
             $( "#locationModal" ).css({'margin-top': '-1rem'});
         },
         close: function( event, ui ) {
             $('#overlay').remove();
             $('body').css({'overflow-y': 'scroll'});
+            $('[dialogbody]').removeClass('overflow-y-auto')
             $( "#locationModal" ).css({'margin-top': '0'});
         },
         width: $(window).width(), // Устанавливаем ширину окна

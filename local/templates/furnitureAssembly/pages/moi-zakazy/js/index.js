@@ -63,7 +63,7 @@ $(document).ready( async function() {
         open: function( event, ui ) {
             $('body').append('<div id="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>');
             $('body').css({'overflow-y': 'hidden', "height": "100vh"});
-
+            $('[dialogbody]').addClass('overflow-y-auto')
             // КАРТА ЯНДЕКС fix scroll top
             setTimeout(() => {ymaps.ready(() => initMap())}, 1500)
 
@@ -72,6 +72,7 @@ $(document).ready( async function() {
         close: function( event, ui ) {
             $('#overlay').remove();
             $('body').css({'overflow-y': 'auto', "height": "unset"});
+            $('[dialogbody]').removeClass('overflow-y-auto')
             $( "#Order" ).css({'margin-top': '0'});
         },
         width: $(window).width(), // Устанавливаем ширину окна

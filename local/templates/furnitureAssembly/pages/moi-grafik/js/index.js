@@ -133,6 +133,8 @@ $(document).ready( async function() {
         height: $(window).height(), // Устанавливаем высоту окна
         position: { my: "left top", at: "left top", of: "body" },
       });
+
+      loadingOrders(new Date());
 });
 
     // --- Orders start ---
@@ -372,7 +374,11 @@ $(document).ready( async function() {
 
     function loadingOrders(date){
         const userId = 1; // TODO: set current user id
-        const orderItems = Orders.filter((item) => item.user.id === userId && item.date === date.toISOString().split('T')[0]);
+        const dateDay = date.getDate();
+        const dateMonth = date.getMonth() + 1;
+        const dateYear = date.getFullYear();
+
+        const orderItems = Orders.filter((item) => item.user.id === userId && item.date === `${dateYear}-${dateMonth}-${dateDay}`);
         const $orderContainer = $('[orderBody]');
         $orderContainer.empty();
 

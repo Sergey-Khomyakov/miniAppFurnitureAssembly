@@ -22,102 +22,355 @@
             <p class="font-montserrat font-semibold text-base text-black" userName="">Иванов Иван</p>
           </div>
           <div class="px-4">
-            <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 flex flex-col gap-3 mb-24">
-              <div class="flex flex-col gap-1">
-                <div class="grid grid-cols-auto-1fr gap-2">
-                  <p class="font-montserrat font-normal text-sm text-black">Филиал:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">Москва</p>
+            <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 mb-24 flex flex-col gap-4" cardbody="">
+              <div class="flex flex-wrap gap-y-1 gap-x-2 items-center" navcar="">
+                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary" navcontent="profile" data-active="true">
+                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Профиль</p>
                 </div>
-                <div class="grid grid-cols-auto-1fr gap-2">
-                  <p class="font-montserrat font-normal text-sm text-black">Бригада:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">Мытищи</p>
-                </div>
-                <div class="grid grid-cols-auto-1fr gap-2">
-                  <p class="font-montserrat font-normal text-sm text-black">Номер телефона:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">+7 (999) 888 76 44</p>
-                </div>
-                <div class="grid grid-cols-auto-1fr gap-2">
-                  <p class="font-montserrat font-normal text-sm text-black">E-mail:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">user@email.com</p>
-                </div>
-                <div class="grid grid-cols-auto-1fr gap-2">
-                  <p class="font-montserrat font-normal text-sm text-black">Дата Рождения:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">23 апреля</p>
-                </div>
-                <div class="grid grid-cols-auto-1fr gap-2">
-                  <p class="font-montserrat font-normal text-sm text-black">Владелец АМ:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">Mitsubishi т768ср790</p>
+                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" navcontent="anketa" data-active="false">
+                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Анкета</p>
                 </div>
               </div>
-              <div class="flex flex-col gap-1">
-                <div class="grid grid-cols-full">
-                  <p class="font-montserrat font-normal text-sm text-black">Адрес:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">г.Москва, ул.Московская д.15 кв.4</p>
+              <div class="flex flex-col gap-3" cardcontent="profile">
+                <div class="flex flex-col gap-1">
+                  <div class="grid grid-cols-auto-1fr gap-2">
+                    <p class="font-montserrat font-normal text-sm text-black">Филиал:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">Москва</p>
+                  </div>
+                  <div class="grid grid-cols-auto-1fr gap-2">
+                    <p class="font-montserrat font-normal text-sm text-black">Бригада:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">Мытищи</p>
+                  </div>
+                  <div class="grid grid-cols-auto-1fr gap-2">
+                    <p class="font-montserrat font-normal text-sm text-black">Номер телефона:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">+7 (999) 888 76 44</p>
+                  </div>
+                  <div class="grid grid-cols-auto-1fr gap-2">
+                    <p class="font-montserrat font-normal text-sm text-black">E-mail:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">user@email.com</p>
+                  </div>
+                  <div class="grid grid-cols-auto-1fr gap-2">
+                    <p class="font-montserrat font-normal text-sm text-black">Дата Рождения:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">23 апреля</p>
+                  </div>
+                  <div class="grid grid-cols-auto-1fr gap-2">
+                    <p class="font-montserrat font-normal text-sm text-black">Владелец АМ:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">Mitsubishi т768ср790</p>
+                  </div>
                 </div>
-                <div class="grid grid-cols-full">
-                  <p class="font-montserrat font-normal text-sm text-black">Фактический адрес проживания:</p>
-                  <p class="font-montserrat font-normal text-sm text-primary">г.Москва, ул.Московская д.15 кв.4</p>
+                <div class="flex flex-col gap-1">
+                  <div class="grid grid-cols-full">
+                    <p class="font-montserrat font-normal text-sm text-black">Адрес:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">г.Москва, ул.Московская д.15 кв.4</p>
+                  </div>
+                  <div class="grid grid-cols-full">
+                    <p class="font-montserrat font-normal text-sm text-black">Фактический адрес проживания:</p>
+                    <p class="font-montserrat font-normal text-sm text-primary">г.Москва, ул.Московская д.15 кв.4</p>
+                  </div>
                 </div>
-              </div>
-              <div class="flex flex-col gap-1">
-                <div class="grid grid-cols-full">
-                  <p class="font-montserrat font-normal text-sm text-black">Класс работ:</p>
-                  <div class="flex flex-wrap gap-2">
-                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/Ruler.svg">
-                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
-                        <p class="font-montserrat font-semibold text-base text-white">Замер</p>
+                <div class="flex flex-col gap-1">
+                  <div class="grid grid-cols-full">
+                    <p class="font-montserrat font-normal text-sm text-black">Класс работ:</p>
+                    <div class="flex flex-wrap gap-2">
+                      <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/Ruler.svg">
+                        <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                          <p class="font-montserrat font-semibold text-base text-white">Замер</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/UserCircle.svg">
-                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
-                        <p class="font-montserrat font-semibold text-base text-white">Осмотр</p>
+                      <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/UserCircle.svg">
+                        <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                          <p class="font-montserrat font-semibold text-base text-white">Осмотр</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/Armchair.svg">
-                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
-                        <p class="font-montserrat font-semibold text-base text-white">Салон</p>
+                      <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/Armchair.svg">
+                        <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                          <p class="font-montserrat font-semibold text-base text-white">Салон</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/RoadHorizon.svg">
-                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
-                        <p class="font-montserrat font-semibold text-base text-white">Дальность</p>
+                      <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/RoadHorizon.svg">
+                        <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                          <p class="font-montserrat font-semibold text-base text-white">Дальность</p>
+                        </div>
                       </div>
-                    </div>
-                    <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/HandCoins.svg">
-                      <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
-                        <p class="font-montserrat font-semibold text-base text-white">Доплата</p>
+                      <div class="w-6 h-6  relative"><img class="w-full h-full object-contain peer" src="./local/templates/furnitureAssembly/img/icons/HandCoins.svg">
+                        <div class="hidden p-2 rounded-md bg-black w-max peer-hover:block z-10 relative">
+                          <p class="font-montserrat font-semibold text-base text-white">Доплата</p>
+                        </div>
                       </div>
                     </div>
                   </div>
+                  <div class="grid grid-cols-full">
+                    <p class="font-montserrat font-normal text-sm text-black">Соц. сети:</p>
+                    <div class="flex gap-2"><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/SlackLogo.svg" alt="Иконка"></a><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/TelegramLogo.svg" alt="Иконка"></a><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/WhatsappLogo.svg" alt="Иконка"></a></div>
+                  </div>
                 </div>
-                <div class="grid grid-cols-full">
-                  <p class="font-montserrat font-normal text-sm text-black">Соц. сети:</p>
-                  <div class="flex gap-2"><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/SlackLogo.svg" alt="Иконка"></a><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/TelegramLogo.svg" alt="Иконка"></a><a class="w-6 h-6" href="#"><img class="w-full h-full object-contain filter-primary" src="./local/templates/furnitureAssembly/img/icons/WhatsappLogo.svg" alt="Иконка"></a></div>
+              </div>
+              <div class="hidden flex-col gap-5" cardcontent="anketa">
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="FIO" type="text" name="FIO" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="FIO">ФИО</label>
                 </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Citizenship" type="text" name="Citizenship" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Citizenship">Гражданство</label>
+                </div>
+                <div class="flex gap-2 justify-center items-center cursor-pointer relative" listInput="" data-select="Gender">
+                  <input class="peer text-left w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" readonly="readonly" required="required" id="Gender" type="text" name="Gender" value=""/><img class="w-5 h-5 object-contain transition-all peer-focus:rotate-180 absolute right-[0.675rem] top-[0.675rem]" src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" list-btn="" alt="Иконка"/>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Gender">Пол</label>
+                  <div class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden rounded mt-1 max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150" list="">
+                    <div class="px-3 cursor-pointer pt-2 group" data-value="0">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal=""></p>
+                    </div>
+                    <div class="px-3 cursor-pointer group" data-value="1">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Мужской</p>
+                    </div>
+                    <div class="px-3 cursor-pointer pb-2 group" data-value="2">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Женский</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Phone" type="tel" name="Phone" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Phone">Основной номер телефона</label>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="DopPhone" type="tel" name="DopPhone" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="DopPhone">Доп. номер телефон</label>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Email" type="email" name="Email" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Email">Email</label>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Auto" type="text" name="Auto" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Auto">Авто</label>
+                </div>
+                <div class="flex gap-2 justify-center items-center cursor-pointer relative" listInput="" data-select="Speciality">
+                  <input class="peer text-left w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" readonly="readonly" required="required" id="Speciality" type="text" name="Speciality" value=""/><img class="w-5 h-5 object-contain transition-all peer-focus:rotate-180 absolute right-[0.675rem] top-[0.675rem]" src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" list-btn="" alt="Иконка"/>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Speciality">Специальность</label>
+                  <div class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden rounded mt-1 max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150" list="">
+                    <div class="px-3 cursor-pointer pt-2 group" data-value="0">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal=""></p>
+                    </div>
+                    <div class="px-3 cursor-pointer group" data-value="1">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Универсал</p>
+                    </div>
+                    <div class="px-3 cursor-pointer group" data-value="2">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Корпусник</p>
+                    </div>
+                    <div class="px-3 cursor-pointer group" data-value="3">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Кухонщик</p>
+                    </div>
+                    <div class="px-3 cursor-pointer pb-2 group" data-value="4">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Табуреточник</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Education" type="text" name="Education" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Education">Образование</label>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Experience" type="number" min="0" name="Experience" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Experience">Опыт работы в годах</label>
+                </div>
+                <div class="relative">
+                  <textarea class="peer w-full border border-gray-300 rounded-md py-2 px-3 min-h-16 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="DescriptionWork" type="number" min="0" name="DescriptionWork" required></textarea>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="DescriptionWork">Описание работ</label>
+                </div>
+                <div class="flex gap-2 justify-center items-center cursor-pointer relative" listInput="" data-select="TypeTransport">
+                  <input class="peer text-left w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" readonly="readonly" required="required" id="TypeTransport" type="text" name="TypeTransport" value=""/><img class="w-5 h-5 object-contain transition-all peer-focus:rotate-180 absolute right-[0.675rem] top-[0.675rem]" src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" list-btn="" alt="Иконка"/>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="TypeTransport">Тип транспорта</label>
+                  <div class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden rounded mt-1 max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150" list="">
+                    <div class="px-3 cursor-pointer pt-2 group" data-value="0">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal=""></p>
+                    </div>
+                    <div class="px-3 cursor-pointer group" data-value="1">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Авто</p>
+                    </div>
+                    <div class="px-3 cursor-pointer pb-2 group" data-value="2">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Общественный</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="relative">
+                  <input class="peer w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Adress" type="text" name="Adress" required>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Adress">Адрес</label>
+                </div>
+                <div class="relative" locationBox="">
+                  <input class="peer text-left w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" readonly required id="SelectLocation" type="text" name="SelectLocation" value="">
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="SelectLocation">Выберите место отправки</label>
+                </div>
+                <div class="relative flex flex-col gap-4">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Инструменты</p>
+                  <div class="grid grid-cols-2 gap-3">
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsPliers"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Плоскогубцы</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsLevel"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Уровень</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsHammer"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Молоток</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsRoulette"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Рулетка</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsHacksaw"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Ножовка</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsScrewdriver"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Отвертка</p>
+                    </div>
+                    <div class="flex gap-1 items-center">
+                      <label class="relative inline-block w-4 h-4">
+                        <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="toolsSaw"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                          <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                          </svg></span>
+                      </label>
+                      <p class="font-montserrat font-normal text-black text-sm leading-[1]">Пила</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between gap-1">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Работа с электрикой</p>
+                  <label class="relative inline-block w-4 h-4">
+                    <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="electricalWork"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                      <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                      </svg></span>
+                  </label>
+                </div>
+                <div class="flex items-center justify-between gap-1">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Работа с сантехникой</p>
+                  <label class="relative inline-block w-4 h-4">
+                    <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="workingPlumbing"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                      <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                      </svg></span>
+                  </label>
+                </div>
+                <div class="flex items-center justify-between gap-1">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Еврозапил</p>
+                  <label class="relative inline-block w-4 h-4">
+                    <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="eurozapil"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                      <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                      </svg></span>
+                  </label>
+                </div>
+                <div class="flex items-center justify-between gap-1">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Реставрация</p>
+                  <label class="relative inline-block w-4 h-4">
+                    <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="restoration"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                      <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                      </svg></span>
+                  </label>
+                </div>
+                <div class="flex items-center justify-between gap-1">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Работа с камнем (акрил, кварц)</p>
+                  <label class="relative inline-block w-4 h-4">
+                    <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="workingStone"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                      <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                      </svg></span>
+                  </label>
+                </div>
+                <div class="flex items-center justify-between gap-1">
+                  <p class="font-montserrat font-normal text-gray-400 text-base leading-[1]">Работа с карнизами (высокими)</p>
+                  <label class="relative inline-block w-4 h-4">
+                    <input class="opacity-0 w-0 h-0 peer" type="checkbox" name="workingCornices"/><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 transition-all duration-400 rounded-sm peer-focus:ring peer-focus:ring-primary peer-focus:ring-opacity-50"></span><span class="absolute top-0 left-0 cursor-pointer w-full h-full hidden peer-checked:flex peer-checked:items-center peer-checked:justify-center">
+                      <svg class="w-3 h-3" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28.7074 9.70751L12.7074 25.7075C12.6146 25.8005 12.5043 25.8742 12.3829 25.9246C12.2615 25.9749 12.1314 26.0008 11.9999 26.0008C11.8685 26.0008 11.7384 25.9749 11.617 25.9246C11.4956 25.8742 11.3853 25.8005 11.2924 25.7075L4.29245 18.7075C4.1048 18.5199 3.99939 18.2654 3.99939 18C3.99939 17.7346 4.1048 17.4801 4.29245 17.2925C4.48009 17.1049 4.73458 16.9994 4.99995 16.9994C5.26531 16.9994 5.5198 17.1049 5.70745 17.2925L11.9999 23.5863L27.2924 8.29251C27.4801 8.10487 27.7346 7.99945 27.9999 7.99945C28.2653 7.99945 28.5198 8.10487 28.7074 8.29251C28.8951 8.48015 29.0005 8.73464 29.0005 9.00001C29.0005 9.26537 28.8951 9.51987 28.7074 9.70751Z" fill="#6968ff" stroke="#6968ff" stroke-width="4"></path>
+                      </svg></span>
+                  </label>
+                </div>
+                <div class="flex gap-2 justify-center items-center cursor-pointer relative" listInput="" data-select="Partner">
+                  <input class="peer text-left w-full border border-gray-300 rounded-md py-2 px-3 font-montserrat font-semibold text-gray-600placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" readonly="readonly" required="required" id="Partner" type="text" name="Partner" value=""/><img class="w-5 h-5 object-contain transition-all peer-focus:rotate-180 absolute right-[0.675rem] top-[0.675rem]" src="./local/templates/furnitureAssembly/img/icons/CaretDown.svg" list-btn="" alt="Иконка"/>
+                  <label class=" absolute top-[0.675rem] peer-focus:-top-[0.675rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-2 transition-all duration-200 ease-in-out" for="Partner">С напарником или без</label>
+                  <div class="flex flex-col gap-2 absolute bg-white left-0 w-full overflow-hidden rounded mt-1 max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150" list="">
+                    <div class="px-3 cursor-pointer pt-2 group" data-value="0">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal=""></p>
+                    </div>
+                    <div class="px-3 cursor-pointer group" data-value="1">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">С напарником</p>
+                    </div>
+                    <div class="px-3 cursor-pointer pb-2 group" data-value="2">
+                      <p class="font-montserrat font-semibold text-base group-hover:text-primary" selectVal="">Без напарника</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="grid grid-cols-4 gap-2" ViewAttachImg=""></div>
+                <label class="flex gap-2 font-montserrat font-semibold text-base text-gray-400 cursor-pointer hover:text-primary ml-auto">Прикрепить файл<img class="w-6 h-6 object-contain filter-gray-400" src="./local/templates/furnitureAssembly/img/icons/Paperclip.svg" alt="иконка">
+                  <input class="hidden" type="file" data-file="attachFiles" accept="image/*">
+                </label>
+                <button class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full justify-center mt-4" data-btn="save" type="button">Отправить</button>
               </div>
             </div>
           </div>
-          <div class="max-w-[45rem] left-0 sm:left-auto fixed bottom-4 w-full h-max mx-auto">
-            <div class="px-3">
-              <nav class="w-full h-16 rounded-lg bg-[#EBE7E7] grid grid-cols-5 gap-2 py-1 px-2">
-                <div class="group"><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1 group-hover:bg-white" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/"><img class="w-4/5 max-w-6 aspect-1-1 group-hover:filter-black filter-black" src="./local/templates/furnitureAssembly/img/icons/House.svg" alt="иконка"/>
-                    <p class="font-montserrat font-semibold text-xs text-black ">Главная</p></a></div>
-                <div class="group"><a class="w-full h-full rounded-md overflow-hidden bg-white flex flex-col gap-1 items-center p-1" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/profile.html"><img class="w-4/5 max-w-6 aspect-1-1 filter-black" src="./local/templates/furnitureAssembly/img/icons/UserCircle.svg" alt="иконка"/>
-                    <p class="font-montserrat font-semibold text-xs text-black">Профиль</p></a></div>
-                <div class="group"><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1 group-hover:bg-white" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/anketa.html"><img class="w-4/5 max-w-6 aspect-1-1 group-hover:filter-black filter-black" src="./local/templates/furnitureAssembly/img/icons/ClipboardText.svg" alt="иконка"/>
-                    <p class="font-montserrat font-semibold text-xs text-black ">Анкета</p></a></div>
-                <div class="group"><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1 group-hover:bg-white" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/moi-zakazy.html"><img class="w-4/5 max-w-6 aspect-1-1 group-hover:filter-black filter-black" src="./local/templates/furnitureAssembly/img/icons/Package.svg" alt="иконка"/>
-                    <p class="font-montserrat font-semibold text-xs text-black ">Заказы</p></a></div>
-                <div class="group"><a class="w-full h-full rounded-md overflow-hidden flex flex-col gap-1 items-center p-1 group-hover:bg-white" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/moi-grafik.html"><img class="w-4/5 max-w-6 aspect-1-1 group-hover:filter-black filter-black" src="./local/templates/furnitureAssembly/img/icons/Calendar.svg" alt="иконка"/>
-                    <p class="font-montserrat font-semibold text-xs text-black ">График</p></a></div>
-              </nav>
+          <dialog class="rounded-xl " id="locationModal">
+            <div class="flex items-center justify-end p-4"><img class="w-6 h-6 object-contain filter-black cursor-pointer" closeModal="" src="./local/templates/furnitureAssembly/img/icons/X.svg" alt="иконки"></div>
+            <div class="flex flex-col gap-4 px-4 h-full" dialogBody="">
+              <div class="flex flex-col gap-2">
+                <p class="font-montserrat font-semibold text-sm text-black">Будем подбирать вам заказы:</p>
+                <p class="font-montserrat font-semibold text-sm text-black">До 1 часа доступности (в основном)</p>
+                <p class="font-montserrat font-semibold text-sm text-black">1 - 1.5 часа (иногда)</p>
+                <p class="font-montserrat font-semibold text-sm text-black">2 часа (крайне редко)</p>
+              </div>
+              <div class="rounded-lg h-[65vh] overflow-hidden">
+                <div class="w-full h-full" id="Map"></div>
+                <input class="hidden" data-input="KAORDS">
+                <input class="hidden" data-input="ADRES">
+              </div>
+              <button class="flex gap-2 font-montserrat font-semibold xs:text-sm xs:justify-center lg:justify-start lg:text-base px-4 py-2 ml-auto rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-max justify-center mt-4 mb-20" data-btn="selectLocationModal" type="button">Выбрать</button>
             </div>
-          </div>
+          </dialog>
         </main>
       </div>
     </div>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-3.7.1.min.js"></script>
+    <script src="./local/templates/furnitureAssembly/libs/jquery/jquery.mask.js"></script>
+    <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-ui.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=f015ab89-30a2-491c-b8d3-b8b6ad6e2ba1"></script>
     <script src="./local/templates/furnitureAssembly/js/common.js"></script>
     <script src="./local/templates/furnitureAssembly/pages/profile/js/index.js?v=2"></script>
   </body>

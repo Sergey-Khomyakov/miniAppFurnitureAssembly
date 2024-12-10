@@ -21,19 +21,36 @@ $(document).ready( async function() {
 
             const $btnNav = $('[btnNav]');
             if(isSetDayOff(data.date)){
+                const $calendarSelect = $('[data-year="'+ data.date.getFullYear() +'"][data-month="'+ data.date.getMonth() +'"][data-date="'+ data.date.getDate() +'"]');
+                let btnText = "";
+                if(!$calendarSelect.hasClass('-weekenduser-')){
+                    btnText = "Взять выходной";
+                }else{
+                    btnText = "Снять выходной";
+                }
+
                 if($btnNav.find('button').length === 0){
-                    const $btn = $('<button type="button" data-day="'+ data.date.getDate() +'" data-month="'+ data.date.getMonth() +'" data-year="'+ data.date.getFullYear() +'" class="font-montserrat font-normal text-sm text-black hover:text-primary">Взять выходной</button>');
+                    const $btn = $('<button type="button" data-day="'+ data.date.getDate() +'" data-month="'+ data.date.getMonth() +'" data-year="'+ data.date.getFullYear() +'" class="font-montserrat font-normal text-sm text-black hover:text-primary">'+ btnText +'</button>');
                     
                     $btn.on('click', function(){
                         const $item = $(this);
                         const selectDay = $item.attr('data-day');
                         const selectMonth = $item.attr('data-month');
                         const selectYear = $item.attr('data-year');
-                        $('[data-year="'+ selectYear +'"][data-month="'+ selectMonth +'"][data-date="'+ selectDay +'"]').addClass('-weekenduser-');
+                        const $calendarSelect = $('[data-year="'+ selectYear +'"][data-month="'+ selectMonth +'"][data-date="'+ selectDay +'"]');
+                        if($calendarSelect.hasClass('-weekenduser-')){
+                            $calendarSelect.removeClass('-weekenduser-');
+                            $item.text("Взять выходной");
+                            // TODO: ajax request remove weekend
+                        }else{
+                            $calendarSelect.addClass('-weekenduser-');
+                            $item.text("Снять выходной");
+                            // TODO: ajax request add weekend
+                        }
                     });
                     $btnNav.prepend($btn);
                 }else{
-                    $btnNav.find('button').attr('data-day', data.date.getDate()).attr('data-month', data.date.getMonth()).attr('data-year', data.date.getFullYear());
+                    $btnNav.find('button').attr('data-day', data.date.getDate()).attr('data-month', data.date.getMonth()).attr('data-year', data.date.getFullYear()).text(btnText);
                 }
             }else{
                 $btnNav.find('button').remove();

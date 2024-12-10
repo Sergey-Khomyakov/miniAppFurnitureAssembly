@@ -1095,10 +1095,6 @@ dialog [dialogBody]::-webkit-scrollbar {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.grid-cols-5 {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-}
-
 .grid-cols-auto-1fr {
   grid-template-columns: auto 1fr;
 }
@@ -1201,10 +1197,6 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .overflow-x-hidden {
   overflow-x: hidden;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll;
 }
 
 .text-nowrap {

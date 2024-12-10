@@ -17,7 +17,11 @@ $(document).ready( async function() {
             });
         },
         onSelect: function(data) {
-            $('[calendarSelectDay]').text(data.formattedDate); // dd mm
+            if(data.date.getFullYear() === new Date().getFullYear() && data.date.getMonth() === new Date().getMonth() && data.date.getDate() === new Date().getDate()){
+                $('[calendarSelectDay]').text("Сегодня");
+            }else{
+                $('[calendarSelectDay]').text(data.formattedDate); // dd mm
+            }
 
             const $btnNav = $('[btnNav]');
             if(isSetDayOff(data.date)){

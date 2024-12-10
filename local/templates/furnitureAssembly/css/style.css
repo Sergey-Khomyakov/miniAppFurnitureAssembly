@@ -714,6 +714,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   right: 0px;
 }
 
+.right-1 {
+  right: 0.25rem;
+}
+
 .right-2 {
   right: 0.5rem;
 }
@@ -728,6 +732,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .top-0 {
   top: 0px;
+}
+
+.top-1 {
+  top: 0.25rem;
 }
 
 .top-2 {
@@ -1471,6 +1479,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pb-8 {
+  padding-bottom: 2rem;
 }
 
 .pb-\[3\.25rem\] {

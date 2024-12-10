@@ -61,7 +61,18 @@ $(document).ready( async function() {
             }
 
             loadingOrders(data.date)
-        }
+        },
+        onRenderCell({date, cellType}) {
+            const cellDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+            console.log(cellDate);
+            const orderCount = Orders.filter((item) => item.date === cellDate).length;
+            return {
+                html: `<div class="flex gap-1">
+                    <p class="font-montserrat font-semibold text-sm">${date.getDate()}</p>
+                    ${orderCount > 0 ? `<p class="font-montserrat font-semibold text-xs w-4 h-4 rounded-full flex justify-center items-center text-white bg-red-600 -mt-1">${orderCount}</p>`: ``}
+                    </div>`,
+            }
+        },
     });
 
     $( "#Help" ).dialog({

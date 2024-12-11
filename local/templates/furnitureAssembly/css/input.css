@@ -34,8 +34,20 @@
         filter: brightness(0) saturate(100%) invert(28%) sepia(64%) saturate(6926%) hue-rotate(350deg) brightness(89%) contrast(92%);
     }
 
+    .filter-green-700 {
+        filter: brightness(0) saturate(100%) invert(26%) sepia(43%) saturate(2680%) hue-rotate(122deg) brightness(103%) contrast(84%);
+    }
+
     .filter-green-600 {
         filter: brightness(0) saturate(100%) invert(44%) sepia(89%) saturate(2542%) hue-rotate(116deg) brightness(93%) contrast(83%);
+    }
+
+    .filter-green-500 {
+        filter: brightness(0) saturate(100%) invert(58%) sepia(45%) saturate(721%) hue-rotate(89deg) brightness(96%) contrast(94%);
+    }
+
+    .filter-amber-500 {
+        filter: brightness(0) saturate(100%) invert(66%) sepia(77%) saturate(1996%) hue-rotate(358deg) brightness(99%) contrast(94%);
     }
 
     .filter-amber-400 {
@@ -48,6 +60,10 @@
 
     .filter-primary {
         filter: brightness(0) saturate(100%) invert(46%) sepia(96%) saturate(3856%) hue-rotate(226deg) brightness(102%) contrast(100%);
+    }
+
+    .filter-gray-500 {
+        filter: brightness(0) saturate(100%) invert(50%) sepia(3%) saturate(1612%) hue-rotate(182deg) brightness(87%) contrast(86%);
     }
 
     .filter-gray-400 {

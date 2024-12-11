@@ -128,20 +128,49 @@ $(document).ready( async function() {
                 const $orderContainer = $('[orderBody]');
 
                 orderItems.forEach((item) => {
+                    const statusSetting = order.getStatusSetting(item.status);
+
+                    // const $order = $(`
+                    //     <div orderDate="${item.date}" orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
+                    //         <div class="flex flex-col gap-2 py-1">
+                    //             <div class="grid grid-cols-2 gap-4">
+                    //                 <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
+                    //                 <p class="font-montserrat font-semibold text-sm text-black">Дата заказа: ${item.date.split('-').reverse().join('.')}</p>
+                    //             </div>
+                    //             <div class="grid grid-cols-2 gap-4">
+                    //                 <div class="flex flex-col">
+                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">Клиент:</p>
+                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.name}</p>
+                    //                 </div>
+                    //                 <div class="flex flex-col">
+                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">Номер клиента:</p>
+                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.phone}</p>
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                    //     </div>`);
                     const $order = $(`
                         <div orderDate="${item.date}" orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
                             <div class="flex flex-col gap-2 py-1">
                                 <div class="grid grid-cols-2 gap-4">
                                     <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
-                                    <p class="font-montserrat font-semibold text-sm text-black">Дата заказа: ${item.date.split('-').reverse().join('.')}</p>
+                                    <div class="flex flex-col gap-1">
+                                        <div class="flex items-center gap-1">
+                                            <img src="./local/templates/furnitureAssembly/img/icons/ClockClockwise.svg" alt="иконка" class="w-5 h-5 object-contain ${statusSetting.colorIcons}" />
+                                            <p class="font-montserrat font-semibold text-sm ${statusSetting.colorText}">${statusSetting.text}</p>
+                                        </div>
+                                        <div class="flex items-center gap-1">
+                                            <img src="./local/templates/furnitureAssembly/img/icons/CalendarBlank.svg" alt="иконка" class="w-5 h-5 object-contain filter-gray-400" />
+                                            <p class="font-montserrat font-semibold text-sm text-gray-400">${item.date.split('-').reverse().join('.')}</p>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div class="flex flex-col">
                                         <p class="font-montserrat font-semibold text-sm text-black col-span-1">Клиент:</p>
                                         <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.name}</p>
                                     </div>
-                                    <div class="flex flex-col">
-                                        <p class="font-montserrat font-semibold text-sm text-black col-span-1">Номер клиента:</p>
+                                    <div class="flex flex-col justify-end">
                                         <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.phone}</p>
                                     </div>
                                 </div>
@@ -150,13 +179,13 @@ $(document).ready( async function() {
                     $order.on('click', function(){
                         const $item = $(this);
                         const id = $item.attr('orderCardId');
-                        const order = Orders.find((item) => item.id === Number(id));
+                        const orderItem = Orders.find((item) => item.id === Number(id));
 
-                        if(order === undefined){
+                        if(orderItem === undefined){
                             return;
                         }
 
-                        order.CallModal(order);
+                        order.CallModal(orderItem);
                     });
                     $orderContainer.append($order);
                 });
@@ -649,6 +678,43 @@ $(document).ready( async function() {
             });
 
             $('[orderNavDate]').html($res);
+        },
+        getStatusSetting(status){
+            if(status === "New"){
+                return {
+                    colorText: "text-green-500",
+                    colorIcons: "filter-green-500", // #22c55e
+                    text: "Новый"
+                }
+            }
+            if(status === "StartedWork"){
+                return {
+                    colorText: "text-amber-500",
+                    colorIcons: "filter-amber-500", // #f59e0b
+                    text: "В работе"
+                }
+            }
+            if(status === "Extended"){
+                return {
+                    colorText: "text-green-700",
+                    colorIcons: "filter-green-700", // #15803d
+                    text: "Продлен"
+                }
+            }
+            if(status === "Complaint"){
+                return {
+                    colorText: "text-gray-500",
+                    colorIcons: "filter-gray-500", // #6b7280
+                    text: "Рекламация"
+                }
+            }
+            if(status === "Interrupted"){
+                return {
+                    colorText: "text-red-600",
+                    colorIcons: "filter-red-600",
+                    text: "Прерван"
+                }   
+            }
         }
     }
 

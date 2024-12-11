@@ -69,7 +69,7 @@ $(document).ready( async function() {
         onRenderCell({date, cellType}) {
             if(cellType === 'day'){
                 const cellDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
-                const orderCount = Orders.filter((item) => item.date === cellDate).length;
+                const orderCount = Orders.filter((item) => item.date === cellDate && item.user.id === 1).length;
                 const weekendUser = scheduleUsers.find((item) => item.date === cellDate && item.id === 1);
 
                 const res = {
@@ -405,7 +405,7 @@ $(document).ready( async function() {
         const dateMonth = date.getMonth() + 1;
         const dateYear = date.getFullYear();
 
-        const orderItems = Orders.filter((item) => item.user.id === userId && item.date === `${dateYear}-${dateMonth}-${dateDay}`);
+        const orderItems = Orders.filter((item) => item.user.id === userId && item.date === `${dateYear}-${dateMonth}-${dateDay <= 9 ? `0${dateDay}` : dateDay}`);
         const $orderContainer = $('[orderBody]');
         $orderContainer.empty();
 

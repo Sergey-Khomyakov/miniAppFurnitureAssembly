@@ -15,8 +15,12 @@
       <div class="max-w-[45rem] mx-auto relative">
         <div class="px-4 h-max bg-[#EBE7E7]">
           <header class="py-3">
-            <div class="flex items-center justify-end"><a class="relative cursor-pointer" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/notifications.html"><img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/Bell.svg" alt="иконки">
-                <div class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600"></div></a></div>
+            <div class="grid grid-cols-1fr-auto gap-2 items-center justify-end">
+              <div class="flex gap-2 items-center">
+                <p class="font-montserrat font-semibold text-base text-black">График доступности</p><img class="w-6 h-6 object-contain filter-red-600 cursor-pointer" help="" src="./local/templates/furnitureAssembly/img/icons/Question.svg" alt="иконка">
+              </div><a class="relative cursor-pointer" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/notifications.html"><img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/Bell.svg" alt="иконки">
+                <div class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600"></div></a>
+            </div>
           </header>
         </div>
         <main>
@@ -27,7 +31,7 @@
             <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 flex flex-col gap-3 mb-24">
               <div class="w-full h-auto grid grid-cols-1fr-auto gap-2">
                 <p class="font-montserrat font-normal text-xl text-black" calendarSelectDay="">Сегодня</p>
-                <div class="flex gap-2 items-center" btnNav=""><img class="ml-auto w-6 h-6 object-contain filter-gray-400 cursor-pointer" help="" src="./local/templates/furnitureAssembly/img/icons/Question.svg" alt="иконка"></div>
+                <div class="flex gap-2 items-center" btnNav=""></div>
               </div>
               <div class="flex flex-col gap-4" orderBody=""></div>
             </div>
@@ -80,7 +84,8 @@
     <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-ui.min.js"></script>
     <script src="./local/templates/furnitureAssembly/libs/air-datepicker-3.4.0/air-datepicker.js"></script>
     <script src="./local/templates/furnitureAssembly/js/common.js"></script>
-    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/data.js?v=10"></script>
-    <script src="./local/templates/furnitureAssembly/pages/moi-grafik/js/index.js?v=10"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/data.js?v=11"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-grafik/js/data.js?v=2"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-grafik/js/index.js?v=11"></script>
   </body>
 </html>

@@ -24,16 +24,16 @@ block head
 block content
     - var path = "./local/templates/furnitureAssembly"
     div(class="max-w-[45rem] mx-auto relative")
-        div(class="px-4 h-max bg-[#EBE7E7]")
-            header(class="py-3")
-                div(class="flex items-center justify-end")
+        div(class="px-4 h-max bg-[#EBE7E7] rounded-b-[2rem]")
+            header(class="py-3 pb-12")
+                div(class="flex gap-2 items-center justify-end")
+                    div(class="flex gap-2 items-center")
+                        img(userPicture="", src=`${path}/img/other/stub.png`, alt="картинка пользователя", class=" rounded-full w-6 overflow-hidden shadow-lg aspect-1-1",)
+                        p(userName="", class="font-montserrat font-semibold text-xs text-black") Иванов Иван
                     a(href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/notifications.html", class="relative cursor-pointer")
                         img(src=`${path}/img/icons/Bell.svg`, alt="иконки", class="w-6 h-6 object-contain filter-black")
                         div(class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600")
         main
-            div(class="flex flex-col gap-4 pt-8 pb-16 items-center bg-[#EBE7E7] rounded-b-[2rem]")
-                img(userPicture="", src=`${path}/img/other/stub.png`, alt="картинка пользователя", class=" rounded-full w-3/5 min-w-16 max-w-36 overflow-hidden shadow-lg aspect-1-1",)
-                p(userName="", class="font-montserrat font-semibold text-base text-black") Иванов Иван
             div(class="px-4")
                 div(cardbody="", class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 mb-24 flex flex-col gap-4")
                     div(navcar="", class="flex flex-wrap gap-y-1 gap-x-2 items-center")

@@ -191,19 +191,19 @@ $(document).ready( async function() {
                 });
             }
         },
-        CallModal(order){
+        CallModal(orderItem){
             const $dialog = $('#Order');
             const $dialogBody = $dialog.find('[dialogBody]');
             $dialogBody.empty();
             let $controlsHtml = "";
     
-            if(order.status === "New"){
+            if(orderItem.status === "New"){
                 $controlsHtml = $(`
                 <div class="w-full h-max relative z-10">
                     <button class="flex gap-2 font-montserrat font-semibold text-sm justify-center px-4 py-2 rounded-md border-[#FFFFFF] items-center text-[#fff] bg-primary w-full" data-btn="save" type="button">Принять заказ</button>
                 </div>`);
                 $controlsHtml.find('button').on('click', function(){
-                    order.status = "StartedWork";
+                    orderItem.status = "StartedWork";
                     const oldCountNew = Number($('[orderstatus="New"] > p:eq(1)').text() !== undefined ? $('[orderstatus="New"] > p:eq(1)').text() : "0");
                     const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
     
@@ -212,10 +212,10 @@ $(document).ready( async function() {
                     }
                     $('[orderstatus="StartedWork"] > p:eq(1)').text(oldCountStartedWork + 1);
                     
-                    $('[ordercardid="'+ order.id +'"]').remove();
+                    $('[ordercardid="'+ orderItem.id +'"]').remove();
                     $('#Order').dialog('close');
                 });
-            }else if(order.status === "StartedWork"){
+            }else if(orderItem.status === "StartedWork"){
                 $controlsHtml = $(`
                     <div class="w-full flex flex-col gap-4">
                         <div class="flex flex-col gap-2">
@@ -331,7 +331,7 @@ $(document).ready( async function() {
                     const typeBtn = $(this).data('btn');
                     if(typeBtn === "Work"){
                         
-                        order.status = "Completed";
+                        orderItem.status = "Completed";
                         const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
         
                         if(oldCountStartedWork > 0){
@@ -339,7 +339,7 @@ $(document).ready( async function() {
                         }
                         
                     }else if(typeBtn === "Complaints"){
-                        order.status = "Complaint";
+                        orderItem.status = "Complaint";
                         const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
                         const oldCountComplaint = Number($('[orderstatus="Complaint"] > p:eq(1)').text() !== undefined ? $('[orderstatus="Complaint"] > p:eq(1)').text() : "0");
         
@@ -348,7 +348,7 @@ $(document).ready( async function() {
                         }
                         $('[orderstatus="Complaint"] > p:eq(1)').text(oldCountComplaint + 1);
                     }else if(typeBtn === "addWork"){
-                        order.status = "Extended";
+                        orderItem.status = "Extended";
                         const oldCountStartedWork = Number($('[orderstatus="StartedWork"] > p:eq(1)').text() !== undefined ? $('[orderstatus="StartedWork"] > p:eq(1)').text() : "0");
                         const oldCountExtended = Number($('[orderstatus="Extended"] > p:eq(1)').text() !== undefined ? $('[orderstatus="Extended"] > p:eq(1)').text() : "0");
         
@@ -358,18 +358,18 @@ $(document).ready( async function() {
                         $('[orderstatus="Extended"] > p:eq(1)').text(oldCountExtended + 1);
                     }
     
-                    $('[ordercardid="'+ order.id +'"]').remove();
+                    $('[ordercardid="'+ orderItem.id +'"]').remove();
                     $('#Order').dialog('close');
                 });
             }
     
-            $dialog.find('[titleCard]').text("№ " + order.name);
+            $dialog.find('[titleCard]').text("№ " + orderItem.name);
     
-            const imagesMarkup = order.details.photo.map((item) => {
+            const imagesMarkup = orderItem.details.photo.map((item) => {
                 return `<img src="${item.src}" alt="${item.name}" class="w-full h-auto object-cover rounded-sm overflow-hidden"/>`;
             }).join('');
     
-            const filesMarkup = order.details.files.map((item) => {
+            const filesMarkup = orderItem.details.files.map((item) => {
                 return `<div docItem="" class="w-full flex gap-2">
                             <div class="w-12 h-12 shrink-0">
                                 <img class="w-full h-full object-contain" src="./local/templates/furnitureAssembly/img/icons/DocIcons.svg" alt="Иконка">
@@ -390,7 +390,7 @@ $(document).ready( async function() {
                 let html = "";
                 let totalPrice = 0;
     
-                order.details.services.forEach((item) => {
+                orderItem.details.services.forEach((item) => {
                     html += `<div class="w-full grid grid-cols-3 gap-2 items-center shadow-md rounded-md py-1 px-3">
                             <p class="font-montserrat font-semibold text-sm text-black">${item.name}</p>
                             <div class="flex items-center gap-2 justify-end">
@@ -411,7 +411,7 @@ $(document).ready( async function() {
                 return html;
             };
     
-            const historyMarkup = order.history.map((item) => {
+            const historyMarkup = orderItem.history.map((item) => {
                 return `<div class="w-full grid grid-cols-3 gap-2 items-center shadow-md rounded-md py-1 px-3">
                             <p class="font-montserrat font-semibold text-sm text-black">${item.event}</p>
                             <p class="font-montserrat font-semibold text-sm text-black">${item.date.split('-').reverse().join('.')}</p>
@@ -421,10 +421,10 @@ $(document).ready( async function() {
     
             const $body = $(`
                 <div cardBody="" class="flex flex-col gap-4">
-                    ${order.getStatusHtml(order.status)}
+                    ${order.getStatusHtml(orderItem.status)}
                     <div class="flex gap-2 items-center">
                         <p class="font-montserrat font-semibold text-base text-black">Дата заказа: </p>
-                        <p class="font-montserrat font-semibold text-sm text-gray-400">${order.date.split('-').reverse().join('.')}</p>
+                        <p class="font-montserrat font-semibold text-sm text-gray-400">${orderItem.date.split('-').reverse().join('.')}</p>
                     </div>
                     <div navCard="" class="flex flex-wrap gap-y-1 gap-x-2 items-center">
                         <div data-active="true" navContent="Client" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary">
@@ -447,11 +447,11 @@ $(document).ready( async function() {
                          <div class="flex flex-col gap-1">
                              <div class="flex gap-x-1 items-center flex-wrap">
                                  <p class="font-montserrat font-semibold text-black">ФИО: </p>
-                                 <p class="font-montserrat font-semibold text-black">${order.client.name}</p>
+                                 <p class="font-montserrat font-semibold text-black">${orderItem.client.name}</p>
                              </div>
                              <div class="flex gap-x-1 items-center flex-wrap">
                                  <p class="font-montserrat font-semibold text-black">Номер: </p>
-                                 <p class="font-montserrat font-semibold text-black">${order.client.phone}</</p>
+                                 <p class="font-montserrat font-semibold text-black">${orderItem.client.phone}</</p>
                              </div>
                              <div class="flex gap-x-1 items-center flex-wrap">
                                  <p class="font-montserrat font-semibold text-black">Дополнительный номер: </p>
@@ -459,37 +459,37 @@ $(document).ready( async function() {
                              </div>
                              <div class="flex gap-x-1 items-center flex-wrap">
                                  <p class="font-montserrat font-semibold text-black">Адрес: </p>
-                                 <p class="font-montserrat font-semibold text-black">${order.client.adress}</p>
+                                 <p class="font-montserrat font-semibold text-black">${orderItem.client.adress}</p>
                              </div>
                          </div>
                          <div class="rounded-lg w-full h-60 aspect-1-1 overflow-hidden">
-                             <div id="map" data-x="${order.client.coordinates.latitude}" data-y="${order.client.coordinates.longitude}" class="w-full h-full"></div>
+                             <div id="map" data-x="${orderItem.client.coordinates.latitude}" data-y="${orderItem.client.coordinates.longitude}" class="w-full h-full"></div>
                          </div>
                     </div>
                     <div cardContent="Details" class="hidden flex-col gap-2">
-                        ${order.details.typeOrder !== null ? 
+                        ${orderItem.details.typeOrder !== null ? 
                             `<div class="flex gap-x-1 items-center flex-wrap">
                                 <p class="font-montserrat font-semibold text-black">Тип заказа: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.details.typeOrder}</p>
+                                <p class="font-montserrat font-semibold text-black">${orderItem.details.typeOrder}</p>
                             </div>` : ""}
-                        ${order.details.workInterval !== null ? 
+                        ${orderItem.details.workInterval !== null ? 
                             `<div class="flex gap-x-1 items-center flex-wrap">
                                 <p class="font-montserrat font-semibold text-black">Интервал работ: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.details.workInterval}</p>
+                                <p class="font-montserrat font-semibold text-black">${orderItem.details.workInterval}</p>
                             </div>` : ""}
-                        ${order.details.dopInfo !== null ? 
+                        ${orderItem.details.dopInfo !== null ? 
                             `<div class="flex gap-x-1 items-center flex-wrap">
                                 <p class="font-montserrat font-semibold text-black">Дополнительная информация: </p>
-                                <p class="font-montserrat font-semibold text-black">${order.details.dopInfo}</p>
+                                <p class="font-montserrat font-semibold text-black">${orderItem.details.dopInfo}</p>
                             </div>` : ""}
-                        ${order.details.photo.length > 0 ? 
+                        ${orderItem.details.photo.length > 0 ? 
                             `<div class="flex flex-col gap-1">
                                 <p class="font-montserrat font-semibold text-black">Фото: </p>
                                 <div class="grid grid-cols-2 gap-2">
                                     ${imagesMarkup}
                                 </div>
                             </div>` : ""}
-                        ${order.details.files.length > 0 ? 
+                        ${orderItem.details.files.length > 0 ? 
                             `<div class="flex flex-col gap-1">
                                 <p class="font-montserrat font-semibold text-black">Файлы: </p>
                                 <div class="flex flex-col gap-2">
@@ -498,7 +498,7 @@ $(document).ready( async function() {
                             </div>` : ""}
                     </div>
                     <div cardContent="Services" class="hidden flex-col gap-2">
-                        ${order.details.services.length > 0 ? 
+                        ${orderItem.details.services.length > 0 ? 
                             `<div class="flex flex-col gap-1">
                                 <div class="flex flex-col gap-2 px-1 py-2">
                                     ${servicesMarkup()}

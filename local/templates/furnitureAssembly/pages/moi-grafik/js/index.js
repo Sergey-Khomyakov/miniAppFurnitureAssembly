@@ -67,20 +67,22 @@ $(document).ready( async function() {
             loadingOrders(data.date)
         },
         onRenderCell({date, cellType}) {
-            const cellDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
-            const orderCount = Orders.filter((item) => item.date === cellDate).length;
-            const weekendUser = scheduleUsers.find((item) => item.date === cellDate && item.id === 1);
+            if(cellType === 'day'){
+                const cellDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
+                const orderCount = Orders.filter((item) => item.date === cellDate).length;
+                const weekendUser = scheduleUsers.find((item) => item.date === cellDate && item.id === 1);
 
-            const res = {
-                html: `<div class="flex gap-1">
-                    <p class="font-montserrat font-semibold text-sm">${date.getDate()}</p>
-                    ${orderCount > 0 ? `<p class="font-montserrat font-semibold text-xs w-4 h-4 rounded-full flex justify-center items-center text-white bg-green-600 -mt-1">${orderCount}</p>`: ``}
-                    </div>`,
+                const res = {
+                    html: `<div class="flex gap-1">
+                        <p class="font-montserrat font-semibold text-sm">${date.getDate()}</p>
+                        ${orderCount > 0 ? `<p class="font-montserrat font-semibold text-xs w-4 h-4 rounded-full flex justify-center items-center text-white bg-green-600 -mt-1">${orderCount}</p>`: ``}
+                        </div>`,
+                }
+                if(weekendUser !== undefined){
+                    res.classes = '-weekenduser-';
+                }
+                return res;
             }
-            if(weekendUser !== undefined){
-                res.classes = '-weekenduser-';
-            }
-            return res;
         },
     });
 

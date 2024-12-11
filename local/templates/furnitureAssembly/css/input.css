@@ -64,9 +64,25 @@
         /* Hides the scrollbar */
     }
 
+
     [orderNavDate]>div::-webkit-scrollbar {
-        display: none;
-        /* Hides the scrollbar */
+        width: 0.25rem;
+        height: 0.5rem;
+        /* Equivalent to w-2 */
+    }
+
+    [orderNavDate]>div::-webkit-scrollbar-track {
+        border-radius: 9999px;
+        /* Equivalent to rounded-full */
+        background-color: #f7fafc;
+        /* Equivalent to bg-gray-100 */
+    }
+
+    [orderNavDate]>div::-webkit-scrollbar-thumb {
+        border-radius: 9999px;
+        /* Equivalent to rounded-full */
+        background-color: #e2e8f0;
+        /* Equivalent to bg-gray-300 */
     }
 
     .ui-dialog-titlebar-close {

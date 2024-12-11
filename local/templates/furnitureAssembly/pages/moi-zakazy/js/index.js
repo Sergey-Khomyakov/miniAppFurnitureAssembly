@@ -421,7 +421,7 @@ $(document).ready( async function() {
     
             const $body = $(`
                 <div cardBody="" class="flex flex-col gap-4">
-                    ${getStatusHtml(order.status)}
+                    ${order.getStatusHtml(order.status)}
                     <div class="flex gap-2 items-center">
                         <p class="font-montserrat font-semibold text-base text-black">Дата заказа: </p>
                         <p class="font-montserrat font-semibold text-sm text-gray-400">${order.date.split('-').reverse().join('.')}</p>

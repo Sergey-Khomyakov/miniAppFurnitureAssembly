@@ -612,6 +612,9 @@ $(document).ready( async function() {
                     dateOrder.push(item.date);
                 }
             });
+            if(dateOrder.length === 0){
+                return;
+            }
             const $filterAll = $(`<div class="group">
                 <p class="font-montserrat font-normal text-sm underline underline-offset-2 text-primary cursor-pointer text-nowrap">Все</p></div>`);
             

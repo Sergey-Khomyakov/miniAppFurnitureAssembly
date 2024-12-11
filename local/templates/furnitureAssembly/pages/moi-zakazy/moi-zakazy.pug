@@ -11,7 +11,7 @@ block scripts
     script(src=`https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=f015ab89-30a2-491c-b8d3-b8b6ad6e2ba1`)
     script(src=`${path}/js/common.js`)
     script(src=`${path}/pages/moi-zakazy/js/data.js?v=6`)
-    script(src=`${path}/pages/moi-zakazy/js/index.js?v=24`)
+    script(src=`${path}/pages/moi-zakazy/js/index.js?v=25`)
 
 
 block head
@@ -42,20 +42,20 @@ block content
                     div(orderNav="", class="flex flex-wrap gap-y-1 gap-x-2 items-center")
                         div(data-active="true", orderStatus="New" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Новые
-                            p(class="font-montserrat font-semibold text-xs text-white") 0
+                            p(count="",class="font-montserrat font-semibold text-xs text-white") 0
                         div(data-active="false", orderStatus="StartedWork" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Приступил к работе
-                            p(class="font-montserrat font-semibold text-xs text-white") 1
+                            p(count="",class="font-montserrat font-semibold text-xs text-white") 0
                         div(data-active="false", orderStatus="Extended" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Продлен
-                            p(class="font-montserrat font-semibold text-xs text-white") 0
+                            p(count="",class="font-montserrat font-semibold text-xs text-white") 0
                         div(data-active="false", orderStatus="Complaint" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Рекламация
-                            p(class="font-montserrat font-semibold text-xs text-white") 0
+                            p(count="",class="font-montserrat font-semibold text-xs text-white") 0
                         div(data-active="false", orderStatus="Interrupted" class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black")
                             p(class="font-montserrat font-semibold text-xs text-white text-nowrap") Прерван
-                            p(class="font-montserrat font-semibold text-xs text-white") 1
-                    div(class="flex flex-col gap-4")
+                            p(count="",class="font-montserrat font-semibold text-xs text-white") 0
+                    div(content="", class="flex flex-col gap-4")
                         div(loadingCards="", class="flex flex-col gap-4")
                             div(class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full h-28")
                                 div(class="flex space-x-4 animate-pulse")
@@ -84,6 +84,7 @@ block content
                                                 div(class="h-2 bg-black rounded col-span-2")
                                                 div(class="h-2 bg-black rounded col-span-1")
                                             div(class="h-2 bg-black rounded")
+                        div(orderNavDate="", class="w-full overflow-hidden")
                         div(orderBody="", class="flex flex-col gap-4")
             dialog#Order(class="rounded-xl")
                 div(class="flex items-center justify-between p-4")

@@ -30,26 +30,26 @@
               <div class="flex flex-wrap gap-y-1 gap-x-2 items-center" orderNav="">
                 <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary" data-active="true" orderStatus="New">
                   <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Новые</p>
-                  <p class="font-montserrat font-semibold text-xs text-white">0</p>
+                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
                 </div>
                 <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="StartedWork">
                   <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Приступил к работе</p>
-                  <p class="font-montserrat font-semibold text-xs text-white">1</p>
+                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
                 </div>
                 <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="Extended">
                   <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Продлен</p>
-                  <p class="font-montserrat font-semibold text-xs text-white">0</p>
+                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
                 </div>
                 <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="Complaint">
                   <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Рекламация</p>
-                  <p class="font-montserrat font-semibold text-xs text-white">0</p>
+                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
                 </div>
                 <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="Interrupted">
                   <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Прерван</p>
-                  <p class="font-montserrat font-semibold text-xs text-white">1</p>
+                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
                 </div>
               </div>
-              <div class="flex flex-col gap-4">
+              <div class="flex flex-col gap-4" content="">
                 <div class="flex flex-col gap-4" loadingCards="">
                   <div class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full h-28">
                     <div class="flex space-x-4 animate-pulse">
@@ -94,6 +94,7 @@
                     </div>
                   </div>
                 </div>
+                <div class="w-full overflow-hidden" orderNavDate=""></div>
                 <div class="flex flex-col gap-4" orderBody=""></div>
               </div>
             </div>
@@ -113,6 +114,6 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=f015ab89-30a2-491c-b8d3-b8b6ad6e2ba1"></script>
     <script src="./local/templates/furnitureAssembly/js/common.js"></script>
     <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/data.js?v=6"></script>
-    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/index.js?v=24"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/index.js?v=25"></script>
   </body>
 </html>

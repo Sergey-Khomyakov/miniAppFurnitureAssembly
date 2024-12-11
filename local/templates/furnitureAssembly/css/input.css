@@ -64,6 +64,11 @@
         /* Hides the scrollbar */
     }
 
+    [orderNavDate]>div::-webkit-scrollbar {
+        display: none;
+        /* Hides the scrollbar */
+    }
+
     .ui-dialog-titlebar-close {
         display: none;
     }

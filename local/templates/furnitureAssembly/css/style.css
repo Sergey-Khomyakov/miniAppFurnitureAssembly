@@ -639,6 +639,11 @@ body::-webkit-scrollbar {
   /* Hides the scrollbar */
 }
 
+[orderNavDate]>div::-webkit-scrollbar {
+  display: none;
+  /* Hides the scrollbar */
+}
+
 .ui-dialog-titlebar-close {
   display: none;
 }
@@ -783,6 +788,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   margin-right: auto;
 }
 
+.-mt-1 {
+  margin-top: -0.25rem;
+}
+
 .-mt-10 {
   margin-top: -2.5rem;
 }
@@ -809,10 +818,6 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.-mt-1 {
-  margin-top: -0.25rem;
 }
 
 .block {
@@ -891,6 +896,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   height: 1rem;
 }
 
+.h-48 {
+  height: 12rem;
+}
+
 .h-5 {
   height: 1.25rem;
 }
@@ -922,10 +931,6 @@ dialog [dialogBody]::-webkit-scrollbar {
 .h-max {
   height: -moz-max-content;
   height: max-content;
-}
-
-.h-48 {
-  height: 12rem;
 }
 
 .max-h-0 {
@@ -1037,6 +1042,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   min-width: 13rem;
 }
 
+.max-w-32 {
+  max-width: 8rem;
+}
+
 .max-w-36 {
   max-width: 9rem;
 }
@@ -1045,16 +1054,8 @@ dialog [dialogBody]::-webkit-scrollbar {
   max-width: 1.5rem;
 }
 
-.max-w-60 {
-  max-width: 15rem;
-}
-
 .max-w-\[45rem\] {
   max-width: 45rem;
-}
-
-.max-w-32 {
-  max-width: 8rem;
 }
 
 .flex-1 {
@@ -1115,6 +1116,10 @@ dialog [dialogBody]::-webkit-scrollbar {
   grid-template-columns: 100%;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -1163,10 +1168,6 @@ dialog [dialogBody]::-webkit-scrollbar {
   gap: 1.5rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .gap-x-1 {
   -moz-column-gap: 0.25rem;
        column-gap: 0.25rem;
@@ -1209,6 +1210,10 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.overflow-x-scroll {
+  overflow-x: scroll;
 }
 
 .text-nowrap {
@@ -1649,6 +1654,14 @@ dialog [dialogBody]::-webkit-scrollbar {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.underline {
+  text-decoration-line: underline;
+}
+
+.underline-offset-2 {
+  text-underline-offset: 2px;
 }
 
 .opacity-0 {

@@ -44,9 +44,12 @@ $(document).ready( async function() {
                     }
                 },
                 onChangeViewDate({month, year, decade}){
-                    const dateBack = new Date(year, month, 1)
-                    dateBack.setDate(dateBack.getDate() - 1);
-                    order.scrollCurrentDate(dateBack);
+                    setTimeout(() => {
+                        const dateBack = new Date(year, month, 1, 12, 0,0,0)
+                        dateBack.setDate(dateBack.getDate() - 1);
+                        console.log(dateBack.toISOString())
+                        order.scrollCurrentDate(dateBack);
+                    },10)
                 }
             });
 

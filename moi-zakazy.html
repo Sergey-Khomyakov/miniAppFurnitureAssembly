@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
+    <link rel="stylesheet" href="./local/templates/furnitureAssembly/libs/air-datepicker-3.4.0/air-datepicker.css">
+    <link rel="stylesheet" href="./local/templates/furnitureAssembly/pages/moi-zakazy/css/customeCalendar.css">
     <link rel="stylesheet" href="./local/templates/furnitureAssembly/css/style.css">
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -13,41 +15,24 @@
       <div class="max-w-[45rem] mx-auto relative">
         <div class="px-4 h-max bg-[#EBE7E7]">
           <header class="py-3">
-            <div class="flex items-center justify-end"><a class="relative cursor-pointer" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/notifications.html"><img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/Bell.svg" alt="иконки">
-                <div class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600"></div></a></div>
+            <div class="flex items-center justify-end gap-2">
+              <div class="relative w-full" SearchBox=""><img class="w-6 h-6 object-contain absolute top-2 left-2 filter-gray-400" src="./local/templates/furnitureAssembly/img/icons/MagnifyingGlass.svg">
+                <input class="peer w-full border border-gray-300 rounded-md py-2 pr-10 pl-10 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Search" type="text" name="Search" required>
+                <label class=" absolute top-[0.875rem] peer-focus:-top-[0.675rem] peer-focus:left-[0.675rem] peer-valid:left-[0.675rem] rounded-[0.25rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-8 transition-all duration-200 ease-in-out" for="Search">Поиск</label><img class="w-6 h-6 object-contain absolute top-2 right-2 filter-gray-400 peer-valid:block hidden cursor-pointer" claerSearch="" src="./local/templates/furnitureAssembly/img/icons/X.svg">
+                <div class="flex flex-col gap-2 rounded mt-1 absolute bg-white left-0 w-full overflow-hidden max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150" list=""></div>
+              </div><a class="relative cursor-pointer shrink-0" href="https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/notifications.html"><img class="w-6 h-6 object-contain filter-black" src="./local/templates/furnitureAssembly/img/icons/Bell.svg" alt="иконки">
+                <div class="rounded-full w-2 h-2 absolute right-[0.125rem] top-0 bg-red-600"></div></a>
+            </div>
           </header>
         </div>
         <main>
           <div class="flex flex-col gap-4 px-8 pb-[3.25rem] items-center bg-[#EBE7E7] rounded-b-[2rem]">
-            <div class="relative w-full" SearchBox=""><img class="w-6 h-6 object-contain absolute top-2 left-2 filter-gray-400" src="./local/templates/furnitureAssembly/img/icons/MagnifyingGlass.svg">
-              <input class="peer w-full border border-gray-300 rounded-md py-2 pr-10 pl-10 font-montserrat font-semibold text-gray-600 placeholder-transparent focus:outline-none focus:ring-2 focus:ring-primary transition duration-200 ease-in-out" id="Search" type="text" name="Search" required>
-              <label class=" absolute top-[0.875rem] peer-focus:-top-[0.675rem] peer-focus:left-[0.675rem] peer-valid:left-[0.675rem] rounded-[0.25rem] peer-valid:-top-[0.675rem] bg-white px-1 block font-montserrat font-normal text-gray-400 text-base peer-focus:text-sm peer-valid:text-sm leading-[1] left-8 transition-all duration-200 ease-in-out" for="Search">Поиск</label><img class="w-6 h-6 object-contain absolute top-2 right-2 filter-gray-400 peer-valid:block hidden cursor-pointer" claerSearch="" src="./local/templates/furnitureAssembly/img/icons/X.svg">
-              <div class="flex flex-col gap-2 rounded mt-1 absolute bg-white left-0 w-full overflow-hidden max-h-0 peer-focus:max-h-36 overflow-y-auto top-full shadow-md z-[110] transition-all ease-in-out delay-150" list=""></div>
-            </div>
+            <div class="w-full" id="calendar"></div>
           </div>
           <div class="px-4">
             <div class="rounded-[2rem] bg-white shadow-lg min-h-60 -mt-10 p-6 flex flex-col gap-3 mb-24">
-              <div class="flex flex-wrap gap-y-1 gap-x-2 items-center" orderNav="">
-                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-primary" data-active="true" orderStatus="New">
-                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Новые</p>
-                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
-                </div>
-                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="StartedWork">
-                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Приступил к работе</p>
-                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
-                </div>
-                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="Extended">
-                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Продлен</p>
-                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
-                </div>
-                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="Complaint">
-                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Рекламация</p>
-                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
-                </div>
-                <div class="flex gap-2 border border-solid border-gray-100 rounded-full py-2 px-3 cursor-pointer bg-black" data-active="false" orderStatus="Interrupted">
-                  <p class="font-montserrat font-semibold text-xs text-white text-nowrap">Прерван</p>
-                  <p class="font-montserrat font-semibold text-xs text-white" count="">0</p>
-                </div>
+              <div class="w-full h-auto grid grid-cols-1fr-auto gap-2">
+                <p class="font-montserrat font-normal text-xl text-black" calendarSelectDay="">Сегодня</p>
               </div>
               <div class="flex flex-col gap-4" content="">
                 <div class="flex flex-col gap-4" loadingCards="">
@@ -94,7 +79,6 @@
                     </div>
                   </div>
                 </div>
-                <div class="w-full overflow-hidden" orderNavDate=""></div>
                 <div class="flex flex-col gap-4" orderBody=""></div>
               </div>
             </div>
@@ -112,8 +96,9 @@
     <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-3.7.1.min.js"></script>
     <script src="./local/templates/furnitureAssembly/libs/jquery/jquery-ui.min.js"></script>
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=f015ab89-30a2-491c-b8d3-b8b6ad6e2ba1"></script>
+    <script src="./local/templates/furnitureAssembly/libs/air-datepicker-3.4.0/air-datepicker.js"></script>
     <script src="./local/templates/furnitureAssembly/js/common.js"></script>
     <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/data.js?v=6"></script>
-    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/index.js?v=29"></script>
+    <script src="./local/templates/furnitureAssembly/pages/moi-zakazy/js/index.js?v=30"></script>
   </body>
 </html>

@@ -64,3 +64,51 @@ nav.air-datepicker-nav {
 .air-datepicker-cell.-weekenduser- {
     background: #F3BABA;
 }
+
+.air-datepicker-body--day-names {
+    display: none;
+}
+
+.air-datepicker-body--cells{
+    grid-auto-flow: column;
+    gap: 10px;
+    overflow-x: scroll;
+}
+
+.air-datepicker-body--cells::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.5rem;
+    /* Equivalent to w-2 */
+}
+
+.air-datepicker-body--cells::-webkit-scrollbar-track {
+    border-radius: 9999px;
+    /* Equivalent to rounded-full */
+    background-color: #f7fafc;
+    /* Equivalent to bg-gray-100 */
+}
+
+.air-datepicker-body--cells::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    /* Equivalent to rounded-full */
+    background-color: #e2e8f0;
+    /* Equivalent to bg-gray-300 */
+}
+
+.air-datepicker.-inline-{
+    overflow: hidden;
+    width: 100%;
+}
+.air-datepicker--navigation,
+.air-datepicker-body{
+    width: calc(100vw - 4rem);
+}
+.air-datepicker-body--cells.-days-{
+    grid-template-columns: repeat(auto-fill, 48px);
+}
+.air-datepicker-body--cells.-months-{
+    grid-template-columns: repeat(auto-fill, 95px);
+}
+.air-datepicker-body--cells.-years-{
+    grid-template-columns: repeat(auto-fill, 95px);
+}

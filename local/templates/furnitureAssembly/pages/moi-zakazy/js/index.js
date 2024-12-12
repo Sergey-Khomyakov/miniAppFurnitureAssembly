@@ -13,9 +13,51 @@ $(document).ready( async function() {
         init: function(){
             order.data = Orders.filter((item) => item.user.id === order.userId); // TODO: ajax request get orders by user id
 
+            const Calendar = new AirDatepicker('#calendar', {
+                inline: true,
+                dateFormat(date) {
+                    return date.toLocaleString('ru', {
+                        day: '2-digit',
+                        month: 'long'
+                    });
+                },
+                onSelect: function(data) {
+                    const selectDate = data.date.getFullYear() + "-" + (data.date.getMonth() + 1) + "-" + data.date.getDate();
+                    if(data.date.getFullYear() === new Date().getFullYear() && data.date.getMonth() === new Date().getMonth() && data.date.getDate() === new Date().getDate()){
+                        $('[calendarSelectDay]').text("Сегодня");
+                    }else{
+                        $('[calendarSelectDay]').text(data.formattedDate); // dd mm
+                    }
+                    order.renderOrdersByDate(data.date)
+                },
+                onRenderCell({date, cellType}) {
+                    if(cellType === 'day'){
+                        const cellDate = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + (date.getDate() < 10 ? "0" + date.getDate() : date.getDate());
+                        const orderCount = order.data.filter((item) => item.date === cellDate).length;
+                        const res = {
+                            html: `<div class="flex gap-1">
+                                <p class="font-montserrat font-semibold text-sm">${date.getDate()}</p>
+                                ${orderCount > 0 ? `<p class="font-montserrat font-semibold text-xs w-4 h-4 rounded-full flex justify-center items-center text-white bg-green-600 -mt-1">${orderCount}</p>`: ``}
+                                </div>`,
+                        }
+                        return res;
+                    }
+                },
+                onChangeViewDate({month, year, decade}){
+                    const dateBack = new Date(year, month, 1)
+                    dateBack.setDate(dateBack.getDate() - 1);
+                    order.scrollCurrentDate(dateBack);
+                }
+            });
+
+
+            const dateBack = new Date();
+            dateBack.setDate(dateBack.getDate() - 1);
+            order.scrollCurrentDate(dateBack);
+
             order.initStatusCount();
             setTimeout(() => {
-                order.renderOrdersByStatus("New")
+                order.renderOrdersByDate(new Date())
             }, 400);
 
             $('[orderNav]').on('click', '[data-active]', function(){
@@ -26,8 +68,6 @@ $(document).ready( async function() {
                 const $parent = $item.closest('[orderNav]');
                 const $loading = $('[loadingCards]');
                 const status = $item.attr('orderStatus');
-
-                $('[orderNavDate]').empty();
 
                 if(status !== undefined && status !== ""){
                     if($loading.hasClass('hidden')){
@@ -41,7 +81,7 @@ $(document).ready( async function() {
                     $('[orderBody]').empty();
                     // ajax request to server
                     setTimeout(() => {
-                        order.renderOrdersByStatus(status);
+                        order.renderOrdersByDate(status);
                     }, 500);
                 }
             });
@@ -118,37 +158,20 @@ $(document).ready( async function() {
             });
         
         },
-        renderOrdersByStatus(status){
-            const orderItems = order.data.filter((item) => item.status === status);
-            order.initFilterDate(orderItems);
+        renderOrdersByDate(date){
+            const dateFormatList = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() <= 9 ? '0' + date.getDate() : date.getDate());
+            const orderItems = order.data.filter((item) => item.date === dateFormatList);
             const $loading = $('[loadingCards]');
             $loading.removeClass('flex').addClass('hidden');
+            const $orderContainer = $('[orderBody]');
+            // clear old
+            $orderContainer.empty();
 
             if(orderItems.length > 0){
-                const $orderContainer = $('[orderBody]');
 
                 orderItems.forEach((item) => {
                     const statusSetting = order.getStatusSetting(item.status);
 
-                    // const $order = $(`
-                    //     <div orderDate="${item.date}" orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
-                    //         <div class="flex flex-col gap-2 py-1">
-                    //             <div class="grid grid-cols-2 gap-4">
-                    //                 <p class="font-montserrat font-semibold text-base text-black">${item.name}</p>
-                    //                 <p class="font-montserrat font-semibold text-sm text-black">Дата заказа: ${item.date.split('-').reverse().join('.')}</p>
-                    //             </div>
-                    //             <div class="grid grid-cols-2 gap-4">
-                    //                 <div class="flex flex-col">
-                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">Клиент:</p>
-                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.name}</p>
-                    //                 </div>
-                    //                 <div class="flex flex-col">
-                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">Номер клиента:</p>
-                    //                     <p class="font-montserrat font-semibold text-sm text-black col-span-1">${item.client.phone}</p>
-                    //                 </div>
-                    //             </div>
-                    //         </div>
-                    //     </div>`);
                     const $order = $(`
                         <div orderDate="${item.date}" orderCardId="${item.id}" class="bg-white p-4 ring-1 ring-gray-900/5 rounded-lg shadow-lg w-full min-h-28 cursor-pointer hover:bg-gray-100">
                             <div class="flex flex-col gap-2 py-1">
@@ -632,53 +655,6 @@ $(document).ready( async function() {
                 $('[orderStatus="' + key + '"] > [count]').text(res[key]);
             })
         },
-        initFilterDate(orders){
-            const $res = $(`<div class="flex flex-row w-full overflow-x-scroll gap-2"></div>`);
-            const dateOrder = [];
-
-            orders.forEach((item) => {
-                if(dateOrder.includes(item.date) === false){
-                    dateOrder.push(item.date);
-                }
-            });
-            if(dateOrder.length === 0){
-                return;
-            }
-            const $filterAll = $(`<div class="group">
-                <p class="font-montserrat font-normal text-sm underline underline-offset-2 text-primary cursor-pointer text-nowrap">Все</p></div>`);
-            
-            $filterAll.on('click', 'p', function(){
-                const $item = $(this);
-                const $parent = $(this).closest('[content]');
-                $parent.find('[orderdate]').removeClass('hidden').addClass('flex');
-                $parent.find('[ordernavdate] .text-primary').removeClass('text-primary underline underline-offset-2').addClass('text-black');
-
-                $item.removeClass('text-black').addClass('text-primary underline underline-offset-2');
-
-            })
-
-            $res.append($filterAll);
-
-            dateOrder.forEach((item) => {
-                const $filterItem = $(`
-                    <div class="group">
-                        <p class="font-montserrat font-normal text-sm text-black cursor-pointer text-nowrap">${item.split('-').reverse().join('.')}</p></div>`);
-                $filterItem.on('click', 'p', function(){
-                    const $item = $(this);
-                    const date = $item.text().trim().split('.').reverse().join('-');
-                    const $parent = $item.closest('[content]');
-
-                    $parent.find('[orderdate="' + date + '"]').removeClass('hidden').addClass('flex');
-                    $parent.find('[orderdate]').not('[orderdate="' + date + '"]').addClass('hidden');
-
-                    $parent.find('[ordernavdate] .text-primary').removeClass('text-primary underline underline-offset-2').addClass('text-black');
-                    $item.removeClass('text-black').addClass('text-primary underline underline-offset-2');
-                });
-                $res.append($filterItem);
-            });
-
-            $('[orderNavDate]').html($res);
-        },
         getStatusSetting(status){
             if(status === "New"){
                 return {
@@ -715,7 +691,21 @@ $(document).ready( async function() {
                     text: "Прерван"
                 }   
             }
-        }
+        },
+        scrollCurrentDate: function(date) {
+            const dateDay = date.getDate();
+            const dateMonth = date.getMonth();
+            const dateYear = date.getFullYear();
+            let $child = $('.air-datepicker-cell.-day-[data-year="' + dateYear + '"][data-month="' + dateMonth + '"][data-date="' + dateDay + '"]:eq(0)');
+            let $parent = $('.air-datepicker-body--cells.-days-');
+            const marginLeftValue = $child.width();
+
+            if($child.length > 0){
+                $parent.animate({
+                    scrollLeft: ($child.position().left - marginLeftValue) + $parent.scrollLeft() // Позиция дочернего элемента относительно родителя
+                }, 0); 
+            }
+        },
     }
 
     order.init();

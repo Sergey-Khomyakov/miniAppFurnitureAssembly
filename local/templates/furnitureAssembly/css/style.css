@@ -1136,10 +1136,6 @@ dialog [dialogBody]::-webkit-scrollbar {
   grid-template-columns: 100%;
 }
 
-.flex-row {
-  flex-direction: row;
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1230,10 +1226,6 @@ dialog [dialogBody]::-webkit-scrollbar {
 
 .overflow-x-hidden {
   overflow-x: hidden;
-}
-
-.overflow-x-scroll {
-  overflow-x: scroll;
 }
 
 .text-nowrap {
@@ -1678,14 +1670,6 @@ dialog [dialogBody]::-webkit-scrollbar {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.underline {
-  text-decoration-line: underline;
-}
-
-.underline-offset-2 {
-  text-underline-offset: 2px;
 }
 
 .opacity-0 {

@@ -734,4 +734,13 @@ $(document).ready( async function() {
             iconColor: '#0095b6'
         }))
     }
+
+
+    $('#Search').on('focus', function(event) {
+        $('nav').toggleClass('hidden');
+    });
+
+    $('#Search').on('blur', function(event) {
+        $('nav').toggleClass('hidden');
+    });
 });

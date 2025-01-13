@@ -75,6 +75,30 @@ block content
                                                 div(class="h-2 bg-black rounded col-span-1")
                                             div(class="h-2 bg-black rounded")
                         div(orderBody="", class="flex flex-col gap-4")
+                -
+                    var items = [
+                        {
+                            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/",
+                            text: "Главная",
+                            src: "./local/templates/furnitureAssembly/img/icons/House.svg",
+                        },
+                        {
+                            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/profile.html",
+                            text: "Профиль",
+                            src: "./local/templates/furnitureAssembly/img/icons/UserCircle.svg",
+                        },
+                        {
+                            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/moi-zakazy.html",
+                            text: "Заказы",
+                            src: "./local/templates/furnitureAssembly/img/icons/Package.svg",
+                        },
+                        {
+                            link: "https://sergey-khomyakov.github.io/miniAppFurnitureAssembly/moi-grafik.html",
+                            text: "График",
+                            src: "./local/templates/furnitureAssembly/img/icons/Calendar.svg",
+                        },
+                    ]
+                +nav(0, items)
             dialog#Order(class="rounded-xl")
                 div(class="flex items-center justify-between p-4")
                     p(titleCard="", class="font-montserrat font-semibold text-2xl text-black") №
